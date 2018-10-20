@@ -26,7 +26,6 @@ public class MainFrame extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("InstaFram RN75/18");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	
