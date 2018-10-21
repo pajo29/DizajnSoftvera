@@ -20,6 +20,7 @@ public class MainToolBar extends JPanel
 	
 	private JToolBar mainToolBar;
 	
+	private JButton mNew;
 	private JButton mOpen;
 	private JButton mClose;
 	private JButton mSwitch;
@@ -32,15 +33,18 @@ public class MainToolBar extends JPanel
 		super(new BorderLayout());
 		mainToolBar = new JToolBar();
 		
-		mOpen = new JButton();
-		mOpen.addActionListener(new ActionListener()
+		mNew = new JButton();
+		mNew.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ovo nazalost jos nista ne radi :(", "New", JOptionPane.INFORMATION_MESSAGE);					
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ovo nazalost jos nista ne radi :(", "New", JOptionPane.INFORMATION_MESSAGE);		
 			}
 		});
+		mNew.setIcon(new ImageIcon("src/images/newFileBigger.png"));
+		
+		mOpen = new JButton();
 		mOpen.setIcon(new ImageIcon("src/images/openBigger.png"));
 		
 		mClose = new JButton();
@@ -66,11 +70,15 @@ public class MainToolBar extends JPanel
 		});
 		mExit.setIcon(new ImageIcon("src/images/exitBigger.png"));
 		
+		mainToolBar.add(mNew);
+		mainToolBar.addSeparator();
 		mainToolBar.add(mOpen);
 		mainToolBar.add(mClose);
 		mainToolBar.add(mSwitch);
+		mainToolBar.addSeparator();
 		mainToolBar.add(mSave);
 		mainToolBar.add(mSaveAs);
+		mainToolBar.addSeparator();
 		mainToolBar.add(mExit);
 		
 		add(mainToolBar, BorderLayout.PAGE_START);
