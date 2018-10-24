@@ -8,6 +8,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
@@ -21,17 +22,21 @@ public class MainFrame extends JFrame {
 	
 	private MainFrame()
 	{
-		add(new MenuBar(), BorderLayout.NORTH);
-		add(new MainToolBar());
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+		panel.add(new MenuBar());
+		panel.add(new MainToolBar());
+		
+		add(panel, BorderLayout.NORTH);
 		add(new MainSplitPane());
 		add(new StatusBarView(), BorderLayout.SOUTH);
 		
-		Toolkit kit = Toolkit.getDefaultToolkit();
+		
 		setSize(1000, 1000);
 		setLocationRelativeTo(null);
-		setVisible(true);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("InstaFram RN75/18");
+		setVisible(true);
 		
 	}
 	

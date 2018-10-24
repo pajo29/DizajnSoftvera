@@ -25,7 +25,7 @@ public class MenuBar extends JMenuBar{
 		menuTools = new JMenu("Tools");
 		
 		menuPara = new JMenu("Parametrizacija");
-		menuHelp = new JMenu("Pomoæ");
+		menuHelp = new JMenu("Pomoc");
 		menuAbout = new JMenu("About");
 		
 		
@@ -38,6 +38,8 @@ public class MenuBar extends JMenuBar{
 		add(menuPara);
 		add(menuHelp);
 		add(menuAbout);
+		
+		
 	}
 	
 }

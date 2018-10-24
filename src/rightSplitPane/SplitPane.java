@@ -19,6 +19,7 @@ public class SplitPane extends JSplitPane
 		setOrientation(JSplitPane.VERTICAL_SPLIT);
 		setTopComponent(upSide);
 		setBottomComponent(downSide);
+		disable();
 	}
 
 }
