@@ -7,8 +7,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 
-import rightSplitPane.SplitPane;
-import toolbar.MainToolBar;
+import gui.rightSplitPane.SplitPane;
+import gui.toolbar.MainToolBar;
 
 public class MainSplitPane extends JSplitPane
 {
