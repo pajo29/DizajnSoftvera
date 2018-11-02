@@ -20,6 +20,7 @@ public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static MainFrame instance = null;
 	private ActionManager actionManager;
+	private MainSplitPane mainSplitPane;
 	
 	private MainFrame()
 	{
@@ -28,13 +29,14 @@ public class MainFrame extends JFrame {
 	private void initialise()
 	{
 		actionManager = ActionManager.getInstace();
+		mainSplitPane = MainSplitPane.getInstance();
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 		panel.add(new MenuBar());
 		panel.add(new MainToolBar());
 		
 		add(panel, BorderLayout.NORTH);
-		add(new MainSplitPane());
+		add(mainSplitPane);
 		add(new StatusBarView(), BorderLayout.SOUTH);
 		
 		

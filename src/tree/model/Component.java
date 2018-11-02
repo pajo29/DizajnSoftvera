@@ -1,14 +1,28 @@
 package tree.model;
 
-import tree.treeNode.Node;
+import tree.Node.Node;
 
 public class Component extends Node
 {
-	private static int childCount = 0;
 	
 	
 	public Component(String name)
 	{
 		super(name);
+	}
+	
+	@Override
+	public Node addNewChild()
+	{
+		Component component = new Component("Komponenta: "+getChildCount());
+		addChild(component);
+		
+		return component;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return getName();
 	}
 }

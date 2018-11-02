@@ -10,6 +10,7 @@ import tree.model.Component;
 public class TreeController implements TreeSelectionListener
 {
 
+	
 	public void valueChanged(TreeSelectionEvent e)
 	{
 		TreePath path = e.getPath();
