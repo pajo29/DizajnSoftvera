@@ -15,7 +15,7 @@ import gui.toolbar.MainToolBar;
 public class MainFrame extends JFrame {
 	
 	/**
-	 * 
+	 * Author Pavle Prica
 	 */
 	private static final long serialVersionUID = 1L;
 	private static MainFrame instance = null;

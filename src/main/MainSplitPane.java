@@ -15,6 +15,10 @@ import tree.model.*;
 
 public class MainSplitPane extends JSplitPane
 {
+	
+	/*
+	 * Author Pavle Prica
+	 */
 	private static MainSplitPane instance = null;
 	
 	private SplitPane splitPane;
