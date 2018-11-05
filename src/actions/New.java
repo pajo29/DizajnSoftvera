@@ -19,8 +19,8 @@ public class New extends AbstractGEDAction
 	{
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control T"));
 		putValue(SMALL_ICON, loadIcon("images/newFile.png"));
-		putValue(NAME, "mNew component");
-		putValue(SHORT_DESCRIPTION, "New component");
+		putValue(NAME, "mNew file");
+		putValue(SHORT_DESCRIPTION, "New file");
 	}
 	
 	public void actionPerformed(ActionEvent arg0) {

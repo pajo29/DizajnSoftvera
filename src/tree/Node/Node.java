@@ -35,7 +35,7 @@ public class Node implements MutableTreeNode
 	@Override
 	public Enumeration<Node> children()
 	{
-		return null;
+		return (Enumeration)children;
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public class Node implements MutableTreeNode
 		this.parent = parent;
 	}
 	
-	public TreePath getPath() {
+	public TreePath getPath() { //Not needed right now
 		
 		TreeNode node = this;
 		List<Object> nodes = new ArrayList<Object>();

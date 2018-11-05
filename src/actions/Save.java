@@ -13,8 +13,7 @@ public class Save extends AbstractGEDAction
 	
 	public Save()
 	{
-		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
-		        KeyEvent.VK_5, ActionEvent.ALT_MASK));
+		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control S"));
 		putValue(SMALL_ICON, loadIcon("images/save.png"));
 		putValue(NAME, "mSave");
 		putValue(SHORT_DESCRIPTION, "Save");

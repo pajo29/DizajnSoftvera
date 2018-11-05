@@ -14,7 +14,7 @@ public class Component extends Node
 	@Override
 	public Node addNewChild()
 	{
-		Component component = new Component("Komponenta: "+getChildCount());
+		Component component = new Component("Komponenta: "+(getChildCount()+1));
 		addChild(component);
 		
 		return component;

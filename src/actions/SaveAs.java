@@ -10,8 +10,7 @@ public class SaveAs extends AbstractGEDAction
 
 	public SaveAs()
 	{
-		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
-		        KeyEvent.VK_6, ActionEvent.ALT_MASK));
+		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control shift S"));
 		putValue(SMALL_ICON, loadIcon("images/saveAs.png"));
 		putValue(NAME, "mSaveAs");
 		putValue(SHORT_DESCRIPTION, "Save As");
