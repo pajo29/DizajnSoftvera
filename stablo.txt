@@ -1,8 +1,8 @@
 Glavna komponentna
-1)Komponentna 1
-2)Komponentna 1
-2)Komponentna 2
-3)Komponentna 1
-2)Komponentna 3
-1)Komponentna 2
-2)Komponentna 1
+1~Komponentna 1
+2~Komponentna 1
+2~Komponentna 2
+3~Komponentna 1
+2~Komponentna 3
+1~Komponentna 2
+2~Komponentna 1
