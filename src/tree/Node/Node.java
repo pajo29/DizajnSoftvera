@@ -35,7 +35,7 @@ public class Node implements MutableTreeNode
 	@Override
 	public Enumeration<Node> children()
 	{
-		return (Enumeration)children;
+		return (Enumeration<Node>)children;
 	}
 
 	@Override

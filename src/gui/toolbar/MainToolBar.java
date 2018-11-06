@@ -30,7 +30,7 @@ public class MainToolBar extends JPanel
 		mainToolBar.addSeparator();
 		mainToolBar.add(MainFrame.getInstance().getActionManager().getOpenAction());
 		mainToolBar.add(MainFrame.getInstance().getActionManager().getCloseAction());
-		mainToolBar.add(MainFrame.getInstance().getActionManager().getSwitchAction());
+		mainToolBar.add(MainFrame.getInstance().getActionManager().getRemoveAction());
 		mainToolBar.addSeparator();
 		mainToolBar.add(MainFrame.getInstance().getActionManager().getSaveAction());
 		mainToolBar.add(MainFrame.getInstance().getActionManager().getSaveAsAction());

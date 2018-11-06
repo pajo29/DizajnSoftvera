@@ -17,7 +17,6 @@ public class MainFrame extends JFrame {
 	/**
 	 * Author Pavle Prica
 	 */
-	private static final long serialVersionUID = 1L;
 	private static MainFrame instance = null;
 	private ActionManager actionManager;
 	private MainSplitPane mainSplitPane;

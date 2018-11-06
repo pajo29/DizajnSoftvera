@@ -55,6 +55,10 @@ public class Open extends AbstractGEDAction
 			((tree.model.Component)cmp).addChild(component);
 			
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
+			componentSet = false;
+			fileReader = null;
+			bufferedReader = null;
+			component = null;
 		}
 		
 		
@@ -65,12 +69,12 @@ public class Open extends AbstractGEDAction
 		}
 	}
 	
-	private tree.model.Component loadFile(tree.model.Component cmp, BufferedReader br, int counter, String line) throws IOException
+	private void loadFile(tree.model.Component cmp, BufferedReader br, int counter, String line) throws IOException
 	{
 		
 			if(line == null)
 			{
-				return cmp;
+				return;
 			}
 			
 			if(Integer.parseInt(line.substring(0, 1)) > counter)
@@ -96,7 +100,7 @@ public class Open extends AbstractGEDAction
 		    	if(!componentSet)
 		    		componentSet = true;
 				
-				return null;
+				return;
 			}
 		    
 		    if(Integer.parseInt(line.substring(0, 1)) < counter)
@@ -105,8 +109,6 @@ public class Open extends AbstractGEDAction
 		    		loadFile((Component)cmp.getParent(), br, counter-1, line);
 		    }
 			
-			
-		 return null;
 	}
 
 }

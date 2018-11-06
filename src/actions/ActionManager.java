@@ -1,5 +1,7 @@
 package actions;
 
+import java.io.File;
+
 public class ActionManager
 {
 	private static ActionManager instance = null;
@@ -7,13 +9,15 @@ public class ActionManager
 	private New newAction;
 	private Open openAction;
 	private Close closeAction;
-	private Switch switchAction;
+	private Remove removeAction;
 	private Save saveAction;
 	private SaveAs saveAsAction;
 	private Exit exitAction;
 	private ExportToPDF exportToPDFAction;
 	private ExportToMsExcell exportToMsExcellAction;
 	private ExportToWord exportToWordAction;
+	
+	private File defaultFile = null;
 	
 	private ActionManager()
 	{
@@ -25,7 +29,7 @@ public class ActionManager
 		newAction = new New();
 		openAction = new Open();
 		closeAction = new Close();
-		switchAction = new Switch();
+		removeAction = new Remove();
 		saveAction = new Save();
 		saveAsAction = new SaveAs();
 		exitAction = new Exit();
@@ -61,14 +65,14 @@ public class ActionManager
 		this.closeAction = closeAction;
 	}
 
-	public Switch getSwitchAction()
+	public Remove getRemoveAction()
 	{
-		return switchAction;
+		return removeAction;
 	}
 
-	public void setSwitchAction(Switch switchAction)
+	public void setRemoveAction(Remove switchAction)
 	{
-		this.switchAction = switchAction;
+		this.removeAction = switchAction;
 	}
 
 	public Save getSaveAction()
@@ -139,6 +143,16 @@ public class ActionManager
 	public void setNewAction(New newAction)
 	{
 		this.newAction = newAction;
+	}
+
+	public File getDefaultFile()
+	{
+		return defaultFile;
+	}
+	
+	public void setDefaultFile(File defaultFile)
+	{
+		this.defaultFile = defaultFile;
 	}
 	
 	
