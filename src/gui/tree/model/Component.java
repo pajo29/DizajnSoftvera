@@ -1,6 +1,4 @@
-package tree.model;
-
-import tree.Node.Node;
+package gui.tree.model;
 
 public class Component extends Node
 {

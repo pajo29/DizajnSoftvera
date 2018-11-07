@@ -36,9 +36,9 @@ public class TreeCellRenderer extends DefaultTreeCellRenderer
         	  setIcon(new ImageIcon("src/actions/images/selected.png"));
           else
           {
-        	  if(value instanceof tree.model.Component)
+        	  if(value instanceof gui.tree.model.Component)
               {
-           	   if(((tree.model.Component)value).getParent() == null)
+           	   if(((gui.tree.model.Component)value).getParent() == null)
            		   setIcon(new ImageIcon("src/actions/images/mainComponent.png"));
            	   else
            		   setIcon(new ImageIcon("src/actions/images/component.png"));

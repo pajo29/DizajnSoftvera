@@ -11,9 +11,9 @@ import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
+import gui.tree.model.Component;
 import main.MainFrame;
 import main.MainSplitPane;
-import tree.model.Component;
 
 public class Open extends AbstractGEDAction
 {
@@ -32,7 +32,7 @@ public class Open extends AbstractGEDAction
 	public void actionPerformed(ActionEvent e)
 	{
 		Object cmp = MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
-		tree.model.Component component = null;
+		gui.tree.model.Component component = null;
 		
 		FileReader fileReader = null;
 		BufferedReader bufferedReader = null;
@@ -52,7 +52,7 @@ public class Open extends AbstractGEDAction
 			loadFile(component, bufferedReader, 1, bufferedReader.readLine());
 			
 			
-			((tree.model.Component)cmp).addChild(component);
+			((gui.tree.model.Component)cmp).addChild(component);
 			
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 			componentSet = false;
@@ -69,7 +69,7 @@ public class Open extends AbstractGEDAction
 		}
 	}
 	
-	private void loadFile(tree.model.Component cmp, BufferedReader br, int counter, String line) throws IOException
+	private void loadFile(gui.tree.model.Component cmp, BufferedReader br, int counter, String line) throws IOException
 	{
 		
 			if(line == null)
@@ -81,7 +81,7 @@ public class Open extends AbstractGEDAction
 			{
 				if(!componentSet)
 				{
-				loadFile(((tree.model.Component)cmp.getChildAt(cmp.getChildCount()-1)), br, counter+1, line);
+				loadFile(((gui.tree.model.Component)cmp.getChildAt(cmp.getChildCount()-1)), br, counter+1, line);
 				}
 			}
 			
@@ -89,7 +89,7 @@ public class Open extends AbstractGEDAction
 			{
 				if(!componentSet)
 				{
-					cmp.addChild(new tree.model.Component(line.substring(2)));
+					cmp.addChild(new gui.tree.model.Component(line.substring(2)));
 					line = br.readLine();
 					loadFile(cmp, br, counter, line);
 				}

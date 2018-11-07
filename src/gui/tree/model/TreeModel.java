@@ -1,4 +1,4 @@
-package tree.model;
+package gui.tree.model;
 
 import javax.swing.tree.DefaultTreeModel;
 

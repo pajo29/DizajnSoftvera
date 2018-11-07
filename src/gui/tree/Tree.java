@@ -2,7 +2,7 @@ package gui.tree;
 
 import javax.swing.JTree;
 
-import tree.controller.TreeController;
+import gui.tree.controller.TreeController;
 
 public class Tree extends JTree
 {

@@ -53,9 +53,9 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if(object instanceof tree.model.Component)
+		if(object instanceof gui.tree.model.Component)
 		{
-		((tree.model.Component)object).setName(e.getActionCommand());
+		((gui.tree.model.Component)object).setName(e.getActionCommand());
 		}
 	}
 	

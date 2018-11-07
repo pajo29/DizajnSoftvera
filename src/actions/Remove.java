@@ -25,8 +25,8 @@ public class Remove extends AbstractGEDAction
 	{
 		Object cmp = MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
 		
-		tree.model.Component component = (tree.model.Component)cmp;
-		((tree.model.Component)component.getParent()).remove((MutableTreeNode)cmp);
+		gui.tree.model.Component component = (gui.tree.model.Component)cmp;
+		((gui.tree.model.Component)component.getParent()).remove((MutableTreeNode)cmp);
 		
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 	}

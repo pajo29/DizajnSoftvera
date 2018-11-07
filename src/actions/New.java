@@ -7,9 +7,9 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
+import gui.tree.model.Component;
 import main.MainFrame;
 import main.MainSplitPane;
-import tree.model.Component;
 
 
 public class New extends AbstractGEDAction

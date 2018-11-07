@@ -1,4 +1,0 @@
-Glavna komponenta
-1~Komponenta 1
-1~Komponenta 2
-1~Komponenta 3

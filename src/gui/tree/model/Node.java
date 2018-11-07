@@ -1,4 +1,4 @@
-package tree.Node;
+package gui.tree.model;
 
 import java.util.ArrayList;
 import java.util.Enumeration;

@@ -11,7 +11,6 @@ import javax.swing.tree.TreeModel;
 import gui.rightSplitPane.SplitPane;
 import gui.toolbar.MainToolBar;
 import gui.tree.Tree;
-import tree.model.*;
 
 public class MainSplitPane extends JSplitPane
 {
@@ -24,14 +23,14 @@ public class MainSplitPane extends JSplitPane
 	private SplitPane splitPane;
 	
 	private Tree tree;
-	private tree.model.TreeModel treeModel;
+	private gui.tree.model.TreeModel treeModel;
 	
 	private MainSplitPane()
 	{
 		splitPane = new SplitPane();
 		
 		tree = new Tree();
-		treeModel = new tree.model.TreeModel();
+		treeModel = new gui.tree.model.TreeModel();
 		tree.setModel(treeModel);
 		
 		
@@ -57,7 +56,7 @@ public class MainSplitPane extends JSplitPane
 		return tree;
 	}
 
-	public tree.model.TreeModel getTreeModel()
+	public gui.tree.model.TreeModel getTreeModel()
 	{
 		return treeModel;
 	}

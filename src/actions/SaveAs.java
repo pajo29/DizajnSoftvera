@@ -3,20 +3,23 @@ package actions;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Locale;
 
 import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import gui.tree.Tree;
+import gui.tree.model.Component;
+import gui.tree.model.Node;
 import main.MainFrame;
 import main.MainSplitPane;
-import tree.Node.Node;
-import tree.model.Component;
 
 public class SaveAs extends AbstractGEDAction
 {
@@ -33,7 +36,12 @@ public class SaveAs extends AbstractGEDAction
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		tree.model.Component component = (Component) MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent();
+		saveAs();
+	}
+	
+	public void saveAs()
+	{
+		gui.tree.model.Component component = (Component) MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent();
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(component.toString() + "\n");
@@ -46,25 +54,33 @@ public class SaveAs extends AbstractGEDAction
 			
 			if(res == JFileChooser.APPROVE_OPTION)
 			{
-				System.out.println(sb.toString());
-				FileWriter fw = new FileWriter(fileChooser.getSelectedFile());
-				fw.write(upis);
-				fw.close();
+				writeToFile(fileChooser.getSelectedFile(), upis);
 				MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
 			}
 			
 			sb = null;
 			upis = null;
 			
-		} catch (IOException e1)
+		} catch (Exception e1)
 		{
 			e1.printStackTrace();
 		}
-		
-		
 	}
 	
-	private void saveNewTree(tree.model.Component component, StringBuilder sb, int counter, int limit, int level)
+	public void writeToFile(File file, String upis) throws Exception
+	{
+		BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+		String[] podeljenUpis = upis.split("\n");
+		bw.write(podeljenUpis[0]);
+		for(int i = 1; i < podeljenUpis.length; i++)
+		{
+			bw.newLine();
+			bw.write(podeljenUpis[i]);
+		}
+		bw.close();
+	}
+	
+	public void saveNewTree(gui.tree.model.Component component, StringBuilder sb, int counter, int limit, int level)
 	{
 		if(counter == limit)
 			return;
@@ -73,7 +89,7 @@ public class SaveAs extends AbstractGEDAction
 		
 		if(!component.getChildAt(counter).isLeaf())
 		{
-			saveNewTree((tree.model.Component)component.getChildAt(counter), sb, 0, ((tree.model.Component)component.getChildAt(counter)).getChildCount(), level+1);
+			saveNewTree((gui.tree.model.Component)component.getChildAt(counter), sb, 0, ((gui.tree.model.Component)component.getChildAt(counter)).getChildCount(), level+1);
 		}
 			saveNewTree(component, sb, counter+1, limit, level);
 	}
