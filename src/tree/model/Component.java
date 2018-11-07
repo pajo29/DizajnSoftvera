@@ -5,6 +5,7 @@ import tree.Node.Node;
 public class Component extends Node
 {
 	
+	private String content = "";
 	
 	public Component(String name)
 	{
@@ -23,6 +24,16 @@ public class Component extends Node
 	@Override
 	public String toString()
 	{
-		return getName();
+		return super.toString();
+	}
+
+	public String getContent()
+	{
+		return content;
+	}
+
+	public void setContent(String content)
+	{
+		this.content = content;
 	}
 }

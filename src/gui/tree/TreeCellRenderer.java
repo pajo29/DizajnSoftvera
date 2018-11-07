@@ -38,7 +38,7 @@ public class TreeCellRenderer extends DefaultTreeCellRenderer
           {
         	  if(value instanceof tree.model.Component)
               {
-           	   if(((tree.model.Component)value).getName().contains("Glavna"))
+           	   if(((tree.model.Component)value).getParent() == null)
            		   setIcon(new ImageIcon("src/actions/images/mainComponent.png"));
            	   else
            		   setIcon(new ImageIcon("src/actions/images/component.png"));
