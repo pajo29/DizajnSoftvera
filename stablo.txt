@@ -5,10 +5,7 @@ Glavna komponenta
 2~Komponenta 2
 1~Komponenta 3
 1~Komponenta 4
-2~Komponenta 1
-2~Komponenta 2
-3~Glavna komponenta
-4~Komponenta 1
-4~Komponenta 2
-4~Komponenta 3
-2~Komponenta 3
+1~Komponenta 5
+1~Komponenta 6
+1~Komponenta 7
+1~Komponenta 8

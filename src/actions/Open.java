@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
@@ -31,7 +32,50 @@ public class Open extends AbstractGEDAction
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		openFile(false);
+	}
+	
+	public Component openFile(boolean programStart)
+	{
+		if(programStart)
+		{
+			gui.tree.model.Component component = null;
+			
+			FileReader fileReader = null;
+			BufferedReader bufferedReader = null;
+			try
+			{
+			JFileChooser fileChooser = new JFileChooser();
+			
+			int res = fileChooser.showOpenDialog(MainFrame.getInstance());
+			
+			if(res == JFileChooser.APPROVE_OPTION)
+			{
+				fileReader = new FileReader(fileChooser.getSelectedFile());
+				bufferedReader = new BufferedReader(fileReader);
+				component = new Component(bufferedReader.readLine());
+				
+				loadFile(component, bufferedReader, 1, bufferedReader.readLine());
+				
+				componentSet = false;
+				fileReader = null;
+				bufferedReader = null;
+				MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
+				return component;
+			}
+			}
+			catch(Exception ee)
+			{
+				ee.printStackTrace();
+			}
+		}
+		
 		Object cmp = MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+		if(cmp == null)
+		{
+			JOptionPane.showMessageDialog(null, "Niste izabrali komponentu", "Neispravan postupak", JOptionPane.INFORMATION_MESSAGE);
+			return null;
+		}
 		gui.tree.model.Component component = null;
 		
 		FileReader fileReader = null;
@@ -50,23 +94,20 @@ public class Open extends AbstractGEDAction
 			
 			
 			loadFile(component, bufferedReader, 1, bufferedReader.readLine());
-			
-			
 			((gui.tree.model.Component)cmp).addChild(component);
 			
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 			componentSet = false;
 			fileReader = null;
 			bufferedReader = null;
-			component = null;
 		}
-		
-		
 		}
 		catch(Exception ee)
 		{
 			ee.printStackTrace();
 		}
+		
+		return null;
 	}
 	
 	private void loadFile(gui.tree.model.Component cmp, BufferedReader br, int counter, String line) throws IOException

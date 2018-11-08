@@ -8,7 +8,7 @@ public class ActionManager
 	
 	private New newAction;
 	private Open openAction;
-	private Close closeAction;
+	private Edit editAction;
 	private Remove removeAction;
 	private Save saveAction;
 	private SaveAs saveAsAction;
@@ -28,7 +28,7 @@ public class ActionManager
 	{
 		newAction = new New();
 		openAction = new Open();
-		closeAction = new Close();
+		editAction = new Edit();
 		removeAction = new Remove();
 		saveAction = new Save();
 		saveAsAction = new SaveAs();
@@ -55,14 +55,14 @@ public class ActionManager
 		this.openAction = openAction;
 	}
 
-	public Close getCloseAction()
+	public Edit getEditAction()
 	{
-		return closeAction;
+		return editAction;
 	}
 
-	public void setCloseAction(Close closeAction)
+	public void setEditAction(Edit closeAction)
 	{
-		this.closeAction = closeAction;
+		this.editAction = closeAction;
 	}
 
 	public Remove getRemoveAction()

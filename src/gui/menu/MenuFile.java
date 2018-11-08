@@ -28,7 +28,7 @@ public class MenuFile extends JMenu{
 		add(MainFrame.getInstance().getActionManager().getNewAction());
 		addSeparator();
 		add(MainFrame.getInstance().getActionManager().getOpenAction());
-		add(MainFrame.getInstance().getActionManager().getCloseAction());
+		add(MainFrame.getInstance().getActionManager().getEditAction());
 		add(MainFrame.getInstance().getActionManager().getRemoveAction());
 		addSeparator();
 		add(MainFrame.getInstance().getActionManager().getSaveAction());

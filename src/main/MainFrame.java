@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
@@ -11,6 +12,7 @@ import actions.ActionManager;
 import gui.menu.MenuBar;
 import gui.statusBar.StatusBarView;
 import gui.toolbar.MainToolBar;
+import gui.tree.model.Component;
 
 public class MainFrame extends JFrame {
 	

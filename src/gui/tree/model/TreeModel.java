@@ -4,9 +4,9 @@ import javax.swing.tree.DefaultTreeModel;
 
 public class TreeModel extends DefaultTreeModel
 {
-		public TreeModel()
+		public TreeModel(Component component)
 		{
-			super(new Component("Glavna komponenta"));
+			super(component);
 		}
 		
 		public void addComponent(Component component)
