@@ -88,7 +88,7 @@ public class SaveAs extends AbstractGEDAction
 		if(counter == limit)
 			return;
 		
-		sb.append(level + "~" + component.getChildAt(counter).toString() + "\n");
+		sb.append(level + "~" + component.getChildAt(counter).toString() + ";" + ((gui.tree.model.Component)component.getChildAt(counter)).getContent() + "\n");
 		
 		if(!component.getChildAt(counter).isLeaf())
 			saveNewTree((gui.tree.model.Component)component.getChildAt(counter), sb, 0, ((gui.tree.model.Component)component.getChildAt(counter)).getChildCount(), level+1);

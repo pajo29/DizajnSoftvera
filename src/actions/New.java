@@ -29,7 +29,6 @@ public class New extends AbstractGEDAction
 		{
 			Component component = (Component)cmp;
 			Component newComponent = new Component("Komponenta "+(component.getChildCount()+1));
-			newComponent.setContent("Kontent");
 			component.addChild(newComponent);
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 		}

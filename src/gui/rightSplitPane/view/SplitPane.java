@@ -1,4 +1,4 @@
-package gui.rightSplitPane;
+package gui.rightSplitPane.view;
 
 import java.awt.Toolkit;
 
@@ -14,12 +14,25 @@ public class SplitPane extends JSplitPane
 	{
 		
 		upSide = new UpSide();
-		downSide = new DownSide();
+		downSide = DownSide.getInstance();
 		
 		setOrientation(JSplitPane.VERTICAL_SPLIT);
 		setTopComponent(upSide);
 		setBottomComponent(downSide);
+		setDividerLocation(400);
 		disable();
 	}
+
+	public JPanel getUpSide()
+	{
+		return upSide;
+	}
+
+	public JPanel getDownSide()
+	{
+		return downSide;
+	}
+	
+	
 
 }

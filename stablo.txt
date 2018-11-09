@@ -1,15 +1,20 @@
 Glavna komponenta
-1~Komponenta 1
-1~Komponenta 2
-2~Komponenta 1
-2~Komponenta 2
-1~Komponenta 3
-1~Komponenta 4
-1~Komponenta 5
-1~Komponenta 6
-1~Komponenta 7
-2~Komponenta 1
-3~Komponenta 1
-4~Komponenta 1
-2~Komponenta 2
-1~Komponenta 8
+1~Komponenta 1;Test sadrzaja
+1~Komponenta 2;Jos testiranja i jos i jos i jos i jos i mnogooo jooooos
+2~Komponenta 1;tes sadas
+2~Komponenta 2;asdas 
+1~Komponenta 3;sad a
+1~Komponenta 4;
+1~Komponenta 5;
+1~Komponenta 6;
+1~Komponenta 7;
+2~Komponenta 1;
+3~Komponenta 1;
+2~Komponenta 2;
+1~Komponenta 8;
+1~Komponenta 9;
+1~Komponenta 10;
+1~Komponenta 11;
+1~Komponenta 12;
+1~Komponenta 13;
+1~Komponenta 14;

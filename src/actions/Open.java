@@ -131,7 +131,9 @@ public class Open extends AbstractGEDAction
 			{
 				if(!componentSet)
 				{
-					cmp.addChild(new gui.tree.model.Component(line.substring(2)));
+					gui.tree.model.Component component = new Component(getComponentName(line));
+					component.setContent(getComponentContent(line));
+					cmp.addChild(component);
 					line = br.readLine();
 					loadFile(cmp, br, counter, line);
 				}
@@ -151,6 +153,48 @@ public class Open extends AbstractGEDAction
 		    		loadFile((Component)cmp.getParent(), br, counter-1, line);
 		    }
 			
+	}
+	
+	private String getComponentContent(String line)
+	{
+		char[] charLine = line.toCharArray();
+		StringBuilder sb = new StringBuilder();
+		boolean componentStart = false;
+		
+		for(char ch: charLine)
+		{
+			if(componentStart)
+			{
+				sb.append(ch);
+			}
+			if(ch == ';')
+				componentStart = true;
+		}
+		
+		return sb.toString();
+	}
+	
+	private String getComponentName(String line)
+	{
+		char[] charLine = line.toCharArray();
+		StringBuilder sb = new StringBuilder();
+		boolean componentStart = false;
+		
+		for(char ch: charLine)
+		{
+			if(ch == ';')
+				componentStart = false;
+			
+			if(componentStart)
+			{
+				sb.append(ch);
+			}
+			
+			if(ch == '~')
+				componentStart = true;
+		}
+		
+		return sb.toString();
 	}
 	
 	private int getChildLevel(String line)

@@ -11,6 +11,8 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import main.MainFrame;
+
 
 public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 {
@@ -44,17 +46,20 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 	
 	public boolean isCellEditable(EventObject arg0) {
 		if (arg0 instanceof MouseEvent)
-			if (((MouseEvent)arg0).getClickCount()==3){
+			if (((MouseEvent)arg0).getClickCount()==5){
 				return true;
 			}
 				return false;
 	}
+	
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if(object instanceof gui.tree.model.Component)
 		{
+			System.out.println("Sad sam promenjen");
 		((gui.tree.model.Component)object).setName(e.getActionCommand());
 		}
 	}

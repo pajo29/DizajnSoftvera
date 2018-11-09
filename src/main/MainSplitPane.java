@@ -10,7 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.TreeModel;
 
-import gui.rightSplitPane.SplitPane;
+import gui.rightSplitPane.view.SplitPane;
 import gui.toolbar.MainToolBar;
 import gui.tree.Tree;
 import gui.tree.model.Component;
@@ -34,8 +34,6 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		splitPane = new SplitPane();
-		
 		int result = JOptionPane.showConfirmDialog(null, "Da li želite da ucitate neko stablo?", "Stablo", JOptionPane.YES_NO_OPTION);
 		if(result == JOptionPane.YES_OPTION)
 		{
@@ -44,6 +42,8 @@ public class MainSplitPane extends JSplitPane
 		}
 		if(result == JOptionPane.NO_OPTION)
 			setTree(new Component("Glavna komponenta"));
+		
+		splitPane = new SplitPane();
 		
 		setRightComponent(splitPane);
 		setDividerLocation(230);
