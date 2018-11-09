@@ -119,7 +119,7 @@ public class Open extends AbstractGEDAction
 				return;
 			}
 			
-			if(Integer.parseInt(line.substring(0, 1)) > counter)
+			if(getChildLevel(line) > counter)
 			{
 				if(!componentSet)
 				{
@@ -127,7 +127,7 @@ public class Open extends AbstractGEDAction
 				}
 			}
 			
-			if(Integer.parseInt(line.substring(0, 1)) == counter)
+			if(getChildLevel(line) == counter)
 			{
 				if(!componentSet)
 				{
@@ -145,12 +145,29 @@ public class Open extends AbstractGEDAction
 				return;
 			}
 		    
-		    if(Integer.parseInt(line.substring(0, 1)) < counter)
+		    if(getChildLevel(line) < counter)
 		    {
 		    	if(!componentSet)
 		    		loadFile((Component)cmp.getParent(), br, counter-1, line);
 		    }
 			
+	}
+	
+	private int getChildLevel(String line)
+	{
+		char[] charLine = line.toCharArray();
+		
+		int result = 0;
+		
+		for(char ch: charLine)
+		{
+			if(ch == '~')
+				return result;
+			else
+				result = result * 10 + Character.getNumericValue(ch);
+		}
+		
+		return 0;
 	}
 
 }
