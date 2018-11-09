@@ -33,5 +33,6 @@ public class New extends AbstractGEDAction
 			component.addChild(newComponent);
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 		}
+		MainFrame.getInstance().getActionManager().setChanges(true);
 	}
 }

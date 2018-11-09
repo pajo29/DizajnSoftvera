@@ -7,6 +7,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.MutableTreeNode;
 
+import main.MainFrame;
 import main.MainSplitPane;
 
 public class Remove extends AbstractGEDAction
@@ -29,6 +30,7 @@ public class Remove extends AbstractGEDAction
 		((gui.tree.model.Component)component.getParent()).remove((MutableTreeNode)cmp);
 		
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
+		MainFrame.getInstance().getActionManager().setChanges(true);
 	}
 
 }

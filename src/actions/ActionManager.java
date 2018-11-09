@@ -19,6 +19,7 @@ public class ActionManager
 	
 	private File defaultFile = null;
 	private File currentDir = new File(System.getProperty("user.home")+"/eclipse-workspace/RN75-2018(InstaFram)");
+	private boolean changes = true;
 	
 	private ActionManager()
 	{
@@ -166,6 +167,16 @@ public class ActionManager
 	public void setDefaultFile(File defaultFile)
 	{
 		this.defaultFile = defaultFile;
+	}
+
+	public boolean isChanges()
+	{
+		return changes;
+	}
+
+	public void setChanges(boolean changes)
+	{
+		this.changes = changes;
 	}
 	
 	

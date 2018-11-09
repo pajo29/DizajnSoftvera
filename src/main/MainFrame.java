@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import actions.ActionManager;
+import gui.listeners.CloseListener;
 import gui.menu.MenuBar;
 import gui.statusBar.StatusBarView;
 import gui.toolbar.MainToolBar;
@@ -40,10 +41,9 @@ public class MainFrame extends JFrame {
 		add(mainSplitPane);
 		add(new StatusBarView(), BorderLayout.SOUTH);
 		
-		
+		addWindowListener(new CloseListener());
 		setSize(1000, 1000);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("InstaFram RN75/18");
 		setVisible(true);
 	}

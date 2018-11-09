@@ -27,6 +27,11 @@ public class Save extends AbstractGEDAction
 	
 	public void actionPerformed(ActionEvent arg0) {
 		
+		save();
+	}
+	
+	public void save()
+	{
 		StringBuilder sb = new StringBuilder();
 		gui.tree.model.Component component = (Component) MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent();
 		
@@ -51,6 +56,7 @@ public class Save extends AbstractGEDAction
 				eee.printStackTrace();
 			}
 		}
+		MainFrame.getInstance().getActionManager().setChanges(false);
 	}
 	
 }

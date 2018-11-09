@@ -67,6 +67,7 @@ public class SaveAs extends AbstractGEDAction
 		{
 			e1.printStackTrace();
 		}
+		MainFrame.getInstance().getActionManager().setChanges(false);
 	}
 	
 	public void writeToFile(File file, String upis) throws Exception
