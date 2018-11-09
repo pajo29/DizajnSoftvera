@@ -50,12 +50,14 @@ public class SaveAs extends AbstractGEDAction
 		try
 		{
 			JFileChooser fileChooser = new JFileChooser();
-			int res = fileChooser.showOpenDialog(MainFrame.getInstance());
+			fileChooser.setCurrentDirectory(MainFrame.getInstance().getActionManager().getCurrentDir());
+			int res = fileChooser.showSaveDialog(MainFrame.getInstance());
 			
 			if(res == JFileChooser.APPROVE_OPTION)
 			{
 				writeToFile(fileChooser.getSelectedFile(), upis);
 				MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
+				MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
 			}
 			
 			sb = null;
@@ -88,10 +90,9 @@ public class SaveAs extends AbstractGEDAction
 		sb.append(level + "~" + component.getChildAt(counter).toString() + "\n");
 		
 		if(!component.getChildAt(counter).isLeaf())
-		{
 			saveNewTree((gui.tree.model.Component)component.getChildAt(counter), sb, 0, ((gui.tree.model.Component)component.getChildAt(counter)).getChildCount(), level+1);
-		}
-			saveNewTree(component, sb, counter+1, limit, level);
+		
+		saveNewTree(component, sb, counter+1, limit, level);
 	}
 
 }

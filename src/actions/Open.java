@@ -46,7 +46,7 @@ public class Open extends AbstractGEDAction
 			try
 			{
 			JFileChooser fileChooser = new JFileChooser();
-			
+			fileChooser.setCurrentDirectory(MainFrame.getInstance().getActionManager().getCurrentDir());
 			int res = fileChooser.showOpenDialog(MainFrame.getInstance());
 			
 			if(res == JFileChooser.APPROVE_OPTION)
@@ -61,6 +61,7 @@ public class Open extends AbstractGEDAction
 				fileReader = null;
 				bufferedReader = null;
 				MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
+				MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
 				return component;
 			}
 			}

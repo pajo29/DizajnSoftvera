@@ -8,4 +8,8 @@ Glavna komponenta
 1~Komponenta 5
 1~Komponenta 6
 1~Komponenta 7
+2~Komponenta 1
+3~Komponenta 1
+4~Komponenta 1
+2~Komponenta 2
 1~Komponenta 8

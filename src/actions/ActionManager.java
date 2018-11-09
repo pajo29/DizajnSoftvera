@@ -18,6 +18,7 @@ public class ActionManager
 	private ExportToWord exportToWordAction;
 	
 	private File defaultFile = null;
+	private File currentDir = new File(System.getProperty("user.home")+"/eclipse-workspace/RN75-2018(InstaFram)");
 	
 	private ActionManager()
 	{
@@ -43,6 +44,18 @@ public class ActionManager
 		if(instance == null)
 			instance = new ActionManager();
 		return instance;
+	}
+	
+	
+
+	public File getCurrentDir()
+	{
+		return currentDir;
+	}
+
+	public void setCurrentDir(File currentDir)
+	{
+		this.currentDir = currentDir;
 	}
 
 	public Open getOpenAction()
