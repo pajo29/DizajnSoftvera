@@ -50,6 +50,17 @@ public class TabPane extends JTabbedPane implements Observer
 		}
 	}
 	
+	public void renameTab(gui.tree.model.Component cmp)
+	{
+		for(int i = 0; i < tabs.size(); i++)
+		{
+			if(cmp == tabs.get(i).getCmp())
+			{
+				setTitleAt(i, cmp.getName());
+			}
+		}
+	}
+	
 	public void removeTab(Tab tab)
 	{
 		for(int i = 0; i < tabs.size(); i++)
@@ -58,6 +69,17 @@ public class TabPane extends JTabbedPane implements Observer
 			{
 				remove(i);
 				tabs.remove(tab);
+			}
+		}
+	}
+	
+	public void selectTab(gui.tree.model.Component cmp)
+	{
+		for(int i = 0; i < tabs.size(); i++)
+		{
+			if(cmp == tabs.get(i).getCmp())
+			{
+				setSelectedIndex(i);
 			}
 		}
 	}

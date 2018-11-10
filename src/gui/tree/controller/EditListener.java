@@ -12,7 +12,7 @@ public class EditListener implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-		if(e.getClickCount() == 3)
+		if(e.getClickCount() == 1 && e.isAltDown())
 		{
 				MainFrame.getInstance().getActionManager().getEditAction().edit();
 		}
@@ -36,7 +36,6 @@ public class EditListener implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 

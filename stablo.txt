@@ -14,7 +14,7 @@ Glavna komponenta
 1~Komponenta 8;
 1~Komponenta 9;
 1~Komponenta 10;
-1~Komponenta 11;
-1~Komponenta 12;
-1~Komponenta 13;
-1~Komponenta 14;
+1~Promena;
+1~Promena 2;Ovo je sada promenjeno
+1~I naravno promena 3;Ubaci neku promenu
+1~Promena ovoga;Testiranje jen dva tri

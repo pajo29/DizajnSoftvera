@@ -32,6 +32,7 @@ public class Edit extends AbstractGEDAction
 		Component cmp = (Component)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
 		TabPane.getInstance().addTab(cmp);
 		DownSide.getInstance().getTxArea().setText(cmp.getContent());
+		TabPane.getInstance().selectTab(cmp);
 	}
 
 }
