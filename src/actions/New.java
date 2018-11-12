@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-
-import gui.rightSplitPane.view.DownSide;
 import gui.rightSplitPane.view.tabs.model.TabPane;
 import gui.tree.model.Component;
 import main.MainFrame;
@@ -26,6 +24,13 @@ public class New extends AbstractGEDAction
 	
 	public void actionPerformed(ActionEvent arg0) {
 		Object cmp = MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+		
+		if(cmp == null)
+		{
+			MainFrame.getInstance().getActionManager().noComponentSelected();
+			return;
+		}
+		
 		if(cmp instanceof Component)
 		{
 			Component component = (Component)cmp;

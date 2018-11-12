@@ -39,6 +39,7 @@ public class MainFrame extends JFrame {
 		add(mainSplitPane);
 		add(new StatusBarView(), BorderLayout.SOUTH);
 		
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		addWindowListener(new CloseListener());
 		setSize(1000, 1000);
 		setLocationRelativeTo(null);

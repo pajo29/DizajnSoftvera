@@ -50,8 +50,14 @@ public class SaveAs extends AbstractGEDAction
 				writeToFile(fileChooser.getSelectedFile(), upis);
 				MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
 				MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
+				
 			}
-			
+			if(res == JFileChooser.CANCEL_OPTION)
+			{
+				MainFrame.getInstance().getActionManager().setDefaultFile(null);
+				MainFrame.getInstance().getActionManager().setChanges(true);
+				return;
+			}
 			sb = null;
 			upis = null;
 			

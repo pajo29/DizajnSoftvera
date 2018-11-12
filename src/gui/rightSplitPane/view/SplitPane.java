@@ -4,7 +4,7 @@ package gui.rightSplitPane.view;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
-import gui.rightSplitPane.view.tabs.view.UpSide;
+import gui.rightSplitPane.view.tabs.view.TabView;
 
 @SuppressWarnings("serial")
 public class SplitPane extends JSplitPane
@@ -16,8 +16,8 @@ public class SplitPane extends JSplitPane
 	public SplitPane()
 	{
 		
-		upSide = new UpSide();
-		downSide = DownSide.getInstance();
+		upSide = new TabView();
+		downSide = ComponentView.getInstance();
 		
 		setOrientation(JSplitPane.VERTICAL_SPLIT);
 		setTopComponent(upSide);

@@ -2,12 +2,11 @@ package actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-
 import javax.swing.KeyStroke;
-
-import gui.rightSplitPane.view.DownSide;
+import gui.rightSplitPane.view.ComponentView;
 import gui.rightSplitPane.view.tabs.model.TabPane;
 import gui.tree.model.Component;
+import main.MainFrame;
 import main.MainSplitPane;
 
 @SuppressWarnings("serial")
@@ -31,8 +30,13 @@ public class Edit extends AbstractGEDAction
 	public void edit()
 	{
 		Component cmp = (Component)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+		if(cmp == null)
+		{
+			MainFrame.getInstance().getActionManager().noComponentSelected();
+			return;
+		}
 		TabPane.getInstance().getController().addTab(cmp);
-		DownSide.getInstance().setData(cmp);
+		ComponentView.getInstance().setData(cmp, TabPane.getInstance().getTabs().get(TabPane.getInstance().getSelectedIndex()));
 		TabPane.getInstance().getController().selectTab(cmp);
 	}
 

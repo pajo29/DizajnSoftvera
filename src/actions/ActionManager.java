@@ -2,6 +2,8 @@ package actions;
 
 import java.io.File;
 
+import javax.swing.JOptionPane;
+
 public class ActionManager
 {
 	private static ActionManager instance = null;
@@ -47,7 +49,10 @@ public class ActionManager
 		return instance;
 	}
 	
-	
+	public void noComponentSelected()
+	{
+			JOptionPane.showMessageDialog(null, "Niste izabrali komponentu", "Neispravan postupak", JOptionPane.INFORMATION_MESSAGE);
+	}
 
 	public File getCurrentDir()
 	{

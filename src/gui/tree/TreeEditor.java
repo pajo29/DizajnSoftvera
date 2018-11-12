@@ -11,9 +11,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-import gui.rightSplitPane.view.DownSide;
 import gui.rightSplitPane.view.tabs.model.TabPane;
-import main.MainSplitPane;
 
 
 public class TreeEditor extends DefaultTreeCellEditor implements ActionListener

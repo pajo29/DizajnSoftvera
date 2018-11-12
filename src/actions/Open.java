@@ -5,12 +5,9 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-
 import gui.tree.model.Component;
 import main.MainFrame;
 import main.MainSplitPane;
@@ -64,6 +61,11 @@ public class Open extends AbstractGEDAction
 				MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
 				return component;
 			}
+			if(res == JFileChooser.CANCEL_OPTION)
+			{
+				programStart = false;
+				return null;
+			}
 			}
 			catch(Exception ee)
 			{
@@ -74,7 +76,7 @@ public class Open extends AbstractGEDAction
 		Object cmp = MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
 		if(cmp == null)
 		{
-			JOptionPane.showMessageDialog(null, "Niste izabrali komponentu", "Neispravan postupak", JOptionPane.INFORMATION_MESSAGE);
+			MainFrame.getInstance().getActionManager().noComponentSelected();
 			return null;
 		}
 		gui.tree.model.Component component = null;
@@ -84,6 +86,7 @@ public class Open extends AbstractGEDAction
 		try
 		{
 		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(MainFrame.getInstance().getActionManager().getCurrentDir());
 		
 		int res = fileChooser.showOpenDialog(MainFrame.getInstance());
 		
@@ -92,7 +95,6 @@ public class Open extends AbstractGEDAction
 			fileReader = new FileReader(fileChooser.getSelectedFile());
 			bufferedReader = new BufferedReader(fileReader);
 			component = new Component(bufferedReader.readLine());
-			
 			
 			loadFile(component, bufferedReader, 1, bufferedReader.readLine());
 			((gui.tree.model.Component)cmp).addChild(component);

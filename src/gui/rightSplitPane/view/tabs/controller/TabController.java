@@ -3,7 +3,7 @@ package gui.rightSplitPane.view.tabs.controller;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import gui.rightSplitPane.view.DownSide;
+import gui.rightSplitPane.view.ComponentView;
 import gui.rightSplitPane.view.tabs.model.Tab;
 import gui.rightSplitPane.view.tabs.model.TabPane;
 import gui.tree.model.Component;
@@ -81,7 +81,7 @@ public class TabController
 			if(cmp == tabPane.getTabs().get(i).getCmp())
 			{
 				tabPane.setSelectedIndex(i);
-				DownSide.getInstance().setData(cmp);
+				ComponentView.getInstance().setData(cmp, tabPane.getTabs().get(tabPane.getSelectedIndex()));
 			}
 		}
 	}

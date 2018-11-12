@@ -33,6 +33,12 @@ public class Remove extends AbstractGEDAction
 	{
 		Object cmp = MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
 		
+		if(cmp == null)
+		{
+			MainFrame.getInstance().getActionManager().noComponentSelected();
+			return;
+		}
+		
 		if(cmp == MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent())
 		{
 			((Component)cmp).getChildren().clear();
