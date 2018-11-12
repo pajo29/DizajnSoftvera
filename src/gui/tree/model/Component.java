@@ -39,9 +39,7 @@ public class Component extends Node
 	public int getLeafCount(Component cmp, int counter, int limit)
 	{
 		leafCounter = 0;
-		System.out.println(cmp);
 		leafCounter(cmp, counter, limit);
-		System.out.println(leafCounter);
 		return leafCounter;
 	}
 	
@@ -50,8 +48,9 @@ public class Component extends Node
 		if(counter == limit)
 			return;
 		
-		if(cmp.isLeaf())
+		if(cmp.getChildAt(counter).isLeaf())
 			leafCounter++;
+			
 		
 		if(!cmp.getChildAt(counter).isLeaf())
 			leafCounter((Component)cmp.getChildAt(counter), 0, cmp.getChildAt(counter).getChildCount());

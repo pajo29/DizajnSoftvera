@@ -19,7 +19,6 @@ public class KeyListener implements java.awt.event.KeyListener
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		// TODO Auto-generated method stub
 
 	}
 
@@ -32,7 +31,6 @@ public class KeyListener implements java.awt.event.KeyListener
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-		
 	}
 
 }
