@@ -2,11 +2,6 @@ package gui.listeners;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
-
 import main.MainFrame;
 
 public class CloseListener implements WindowListener

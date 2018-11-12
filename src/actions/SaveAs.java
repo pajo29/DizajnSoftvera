@@ -1,26 +1,18 @@
 package actions;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Locale;
 
 import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
 
-import gui.tree.Tree;
 import gui.tree.model.Component;
-import gui.tree.model.Node;
 import main.MainFrame;
 import main.MainSplitPane;
 
+@SuppressWarnings("serial")
 public class SaveAs extends AbstractGEDAction
 {
 

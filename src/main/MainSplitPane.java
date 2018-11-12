@@ -1,20 +1,15 @@
 package main;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
-import javax.swing.tree.TreeModel;
 
 import gui.rightSplitPane.view.SplitPane;
-import gui.toolbar.MainToolBar;
 import gui.tree.Tree;
 import gui.tree.model.Component;
 
+@SuppressWarnings("serial")
 public class MainSplitPane extends JSplitPane
 {
 	

@@ -3,8 +3,8 @@ package gui.rightSplitPane.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import gui.rightSplitPane.view.tabs.Tab;
-import gui.rightSplitPane.view.tabs.TabPane;
+import gui.rightSplitPane.view.tabs.model.Tab;
+import gui.rightSplitPane.view.tabs.model.TabPane;
 
 public class ClosingActionListener implements ActionListener
 {
@@ -18,7 +18,7 @@ public class ClosingActionListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		TabPane.getInstance().removeTab(tab);
+		TabPane.getInstance().getController().removeTab(tab);
 	}
 
 }

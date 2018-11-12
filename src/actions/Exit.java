@@ -4,12 +4,9 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
-
-import gui.tree.model.Component;
 import main.MainFrame;
-import main.MainSplitPane;
 
+@SuppressWarnings("serial")
 public class Exit extends AbstractGEDAction
 {
 
@@ -31,8 +28,7 @@ public class Exit extends AbstractGEDAction
 	{
 		if(MainFrame.getInstance().getActionManager().isChanges())
 		{
-		JOptionPane joptionPane = new JOptionPane();
-		int result = joptionPane.showConfirmDialog(null, "Da li zelite da sacuvate promene?", "Stablo", JOptionPane.YES_NO_CANCEL_OPTION);
+		int result = JOptionPane.showConfirmDialog(null, "Da li zelite da sacuvate promene?", "Stablo", JOptionPane.YES_NO_CANCEL_OPTION);
 		if(result == JOptionPane.YES_OPTION)
 		{
 			MainFrame.getInstance().getActionManager().getSaveAction().save();

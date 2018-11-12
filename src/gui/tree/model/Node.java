@@ -32,6 +32,7 @@ public class Node implements MutableTreeNode
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public Enumeration<Node> children()
 	{

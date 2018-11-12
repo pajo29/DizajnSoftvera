@@ -3,8 +3,8 @@ package gui.menu;
 import javax.swing.Box;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
+@SuppressWarnings("serial")
 public class MenuBar extends JMenuBar{
 	
 	

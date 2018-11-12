@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.KeyStroke;
 
+@SuppressWarnings("serial")
 public class ExportToWord extends AbstractGEDAction
 {
 

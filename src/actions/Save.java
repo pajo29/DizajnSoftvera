@@ -1,19 +1,13 @@
 package actions;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import gui.tree.model.Component;
 import main.MainFrame;
 import main.MainSplitPane;
 
+@SuppressWarnings("serial")
 public class Save extends AbstractGEDAction
 { 
 	

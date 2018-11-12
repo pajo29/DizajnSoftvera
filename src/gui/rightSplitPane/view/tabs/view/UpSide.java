@@ -1,16 +1,13 @@
-package gui.rightSplitPane.view;
+package gui.rightSplitPane.view.tabs.view;
 
-import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-import gui.rightSplitPane.view.tabs.TabPane;
+import gui.rightSplitPane.view.tabs.model.TabPane;
 import gui.toolbar.MainToolBar;
-import main.MainFrame;
 
+@SuppressWarnings("serial")
 public class UpSide extends JPanel
 {
 	

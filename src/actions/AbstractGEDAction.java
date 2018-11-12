@@ -6,6 +6,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+@SuppressWarnings("serial")
 public abstract class AbstractGEDAction extends AbstractAction
 {
 

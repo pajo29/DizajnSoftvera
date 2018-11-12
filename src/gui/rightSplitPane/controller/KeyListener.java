@@ -1,10 +1,7 @@
 package gui.rightSplitPane.controller;
 
 import java.awt.event.KeyEvent;
-
 import javax.swing.JTextArea;
-
-import gui.rightSplitPane.view.tabs.TabPane;
 import main.MainSplitPane;
 
 public class KeyListener implements java.awt.event.KeyListener

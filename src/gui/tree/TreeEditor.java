@@ -11,8 +11,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-import gui.rightSplitPane.view.tabs.TabPane;
-import main.MainFrame;
+import gui.rightSplitPane.view.tabs.model.TabPane;
 
 
 public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
@@ -40,14 +39,14 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 		edit = new JTextField(value.toString());
 		edit.addActionListener(this);
 		
-		TabPane.getInstance().renameTab((gui.tree.model.Component)object);
+		TabPane.getInstance().getController().renameTab((gui.tree.model.Component)object);
 		
 		return edit;
 	}
 	
 	public boolean isCellEditable(EventObject arg0) {
 		if (arg0 instanceof MouseEvent)
-			if (((MouseEvent)arg0).getClickCount()==1 && ((MouseEvent)arg0).isControlDown()){
+			if (((MouseEvent)arg0).getClickCount() == 1 && ((MouseEvent)arg0).isControlDown()){
 				return true;
 			}
 				return false;
@@ -61,7 +60,7 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 		if(object instanceof gui.tree.model.Component)
 		{
 		((gui.tree.model.Component)object).setName(e.getActionCommand());
-		TabPane.getInstance().renameTab((gui.tree.model.Component)object);
+		TabPane.getInstance().getController().renameTab((gui.tree.model.Component)object);
 		}
 	}
 	

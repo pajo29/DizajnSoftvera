@@ -2,13 +2,11 @@ package gui.tree.controller;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.EventObject;
 
 import main.MainFrame;
 
 public class EditListener implements MouseListener
 {
-
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
@@ -16,7 +14,6 @@ public class EditListener implements MouseListener
 		{
 				MainFrame.getInstance().getActionManager().getEditAction().edit();
 		}
-		
 	}
 
 	@Override

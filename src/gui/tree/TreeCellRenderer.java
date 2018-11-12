@@ -1,17 +1,14 @@
 package gui.tree;
 
 import java.awt.Component;
-import java.net.URL;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-import javafx.beans.property.SetProperty;
 
 
+@SuppressWarnings("serial")
 public class TreeCellRenderer extends DefaultTreeCellRenderer
 {
 	

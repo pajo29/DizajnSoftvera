@@ -5,24 +5,48 @@ import java.util.Observer;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import gui.tree.model.Component;
 import main.MainSplitPane;
 
+@SuppressWarnings("serial")
 public class DownSide extends JPanel implements Observer
 {
 
 	private static DownSide instance = null;
 	
-	private JTextArea txArea;
+	private JTextField txName;
+	private JTextField txContent;
+	private JTextField txParent;
+	private JTextField txChildren;
+	private JTextField txLeafs;
 	
 	private DownSide()
 	{
-		txArea = new JTextArea();
-		txArea.setEditable(false);
+		txName = new JTextField();
+		txName.setEditable(false);
+		
+		txContent = new JTextField();
+		txContent.setEditable(false);
+		
+		txParent = new JTextField();
+		txParent.setEditable(false);
+		
+		txChildren = new JTextField();
+		txChildren.setEditable(false);
+		
+		txLeafs = new JTextField();
+		txLeafs.setEditable(false);
+		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		add(txArea);
+		
+		add(txName);
+		add(txContent);
+		add(txParent);
+		add(txChildren);
+		add(txLeafs);
+		
 		MainSplitPane.getInstance().getTree().getContentModel().addObserver(this);
 	}
 	
@@ -37,12 +61,27 @@ public class DownSide extends JPanel implements Observer
 	@Override
 	public void update(Observable o, Object arg)
 	{
-		txArea.setText(((Component)arg).getContent());
-		
+		txName.setText(((Component)arg).getName());
+		txContent.setText(((Component)arg).getContent());
+		txParent.setText(((Component)arg).getParent().toString());
+		txChildren.setText(""+((Component)arg).getChildCount());
+//		txLeafs.setText(((Component)arg).getContent());
 	}
-	public JTextArea getTxArea()
+	
+	public void setData(Component cmp)
 	{
-		return txArea;
+		txName.setText(cmp.getName());
+		txContent.setText(cmp.getContent());
+		txParent.setText(cmp.getParent().toString());
+		txChildren.setText(""+cmp.getChildCount());
+//		txLeafs.setText(((Component)arg).getContent());
 	}
+	
+	public JTextField getTxName()
+	{
+		return txName;
+	}
+	
+	
 	
 }

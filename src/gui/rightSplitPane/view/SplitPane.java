@@ -1,15 +1,18 @@
 package gui.rightSplitPane.view;
 
-import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
+import gui.rightSplitPane.view.tabs.view.UpSide;
+
+@SuppressWarnings("serial")
 public class SplitPane extends JSplitPane
 {
 	private JPanel upSide;
 	private JPanel downSide;
 	
+	@SuppressWarnings("deprecation")
 	public SplitPane()
 	{
 		

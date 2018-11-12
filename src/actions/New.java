@@ -2,8 +2,6 @@ package actions;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
@@ -12,6 +10,7 @@ import main.MainFrame;
 import main.MainSplitPane;
 
 
+@SuppressWarnings("serial")
 public class New extends AbstractGEDAction
 {
 	

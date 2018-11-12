@@ -6,10 +6,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 
 import gui.rightSplitPane.view.DownSide;
-import gui.rightSplitPane.view.tabs.TabPane;
+import gui.rightSplitPane.view.tabs.model.TabPane;
 import gui.tree.model.Component;
 import main.MainSplitPane;
 
+@SuppressWarnings("serial")
 public class Edit extends AbstractGEDAction
 {
 	public Edit()
@@ -30,9 +31,9 @@ public class Edit extends AbstractGEDAction
 	public void edit()
 	{
 		Component cmp = (Component)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
-		TabPane.getInstance().addTab(cmp);
-		DownSide.getInstance().getTxArea().setText(cmp.getContent());
-		TabPane.getInstance().selectTab(cmp);
+		TabPane.getInstance().getController().addTab(cmp);
+		DownSide.getInstance().setData(cmp);
+		TabPane.getInstance().getController().selectTab(cmp);
 	}
 
 }

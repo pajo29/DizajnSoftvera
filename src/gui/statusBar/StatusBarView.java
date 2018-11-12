@@ -1,13 +1,11 @@
 package gui.statusBar;
 
-import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.tools.DiagnosticCollector;
 
+@SuppressWarnings("serial")
 public class StatusBarView extends JPanel
 {
 	

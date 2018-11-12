@@ -6,6 +6,7 @@ import gui.tree.controller.EditListener;
 import gui.tree.controller.TreeController;
 import gui.tree.model.ContentModel;
 
+@SuppressWarnings("serial")
 public class Tree extends JTree
 {
 	

@@ -3,7 +3,6 @@ package actions;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -16,6 +15,7 @@ import gui.tree.model.Component;
 import main.MainFrame;
 import main.MainSplitPane;
 
+@SuppressWarnings("serial")
 public class Open extends AbstractGEDAction
 {
 	
