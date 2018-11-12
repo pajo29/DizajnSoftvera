@@ -4,6 +4,7 @@ public class Component extends Node
 {
 	
 	private String content = "";
+	private int leafCounter = 0;
 	
 	public Component(String name)
 	{
@@ -33,5 +34,28 @@ public class Component extends Node
 	public void setContent(String content)
 	{
 		this.content = content;
+	}
+	
+	public int getLeafCount(Component cmp, int counter, int limit)
+	{
+		leafCounter = 0;
+		System.out.println(cmp);
+		leafCounter(cmp, counter, limit);
+		System.out.println(leafCounter);
+		return leafCounter;
+	}
+	
+	private void leafCounter(Component cmp, int counter, int limit)
+	{
+		if(counter == limit)
+			return;
+		
+		if(cmp.isLeaf())
+			leafCounter++;
+		
+		if(!cmp.getChildAt(counter).isLeaf())
+			leafCounter((Component)cmp.getChildAt(counter), 0, cmp.getChildAt(counter).getChildCount());
+		
+		leafCounter(cmp, counter+1, limit);
 	}
 }

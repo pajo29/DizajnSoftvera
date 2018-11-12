@@ -30,7 +30,7 @@ public class TabPane extends JTabbedPane implements Observer
 	{
 		MainSplitPane.getInstance().getTree().getContentModel().addObserver(this);
 		tabs = new ArrayList<>();
-		controller = new TabController();
+		controller = new TabController(this);
 	}
 	
 	public static TabPane getInstance()
@@ -53,8 +53,13 @@ public class TabPane extends JTabbedPane implements Observer
 				break;
 			}
 		}
-//		tabs.get(i).getTxArea().setText(((Component)arg).getContent());
 		System.out.println(((Component)arg).getContent());
+	}
+	
+	public void update()
+	{
+		if(getSelectedIndex() != -1)
+			DownSide.getInstance().setData(TabPane.getInstance().getTabs().get(TabPane.getInstance().getSelectedIndex()).getCmp());
 	}
 
 	public ArrayList<Tab> getTabs()

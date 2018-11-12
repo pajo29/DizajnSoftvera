@@ -65,7 +65,7 @@ public class DownSide extends JPanel implements Observer
 		txContent.setText(((Component)arg).getContent());
 		txParent.setText(((Component)arg).getParent().toString());
 		txChildren.setText(""+((Component)arg).getChildCount());
-//		txLeafs.setText(((Component)arg).getContent());
+		txLeafs.setText(""+((Component)arg).getLeafCount((Component)arg, 0, ((Component)arg).getChildCount()));
 	}
 	
 	public void setData(Component cmp)
@@ -74,14 +74,6 @@ public class DownSide extends JPanel implements Observer
 		txContent.setText(cmp.getContent());
 		txParent.setText(cmp.getParent().toString());
 		txChildren.setText(""+cmp.getChildCount());
-//		txLeafs.setText(((Component)arg).getContent());
+		txLeafs.setText(""+cmp.getLeafCount(cmp, 0, cmp.getChildCount()));
 	}
-	
-	public JTextField getTxName()
-	{
-		return txName;
-	}
-	
-	
-	
 }

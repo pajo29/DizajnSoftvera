@@ -2,9 +2,9 @@ package gui.tree.model;
 
 import java.util.Observable;
 
-public class ContentModel extends Observable
+public class ComponentModel extends Observable
 {
-	public ContentModel()
+	public ComponentModel()
 	{
 		
 	}

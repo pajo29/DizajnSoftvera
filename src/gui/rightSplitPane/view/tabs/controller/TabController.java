@@ -14,9 +14,9 @@ public class TabController
 
 	private TabPane tabPane;
 	
-	public TabController()
+	public TabController(TabPane tabPane)
 	{
-		tabPane = TabPane.getInstance();
+		this.tabPane = tabPane;
 	}
 	
 	public void addTab(Component cmp)
