@@ -43,6 +43,7 @@ public class TabController
 				tabPane.setTitleAt(i, cmp.getName());
 			}
 		}
+		tabPane.update();
 		tabPane.setCheckChange(false);
 	}
 	

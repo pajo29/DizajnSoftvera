@@ -7,12 +7,10 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import main.MainFrame;
 
 @SuppressWarnings("serial")
 public class Help extends AbstractGEDAction

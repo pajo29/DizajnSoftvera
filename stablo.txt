@@ -5,14 +5,14 @@ Glavna komponenta
 2~Komponenta 2;asdas 
 1~Komponenta 3;sad a
 1~Komponenta 4;
-1~Komponenta 5;
+1~Komponenta 5;Promena svega ovoga
 1~Komponenta 6;
 1~Komponenta 7;
 2~Komponenta 1;
 3~Komponenta 1;
 2~Komponenta 2;
 1~Komponenta 9;
-1~Komponenta 10;
+1~Testiram promenu;Ajde da ukucam nesto sada ja da da da 
 1~Promena;
 1~Promena 2;Ovo je sada promenjeno
 1~I naravno promena 3;Hajd da vidimo radi li ovo cudo cedesnooooooooooo

@@ -49,8 +49,8 @@ public class Remove extends AbstractGEDAction
 		gui.tree.model.Component component = (gui.tree.model.Component)cmp;
 		TabPane.getInstance().getController().removeTab(component);
 		((gui.tree.model.Component)component.getParent()).remove((MutableTreeNode)cmp);
+		TabPane.getInstance().update();
 		}
-		
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 		MainFrame.getInstance().getActionManager().setChanges(true);
 	}
