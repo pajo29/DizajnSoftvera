@@ -18,6 +18,8 @@ public class ActionManager
 	private ExportToPDF exportToPDFAction;
 	private ExportToMsExcell exportToMsExcellAction;
 	private ExportToWord exportToWordAction;
+	private About aboutAction;
+	private Help helpAction;
 	
 	private File defaultFile = null;
 	private File currentDir = new File(System.getProperty("user.home")+"/eclipse-workspace/RN75-2018(InstaFram)");
@@ -40,6 +42,8 @@ public class ActionManager
 		exportToPDFAction = new ExportToPDF();
 		exportToMsExcellAction = new ExportToMsExcell();
 		exportToWordAction = new ExportToWord();
+		aboutAction = new About();
+		helpAction = new Help();
 	}
 	
 	public static ActionManager getInstace()
@@ -183,6 +187,14 @@ public class ActionManager
 	{
 		this.changes = changes;
 	}
-	
-	
+
+	public About getAboutAction()
+	{
+		return aboutAction;
+	}
+
+	public Help getHelpAction()
+	{
+		return helpAction;
+	}
 }
