@@ -24,7 +24,7 @@ public class Tab extends JPanel
 	{
 		this.cmp = cmp;
 		txArea = new JTextArea(cmp.getContent());
-		txArea.addKeyListener(new gui.rightSplitPane.controller.KeyListener(cmp, txArea));
+		txArea.addKeyListener(new gui.rightSplitPane.view.tabs.controller.KeyListener(cmp, txArea));
 		scrollPane = new JScrollPane(txArea);
 		scrollPane.setPreferredSize(new Dimension(400, 400));
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);

@@ -11,11 +11,11 @@ import javax.swing.JTextField;
 
 import gui.rightSplitPane.view.tabs.model.Tab;
 import gui.tree.model.Component;
-import main.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class ComponentView extends JPanel implements Observer
 {
+	
 
 	private static ComponentView instance = null;
 	
@@ -30,6 +30,8 @@ public class ComponentView extends JPanel implements Observer
 	private JPanel thirdPanel;
 	private JPanel fourthPanel;
 	private JPanel fifthPanel;
+	
+	private Component component = null;
 	
 	private ComponentView()
 	{
@@ -82,7 +84,7 @@ public class ComponentView extends JPanel implements Observer
 		add(fourthPanel);
 		add(fifthPanel);
 		
-		MainSplitPane.getInstance().getTree().getContentModel().addObserver(this);
+		
 	}
 	
 	public static ComponentView getInstance()
@@ -97,14 +99,14 @@ public class ComponentView extends JPanel implements Observer
 	@Override
 	public void update(Observable o, Object arg)
 	{
-		txName.setText(((Component)arg).getName());
-		txContent.setText(((Component)arg).getContent());
-		if(((Component)arg).getParent() == null)
+		txName.setText(component.getName());
+		txContent.setText(component.getContent());
+		if(component.getParent() == null)
 			txParent.setText("*Nema roditelja, glavna komponenta*");
 		else
-			txParent.setText(((Component)arg).getParent().toString());
-		txChildren.setText(""+((Component)arg).getChildCount());
-		txLeafs.setText(""+((Component)arg).getLeafCount((Component)arg, 0, ((Component)arg).getChildCount()));
+			txParent.setText(component.getParent().toString());
+		txChildren.setText(""+component.getChildCount());
+		txLeafs.setText(""+component.getLeafCount(component, 0, component.getChildCount()));
 	}
 	
 	public void setData(Component cmp, Tab tab)
@@ -119,6 +121,8 @@ public class ComponentView extends JPanel implements Observer
 			txParent.setText(cmp.getParent().toString());
 		txChildren.setText(""+cmp.getChildCount());
 		txLeafs.setText(""+cmp.getLeafCount(cmp, 0, cmp.getChildCount()));
+		component = cmp;
+		cmp.addObserver(this);
 	}
 	
 	public void empty()

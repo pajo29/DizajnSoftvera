@@ -1,8 +1,7 @@
-package gui.rightSplitPane.controller;
+package gui.rightSplitPane.view.tabs.controller;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JTextArea;
-import main.MainSplitPane;
 
 public class KeyListener implements java.awt.event.KeyListener
 {
@@ -25,7 +24,7 @@ public class KeyListener implements java.awt.event.KeyListener
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		MainSplitPane.getInstance().getTree().getContentModel().updateContent(cmp, txArea.getText());
+		cmp.updateContent(txArea.getText());
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package gui.listeners;
+package gui.rightSplitPane.view.tabs.controller;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;

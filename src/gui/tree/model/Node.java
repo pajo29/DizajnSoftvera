@@ -3,13 +3,14 @@ package gui.tree.model;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Observable;
 
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 
-public class Node implements MutableTreeNode
+public class Node extends Observable implements MutableTreeNode
 {
 
 	private String name;

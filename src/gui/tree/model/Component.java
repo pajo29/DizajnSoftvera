@@ -11,6 +11,14 @@ public class Component extends Node
 		super(name);
 	}
 	
+	public void updateContent(String content)
+	{
+		setContent(content);
+		
+		setChanged();
+		notifyObservers();
+	}
+	
 	@Override
 	public Node addNewChild()
 	{

@@ -1,17 +1,14 @@
 package gui.rightSplitPane.view.tabs.model;
 
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
 import javax.swing.JTabbedPane;
-import gui.listeners.TabPaneChangeListener;
+
 import gui.rightSplitPane.view.ComponentView;
 import gui.rightSplitPane.view.tabs.controller.TabController;
-import gui.tree.model.Component;
-import main.MainSplitPane;
+import gui.rightSplitPane.view.tabs.controller.TabPaneChangeListener;
 
 @SuppressWarnings("serial")
-public class TabPane extends JTabbedPane implements Observer
+public class TabPane extends JTabbedPane
 {
 	
 	private static TabPane instance = null;
@@ -26,7 +23,6 @@ public class TabPane extends JTabbedPane implements Observer
 	
 	private TabPane()
 	{
-		MainSplitPane.getInstance().getTree().getContentModel().addObserver(this);
 		tabs = new ArrayList<>();
 		controller = new TabController(this);
 		tbChangeListener = new TabPaneChangeListener(this);
@@ -42,21 +38,21 @@ public class TabPane extends JTabbedPane implements Observer
 		return instance;
 	}
 	
-	@Override
-	public void update(Observable o, Object arg)
-	{
-		int i = 0;
-		for(i = 0; i < tabs.size(); i++)
-		{
-			if(((Component)arg).getContent().equals(tabs.get(i).getTxArea().getText()))
-			{
-				break;
-			}
-		}
-		System.out.println(((Component)arg).getContent());
-	}
+//	@Override // Kod nepotreban, nije potrebno koristi observer
+//	public void update(Observable o, Object arg)
+//	{
+//		int i = 0;
+//		for(i = 0; i < tabs.size(); i++)
+//		{
+//			if(((Component)arg).getContent().equals(tabs.get(i).getTxArea().getText()))
+//			{
+//				break;
+//			}
+//		}
+//		System.out.println(((Component)arg).getContent());
+//	}
 	
-	public void update()
+	public void update() 
 	{
 		if(getSelectedIndex() != -1)
 		{
