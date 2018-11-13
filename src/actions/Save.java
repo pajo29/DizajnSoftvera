@@ -21,17 +21,17 @@ public class Save extends AbstractGEDAction
 	
 	public void actionPerformed(ActionEvent arg0) {
 		
-		save();
+		save(false);
 	}
 	
-	public void save()
+	public void save(boolean closing)
 	{
 		StringBuilder sb = new StringBuilder();
 		gui.tree.model.Component component = (Component) MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent();
 		
 		if(MainFrame.getInstance().getActionManager().getDefaultFile() == null)
 		{
-			MainFrame.getInstance().getActionManager().getSaveAsAction().saveAs();
+			MainFrame.getInstance().getActionManager().getSaveAsAction().saveAs(closing);
 		}
 		else
 		{
@@ -42,15 +42,18 @@ public class Save extends AbstractGEDAction
 			{
 				String upis = sb.toString().substring(0, sb.toString().length()-1);
 				MainFrame.getInstance().getActionManager().getSaveAsAction().writeToFile(MainFrame.getInstance().getActionManager().getDefaultFile(), upis);
+				MainFrame.getInstance().getActionManager().setChanges(false);
 				upis = null;
 				sb = null;
+				if(closing)
+					System.exit(0);
 			}
 			catch(Exception eee)
 			{
 				eee.printStackTrace();
 			}
 		}
-		MainFrame.getInstance().getActionManager().setChanges(false);
+		
 	}
 	
 }

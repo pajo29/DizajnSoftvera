@@ -26,14 +26,12 @@ public class Exit extends AbstractGEDAction
 	
 	public void closing()
 	{
-		System.out.println(MainFrame.getInstance().getActionManager().isChanges());
 		if(MainFrame.getInstance().getActionManager().isChanges())
 		{
 		int result = JOptionPane.showConfirmDialog(null, "Da li zelite da sacuvate promene?", "Stablo", JOptionPane.YES_NO_CANCEL_OPTION);
 		if(result == JOptionPane.YES_OPTION)
 		{
-			MainFrame.getInstance().getActionManager().getSaveAction().save();
-			System.exit(0);
+			MainFrame.getInstance().getActionManager().getSaveAction().save(true);
 		}
 		if(result == JOptionPane.NO_OPTION)
 			System.exit(0);

@@ -32,10 +32,11 @@ public class MainSplitPane extends JSplitPane
 		int result = JOptionPane.showConfirmDialog(null, "Da li želite da ucitate neko stablo?", "Stablo", JOptionPane.YES_NO_OPTION);
 		if(result == JOptionPane.YES_OPTION)
 		{
-			if(MainFrame.getInstance().getActionManager().getOpenAction().openFile(true) == null)
+			Component openFile = MainFrame.getInstance().getActionManager().getOpenAction().openFile(true);
+			if(openFile == null)
 				setTree(new Component("Glavna komponenta"));
 			else
-				setTree(MainFrame.getInstance().getActionManager().getOpenAction().openFile(true));
+				setTree(openFile);
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 		}
 		if(result == JOptionPane.NO_OPTION)

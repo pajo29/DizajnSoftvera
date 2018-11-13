@@ -28,10 +28,10 @@ public class SaveAs extends AbstractGEDAction
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		saveAs();
+		saveAs(false);
 	}
 	
-	public void saveAs()
+	public void saveAs(boolean closing)
 	{
 		gui.tree.model.Component component = (Component) MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent();
 		
@@ -50,7 +50,9 @@ public class SaveAs extends AbstractGEDAction
 				writeToFile(fileChooser.getSelectedFile(), upis);
 				MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
 				MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
-				
+				MainFrame.getInstance().getActionManager().setChanges(false);
+				if(closing)
+					System.exit(0);
 			}
 			if(res == JFileChooser.CANCEL_OPTION)
 			{
@@ -65,7 +67,6 @@ public class SaveAs extends AbstractGEDAction
 		{
 			e1.printStackTrace();
 		}
-		MainFrame.getInstance().getActionManager().setChanges(false);
 	}
 	
 	public void writeToFile(File file, String upis) throws Exception

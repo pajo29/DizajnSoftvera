@@ -3,9 +3,8 @@ package gui.rightSplitPane.view.tabs.model;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JTabbedPane;
-
+import gui.listeners.TabPaneChangeListener;
 import gui.rightSplitPane.view.ComponentView;
 import gui.rightSplitPane.view.tabs.controller.TabController;
 import gui.tree.model.Component;
@@ -21,11 +20,17 @@ public class TabPane extends JTabbedPane implements Observer
 	
 	private TabController controller;
 	
+	private boolean checkChange = false;
+	
+	private TabPaneChangeListener tbChangeListener;
+	
 	private TabPane()
 	{
 		MainSplitPane.getInstance().getTree().getContentModel().addObserver(this);
 		tabs = new ArrayList<>();
 		controller = new TabController(this);
+		tbChangeListener = new TabPaneChangeListener(this);
+		addChangeListener(tbChangeListener);
 	}
 	
 	public static TabPane getInstance()
@@ -54,7 +59,10 @@ public class TabPane extends JTabbedPane implements Observer
 	public void update()
 	{
 		if(getSelectedIndex() != -1)
+		{
 			ComponentView.getInstance().setData(TabPane.getInstance().getTabs().get(TabPane.getInstance().getSelectedIndex()).getCmp(), tabs.get(getSelectedIndex()));
+		}
+			
 	}
 
 	public ArrayList<Tab> getTabs()
@@ -66,7 +74,20 @@ public class TabPane extends JTabbedPane implements Observer
 	{
 		return controller;
 	}
+
+	public void setCheckChange(boolean checkChange)
+	{
+		this.checkChange = checkChange;
+	}
+
+	public boolean isCheckChange()
+	{
+		return checkChange;
+	}
 	
-	
+	public TabPaneChangeListener getTbChangeListener()
+	{
+		return tbChangeListener;
+	}
 	
 }

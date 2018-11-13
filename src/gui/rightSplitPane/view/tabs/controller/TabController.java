@@ -31,6 +31,7 @@ public class TabController
 		{
 			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ova komponenta je vec otvorena", "!!", JOptionPane.WARNING_MESSAGE);
 		}
+		tabPane.setCheckChange(false);
 	}
 	
 	public void renameTab(gui.tree.model.Component cmp)
@@ -42,6 +43,7 @@ public class TabController
 				tabPane.setTitleAt(i, cmp.getName());
 			}
 		}
+		tabPane.setCheckChange(false);
 	}
 	
 	public void removeTab(Tab tab)
@@ -54,6 +56,14 @@ public class TabController
 				tabPane.getTabs().remove(tab);
 			}
 		}
+		tabPane.setCheckChange(false);
+		if(tabPane.getTabs().isEmpty())
+		{
+			tabPane.getTbChangeListener().setFirstAdd(true);
+			ComponentView.getInstance().empty();
+		}
+		else
+			tabPane.update();
 	}
 	
 	public void removeTab(Component component)
@@ -66,12 +76,23 @@ public class TabController
 				tabPane.getTabs().remove(i);
 			}
 		}
+		tabPane.setCheckChange(false);
+		if(tabPane.getTabs().isEmpty())
+		{
+			tabPane.getTbChangeListener().setFirstAdd(true);
+			ComponentView.getInstance().empty();
+		}
+		else
+			tabPane.update();
 	}
 	
 	public void removeAllTabs()
 	{
 		tabPane.removeAll();
 		tabPane.getTabs().clear();
+		tabPane.setCheckChange(false);
+		tabPane.getTbChangeListener().setFirstAdd(true);
+		ComponentView.getInstance().empty();
 	}
 	
 	public void selectTab(gui.tree.model.Component cmp)
@@ -84,5 +105,6 @@ public class TabController
 				ComponentView.getInstance().setData(cmp, tabPane.getTabs().get(tabPane.getSelectedIndex()));
 			}
 		}
+		tabPane.setCheckChange(false);
 	}
 }

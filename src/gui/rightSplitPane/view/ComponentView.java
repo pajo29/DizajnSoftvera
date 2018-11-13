@@ -68,7 +68,7 @@ public class ComponentView extends JPanel implements Observer
 		thirdPanel.add(new JLabel("Roditelj: "));
 		thirdPanel.add(txParent);
 		
-		fourthPanel.add(new JLabel("Direktna deca: "));
+		fourthPanel.add(new JLabel("Deca: "));
 		fourthPanel.add(txChildren);
 		
 		fifthPanel.add(new JLabel("Listovi: "));
@@ -119,5 +119,14 @@ public class ComponentView extends JPanel implements Observer
 			txParent.setText(cmp.getParent().toString());
 		txChildren.setText(""+cmp.getChildCount());
 		txLeafs.setText(""+cmp.getLeafCount(cmp, 0, cmp.getChildCount()));
+	}
+	
+	public void empty()
+	{
+		txName.setText("");
+		txContent.setText("");
+		txParent.setText("");
+		txChildren.setText("");
+		txLeafs.setText("");
 	}
 }
