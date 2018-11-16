@@ -15,8 +15,6 @@ import gui.tree.model.Component;
 @SuppressWarnings("serial")
 public class ComponentView extends JPanel implements Observer
 {
-	
-
 	private static ComponentView instance = null;
 	
 	private JTextField txName;

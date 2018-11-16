@@ -4,6 +4,8 @@ import java.io.File;
 
 import javax.swing.JOptionPane;
 
+import main.MainFrame;
+
 public class ActionManager
 {
 	private static ActionManager instance = null;
@@ -55,7 +57,7 @@ public class ActionManager
 	
 	public void noComponentSelected()
 	{
-			JOptionPane.showMessageDialog(null, "Niste izabrali komponentu", "Neispravan postupak", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Niste izabrali komponentu", "Neispravan postupak", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public File getCurrentDir()

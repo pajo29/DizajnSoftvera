@@ -116,45 +116,72 @@ public class Open extends AbstractGEDAction
 	private void loadFile(gui.tree.model.Component cmp, BufferedReader br, int counter, String line) throws IOException
 	{
 		
+		
+			if(line != null && !notComponent(line))
+			{
+				System.out.println("Usao sam za: " + line);
+				((Component)cmp.getChildren().get(cmp.getChildCount()-1)).setContent(((Component)cmp.getChildren().get(cmp.getChildCount()-1)).getContent()+"\n"+line);
+				line = br.readLine();
+				loadFile(cmp, br, counter, line);
+			}
+		
 			if(line == null)
 			{
 				return;
 			}
 			
+			
+			
+			if(!componentSet)
+			{
 			if(getChildLevel(line) > counter)
 			{
 				if(!componentSet)
-				{
 				loadFile(((gui.tree.model.Component)cmp.getChildAt(cmp.getChildCount()-1)), br, counter+1, line);
-				}
+			}
 			}
 			
+			if(!componentSet)
+			{
 			if(getChildLevel(line) == counter)
 			{
-				if(!componentSet)
-				{
 					gui.tree.model.Component component = new Component(getComponentName(line));
 					component.setContent(getComponentContent(line));
 					cmp.addChild(component);
 					line = br.readLine();
 					loadFile(cmp, br, counter, line);
-				}
+			}
 			}
 			
 		    if(line == null)
 			{
 		    	if(!componentSet)
 		    		componentSet = true;
-				
 				return;
 			}
 		    
+		    if(!componentSet)
+		    {
 		    if(getChildLevel(line) < counter)
 		    {
-		    	if(!componentSet)
 		    		loadFile((Component)cmp.getParent(), br, counter-1, line);
 		    }
+		    }
 			
+	}
+	private boolean test = false;
+	private boolean notComponent(String line)
+	{
+		if(test == false)
+		{
+		System.out.println(line);
+		test = true;
+		}
+		char[] charLine = line.toCharArray();
+		if(Character.isDigit(charLine[0]))
+			return true;
+		else
+			return false;
 	}
 	
 	private String getComponentContent(String line)

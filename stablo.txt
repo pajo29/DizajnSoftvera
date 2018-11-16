@@ -4,6 +4,10 @@ Glavna komponenta
 2~Komponenta 1;tes sadas
 2~Komponenta 2;asdas 
 1~Komponenta 3;sad a
+testiram novi red
+Moze jos njih
+Koliko os
+i os i os oso soos
 1~Komponenta 4;
 1~Komponenta 5;Promena svega ovoga
 1~Komponenta 6;

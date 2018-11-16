@@ -38,20 +38,6 @@ public class TabPane extends JTabbedPane
 		return instance;
 	}
 	
-//	@Override // Kod nepotreban, nije potrebno koristi observer
-//	public void update(Observable o, Object arg)
-//	{
-//		int i = 0;
-//		for(i = 0; i < tabs.size(); i++)
-//		{
-//			if(((Component)arg).getContent().equals(tabs.get(i).getTxArea().getText()))
-//			{
-//				break;
-//			}
-//		}
-//		System.out.println(((Component)arg).getContent());
-//	}
-	
 	public void update() 
 	{
 		if(getSelectedIndex() != -1)
