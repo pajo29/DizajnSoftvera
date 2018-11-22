@@ -3,6 +3,8 @@ package gui.rightSplitPane.view.tabs.controller;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextArea;
 
+import actions.ActionManager;
+
 public class KeyListener implements java.awt.event.KeyListener
 {
 	
@@ -25,6 +27,7 @@ public class KeyListener implements java.awt.event.KeyListener
 	public void keyReleased(KeyEvent e)
 	{
 		cmp.updateContent(txArea.getText());
+		ActionManager.getInstace().setChanges(true);
 	}
 
 	@Override

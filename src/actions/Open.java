@@ -36,6 +36,7 @@ public class Open extends AbstractGEDAction
 	{
 		if(programStart)
 		{
+			ActionManager.getInstace().setChanges(false);
 			gui.tree.model.Component component = null;
 			
 			FileReader fileReader = null;
@@ -72,6 +73,7 @@ public class Open extends AbstractGEDAction
 				ee.printStackTrace();
 			}
 		}
+		
 		
 		Object cmp = MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
 		if(cmp == null)
@@ -122,11 +124,13 @@ public class Open extends AbstractGEDAction
 				System.out.println("Usao sam za: " + line);
 				((Component)cmp.getChildren().get(cmp.getChildCount()-1)).setContent(((Component)cmp.getChildren().get(cmp.getChildCount()-1)).getContent()+"\n"+line);
 				line = br.readLine();
+				//Proveriti da li je sledeca linije null
 				loadFile(cmp, br, counter, line);
 			}
 		
 			if(line == null)
 			{
+				componentSet = true;
 				return;
 			}
 			

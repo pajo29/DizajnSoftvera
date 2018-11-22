@@ -1,5 +1,5 @@
 Glavna komponenta
-1~Komponenta 1;Test sadrzaja
+1~Komponenta 1;Promenio samn sadzadasd
 1~Komponenta 2;Jos testiranja i jos i jos i jos i jos i mnogooo jooooos
 2~Komponenta 1;tes sadas
 2~Komponenta 2;asdas 
@@ -7,7 +7,7 @@ Glavna komponenta
 testiram novi red
 Moze jos njih
 Koliko os
-i os i os oso soos
+i
 1~Komponenta 4;
 1~Komponenta 5;Promena svega ovoga
 1~Komponenta 6;
@@ -21,3 +21,7 @@ i os i os oso soos
 1~Promena 2;Ovo je sada promenjeno
 1~I naravno promena 3;Hajd da vidimo radi li ovo cudo cedesnooooooooooo
 1~Promena ovoga;Testiranje jen dva tri
+Novi red test
+i jos jedan novi red i jos jedan novi red
+i jos jedan novi red
+asd

@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 public abstract class AbstractGEDAction extends AbstractAction
 {
 
-	
 	public Icon loadIcon(String fileName){
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = null;
