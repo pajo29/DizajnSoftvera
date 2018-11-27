@@ -29,7 +29,7 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		int result = JOptionPane.showConfirmDialog(null, "Da li želite da ucitate neko stablo?", "Stablo", JOptionPane.YES_NO_OPTION);
+		int result = JOptionPane.showConfirmDialog(null, "Da li ï¿½elite da ucitate neko stablo?", "Stablo", JOptionPane.YES_NO_OPTION);
 		if(result == JOptionPane.YES_OPTION)
 		{
 			Component openFile = MainFrame.getInstance().getActionManager().getOpenAction().openFile(true);
