@@ -39,7 +39,6 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 		edit = new JTextField(value.toString());
 		edit.addActionListener(this);
 		
-		TabPane.getInstance().getController().renameTab((gui.tree.model.Component)object);
 		
 		return edit;
 	}
@@ -57,12 +56,12 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if(object instanceof gui.tree.model.Component)
-		{
-		((gui.tree.model.Component)object).setName(e.getActionCommand());
-		TabPane.getInstance().getController().renameTab((gui.tree.model.Component)object);
-		TabPane.getInstance().update();
-		}
+//		if(object instanceof gui.tree.model.Component)
+//		{
+//		((gui.tree.model.Component)object).setName(e.getActionCommand());
+//		TabPane.getInstance().getController().renameTab((gui.tree.model.Component)object);
+//		TabPane.getInstance().update();
+//		}
 	}
 	
 	

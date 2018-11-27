@@ -29,18 +29,18 @@ public class TreeCellRenderer extends DefaultTreeCellRenderer
                 
           
           
-          if(sel)
-        	  setIcon(new ImageIcon("src/actions/images/selected.png"));
-          else
-          {
-        	  if(value instanceof gui.tree.model.Component)
-              {
-           	   if(((gui.tree.model.Component)value).getParent() == null)
-           		   setIcon(new ImageIcon("src/actions/images/mainComponent.png"));
-           	   else
-           		   setIcon(new ImageIcon("src/actions/images/component.png"));
-              }
-          }  
+//          if(sel)
+//        	  setIcon(new ImageIcon("src/actions/images/selected.png"));
+//          else
+//          {
+//        	  if(value instanceof gui.tree.model.Component)
+//              {
+//           	   if(((gui.tree.model.Component)value).getParent() == null)
+//           		   setIcon(new ImageIcon("src/actions/images/mainComponent.png"));
+//           	   else
+//           		   setIcon(new ImageIcon("src/actions/images/component.png"));
+//              }
+//          }  
         	 
         	  
           return this;
