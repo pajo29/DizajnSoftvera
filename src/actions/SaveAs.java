@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 
-import gui.tree.model.Component;
+import gui.tree.treeModel.Component;
 import main.MainFrame;
 import main.MainSplitPane;
 

@@ -8,7 +8,8 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-import gui.tree.model.Component;
+
+import gui.tree.treeModel.Component;
 import main.MainFrame;
 import main.MainSplitPane;
 

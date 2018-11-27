@@ -8,7 +8,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.tree.MutableTreeNode;
 
 import gui.rightSplitPane.view.tabs.model.TabPane;
-import gui.tree.model.Component;
+import gui.tree.treeModel.Component;
 import main.MainFrame;
 import main.MainSplitPane;
 

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import gui.rightSplitPane.view.tabs.model.Tab;
-import gui.tree.model.Component;
+import gui.tree.treeModel.Component;
 
 @SuppressWarnings("serial")
 public class ComponentView extends JPanel implements Observer

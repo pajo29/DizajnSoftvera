@@ -7,7 +7,7 @@ import javax.swing.SwingUtilities;
 
 import gui.rightSplitPane.view.SplitPane;
 import gui.tree.Tree;
-import gui.tree.model.Component;
+import gui.tree.treeModel.Component;
 
 @SuppressWarnings("serial")
 public class MainSplitPane extends JSplitPane
@@ -21,7 +21,7 @@ public class MainSplitPane extends JSplitPane
 	private SplitPane splitPane;
 	
 	private Tree tree;
-	private gui.tree.model.TreeModel treeModel;
+	private gui.tree.treeModel.TreeModel treeModel;
 	
 	private MainSplitPane()
 	{
@@ -52,7 +52,7 @@ public class MainSplitPane extends JSplitPane
 	public void setTree(Component component)
 	{
 		tree = new Tree();
-		treeModel = new gui.tree.model.TreeModel(component);
+		treeModel = new gui.tree.treeModel.TreeModel(component);
 		tree.setModel(treeModel);
 	}
 	
@@ -77,7 +77,7 @@ public class MainSplitPane extends JSplitPane
 		return tree;
 	}
 
-	public gui.tree.model.TreeModel getTreeModel()
+	public gui.tree.treeModel.TreeModel getTreeModel()
 	{
 		return treeModel;
 	}

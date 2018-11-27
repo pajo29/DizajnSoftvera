@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import gui.rightSplitPane.view.ComponentView;
 import gui.rightSplitPane.view.tabs.model.Tab;
 import gui.rightSplitPane.view.tabs.model.TabPane;
-import gui.tree.model.Component;
+import gui.tree.treeModel.Component;
 import main.MainFrame;
 
 public class TabController

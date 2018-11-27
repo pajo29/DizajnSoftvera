@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 import gui.rightSplitPane.view.ComponentView;
 import gui.rightSplitPane.view.tabs.model.TabPane;
-import gui.tree.model.Component;
+import gui.tree.treeModel.Component;
 import main.MainFrame;
 import main.MainSplitPane;
 
