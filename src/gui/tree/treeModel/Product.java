@@ -2,9 +2,9 @@ package gui.tree.treeModel;
 
 public class Product extends Node {
 	
-	public Product()
+	public Product(String name)
 	{
-		super("");
+		super(name);
 	}
 	
 	@Override

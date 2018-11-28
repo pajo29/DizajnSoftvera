@@ -38,7 +38,6 @@ public class Open extends AbstractGEDAction
 		if(programStart)
 		{
 			ActionManager.getInstace().setChanges(false);
-			gui.tree.model.Component component = null;
 			
 			FileReader fileReader = null;
 			BufferedReader bufferedReader = null;
@@ -82,7 +81,6 @@ public class Open extends AbstractGEDAction
 			MainFrame.getInstance().getActionManager().noComponentSelected();
 			return null;
 		}
-		gui.tree.model.Component component = null;
 		
 		FileReader fileReader = null;
 		BufferedReader bufferedReader = null;

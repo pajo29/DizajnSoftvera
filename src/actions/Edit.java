@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 import gui.rightSplitPane.view.ComponentView;
-import gui.rightSplitPane.view.tabs.model.TabPane;
 import gui.tree.treeModel.Component;
 import main.MainFrame;
 import main.MainSplitPane;
@@ -35,9 +34,6 @@ public class Edit extends AbstractGEDAction
 			MainFrame.getInstance().getActionManager().noComponentSelected();
 			return;
 		}
-		TabPane.getInstance().getController().addTab(cmp);
-		ComponentView.getInstance().setData(cmp, TabPane.getInstance().getTabs().get(TabPane.getInstance().getSelectedIndex()));
-		TabPane.getInstance().getController().selectTab(cmp);
 	}
 
 }

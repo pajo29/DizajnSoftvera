@@ -2,9 +2,9 @@ package gui.tree.treeModel;
 
 public class Parametar extends Node {
 	
-	public Parametar()
+	public Parametar(String name)
 	{
-		super("");
+		super(name);
 	}
 	
 	@Override

@@ -8,6 +8,7 @@ import javax.swing.SwingUtilities;
 import gui.rightSplitPane.view.SplitPane;
 import gui.tree.Tree;
 import gui.tree.treeModel.Component;
+import gui.tree.treeModel.SoftwareCompany;
 
 @SuppressWarnings("serial")
 public class MainSplitPane extends JSplitPane
@@ -29,19 +30,7 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		int result = JOptionPane.showConfirmDialog(null, "Da li zelite da ucitate neko stablo?", "Stablo", JOptionPane.YES_NO_OPTION);
-		if(result == JOptionPane.YES_OPTION)
-		{
-			Component openFile = MainFrame.getInstance().getActionManager().getOpenAction().openFile(true);
-			if(openFile == null)
-				setTree(new Component("Glavna komponenta"));
-			else
-				setTree(openFile);
-			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
-		}
-		if(result == JOptionPane.NO_OPTION)
-			setTree(new Component("Glavna komponenta"));
-		
+		setTree(new SoftwareCompany("Softverska kompanija"));
 		splitPane = new SplitPane();
 		
 		setRightComponent(splitPane);
@@ -49,10 +38,10 @@ public class MainSplitPane extends JSplitPane
 		setLeftComponent(tree);
 	}
 	
-	public void setTree(Component component)
+	public void setTree(SoftwareCompany scmp)
 	{
 		tree = new Tree();
-		treeModel = new gui.tree.treeModel.TreeModel(component);
+		treeModel = new gui.tree.treeModel.TreeModel(scmp);
 		tree.setModel(treeModel);
 	}
 	

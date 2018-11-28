@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-import gui.rightSplitPane.view.tabs.model.TabPane;
 import gui.tree.treeModel.Component;
 import main.MainFrame;
 import main.MainSplitPane;
@@ -36,7 +35,6 @@ public class New extends AbstractGEDAction
 			Component component = (Component)cmp;
 			Component newComponent = new Component("Komponenta "+(component.getChildCount()+1));
 			component.addChild(newComponent);
-			TabPane.getInstance().update();
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 		}
 		MainFrame.getInstance().getActionManager().setChanges(true);

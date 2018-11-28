@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import gui.rightSplitPane.view.tabs.model.Tab;
 import gui.tree.treeModel.Component;
 
 @SuppressWarnings("serial")
@@ -107,21 +106,21 @@ public class ComponentView extends JPanel implements Observer
 		txLeafs.setText(""+component.getLeafCount(component, 0, component.getChildCount()));
 	}
 	
-	public void setData(Component cmp, Tab tab)
-	{
-		txName.setText(cmp.getName());
-		txContent.setText(cmp.getContent());
-		if(cmp.getParent() == null)
-		{
-			txParent.setText("*Nema roditelja, glavna komponenta*");
-		}
-		else
-			txParent.setText(cmp.getParent().toString());
-		txChildren.setText(""+cmp.getChildCount());
-		txLeafs.setText(""+cmp.getLeafCount(cmp, 0, cmp.getChildCount()));
-		component = cmp;
-		cmp.addObserver(this);
-	}
+//	public void setData(Component cmp, Tab tab)
+//	{
+//		txName.setText(cmp.getName());
+//		txContent.setText(cmp.getContent());
+//		if(cmp.getParent() == null)
+//		{
+//			txParent.setText("*Nema roditelja, glavna komponenta*");
+//		}
+//		else
+//			txParent.setText(cmp.getParent().toString());
+//		txChildren.setText(""+cmp.getChildCount());
+//		txLeafs.setText(""+cmp.getLeafCount(cmp, 0, cmp.getChildCount()));
+//		component = cmp;
+//		cmp.addObserver(this);
+//	}
 	
 	public void empty()
 	{

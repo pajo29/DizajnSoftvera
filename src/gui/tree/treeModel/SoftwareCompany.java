@@ -2,9 +2,9 @@ package gui.tree.treeModel;
 
 public class SoftwareCompany extends Node {
 	
-	public SoftwareCompany()
+	public SoftwareCompany(String name)
 	{
-		super("Softverska kompanija");
+		super(name);
 	}
 	
 	@Override
