@@ -28,9 +28,7 @@ public class TreeCellRenderer extends DefaultTreeCellRenderer
                 super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row,hasFocus);
                 
           
-          
-//          if(sel)
-//        	  setIcon(new ImageIcon("src/actions/images/selected.png"));
+         
 //          else
 //          {
 //        	  if(value instanceof gui.tree.model.Component)

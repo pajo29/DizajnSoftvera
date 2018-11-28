@@ -5,6 +5,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import gui.tree.treeModel.Component;
+import gui.tree.treeModel.Module;
+import gui.tree.treeModel.Parametar;
+import gui.tree.treeModel.Product;
+import gui.tree.treeModel.SoftwareCompany;
 import main.MainFrame;
 import main.MainSplitPane;
 
@@ -30,13 +34,32 @@ public class New extends AbstractGEDAction
 			return;
 		}
 		
-		if(cmp instanceof Component)
+		if(cmp instanceof SoftwareCompany)
 		{
-			Component component = (Component)cmp;
-			Component newComponent = new Component("Komponenta "+(component.getChildCount()+1));
+			SoftwareCompany component = (SoftwareCompany)cmp;
+			Product newComponent = new Product("Proizvod: "+(component.getChildCount()+1));
 			component.addChild(newComponent);
-			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 		}
+		if(cmp instanceof Product)
+		{
+			Product component = (Product)cmp;
+			Module newComponent = new Module("Modul: "+(component.getChildCount()+1));
+			component.addChild(newComponent);
+		}
+		if(cmp instanceof Module)
+		{
+			Module component = (Module)cmp;
+			Parametar newComponent = new Parametar("Parametar: "+(component.getChildCount()+1));
+			component.addChild(newComponent);
+		}
+		if(cmp instanceof Parametar)
+		{
+			System.out.println("Ne mos bato na parametar");
+			return;
+		}
+		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
+		
+		
 		MainFrame.getInstance().getActionManager().setChanges(true);
 	}
 }

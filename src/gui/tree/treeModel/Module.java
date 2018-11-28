@@ -2,18 +2,9 @@ package gui.tree.treeModel;
 
 public class Module extends Node {
 	
-	public Module()
+	public Module(String name)
 	{
-		super("");
-	}
-	
-	@Override
-	public Node addNewChild()
-	{
-		Component component = new Component("Komponenta: "+(getChildCount()+1));
-		addChild(component);
-		
-		return component;
+		super(name);
 	}
 	
 	@Override

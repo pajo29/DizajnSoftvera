@@ -7,14 +7,6 @@ public class SoftwareCompany extends Node {
 		super(name);
 	}
 	
-	@Override
-	public Node addNewChild()
-	{
-		Component component = new Component("Komponenta: "+(getChildCount()+1));
-		addChild(component);
-		
-		return component;
-	}
 	
 	@Override
 	public String toString()
@@ -22,6 +14,5 @@ public class SoftwareCompany extends Node {
 		return super.toString();
 	}
 
-	//TODO Add to controller, leafCounter for node removal
 
 }
