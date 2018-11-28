@@ -11,7 +11,10 @@ import javax.swing.KeyStroke;
 import gui.exceptionHandler.ExceptionHandler;
 import gui.exceptionHandler.ExceptionType;
 import gui.tree.treeModel.Node;
+import gui.tree.treeModel.SoftwareCompany;
+import gui.tree.treeModel.TreeModel;
 import main.MainFrame;
+import main.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Open extends AbstractGEDAction
@@ -29,7 +32,7 @@ public class Open extends AbstractGEDAction
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		openFile();
+		MainSplitPane.getInstance().getTree().setModel(new TreeModel((SoftwareCompany)openFile()));
 	}
 	
 	public Node openFile()
@@ -51,7 +54,7 @@ public class Open extends AbstractGEDAction
 			
 			MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
             MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
-            
+            MainFrame.getInstance().getActionManager().setChanges(false);
             return node;
 			}
 			if(res == JFileChooser.CANCEL_OPTION)
