@@ -3,17 +3,15 @@ package actions;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
+import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 
 import gui.exceptionHandler.ExceptionHandler;
 import gui.exceptionHandler.ExceptionType;
 import gui.tree.treeModel.Node;
-import main.MainSplitPane;
+import main.MainFrame;
 
 @SuppressWarnings("serial")
 public class Open extends AbstractGEDAction
@@ -31,20 +29,42 @@ public class Open extends AbstractGEDAction
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		openFile();
+	}
+	
+	public Node openFile()
+	{
 		Node node = null;
 		try
 		{
-			FileInputStream fis = new FileInputStream("test.ser");
+			JFileChooser fileChooser = new JFileChooser();
+			fileChooser.setCurrentDirectory(MainFrame.getInstance().getActionManager().getCurrentDir());
+			int res = fileChooser.showOpenDialog(MainFrame.getInstance());
+			
+			if(res == JFileChooser.APPROVE_OPTION)
+			{
+			FileInputStream fis = new FileInputStream(fileChooser.getSelectedFile());
 			ObjectInputStream in = new ObjectInputStream(fis);
 			node = (Node)in.readObject();
 			in.close();
 			fis.close();
+			
+			MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
+            MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
+            
+            return node;
+			}
+			if(res == JFileChooser.CANCEL_OPTION)
+			{
+				return null;
+			}
 		}
 		catch(Exception ee)
 		{
 			ee.printStackTrace();
 			ExceptionHandler.handleEvent(ExceptionType.SERIALISATION_FAIL);
 		}
+		return null;
 	}
 }
 	

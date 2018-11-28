@@ -11,6 +11,7 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 
+@SuppressWarnings("serial")
 public class Node extends Observable implements MutableTreeNode, Serializable
 {
 

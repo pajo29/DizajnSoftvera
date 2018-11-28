@@ -1,5 +1,6 @@
 package gui.tree.treeModel;
 
+@SuppressWarnings("serial")
 public class Module extends Node {
 	
 	public Module(String name)
