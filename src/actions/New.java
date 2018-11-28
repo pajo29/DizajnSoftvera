@@ -56,7 +56,7 @@ public class New extends AbstractGEDAction
 		}
 		if(cmp instanceof Parametar)
 		{
-			System.out.println("Ne mos bato na parametar");
+			ExceptionHandler.handleEvent(ExceptionType.PARAMETAR_SELECTED);
 			return;
 		}
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());

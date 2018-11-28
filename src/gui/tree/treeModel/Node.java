@@ -1,5 +1,6 @@
 package gui.tree.treeModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -10,7 +11,7 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 
-public class Node extends Observable implements MutableTreeNode
+public class Node extends Observable implements MutableTreeNode, Serializable
 {
 
 	private String name;
