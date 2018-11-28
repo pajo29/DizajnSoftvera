@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 import gui.rightSplitPane.view.ComponentView;
-import gui.tree.treeModel.Component;
 import main.MainFrame;
 import main.MainSplitPane;
 
@@ -28,12 +27,7 @@ public class Edit extends AbstractGEDAction
 	
 	public void edit()
 	{
-		Component cmp = (Component)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
-		if(cmp == null)
-		{
-			MainFrame.getInstance().getActionManager().noComponentSelected();
-			return;
-		}
+		
 	}
 
 }

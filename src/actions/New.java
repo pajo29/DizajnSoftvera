@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-import gui.tree.treeModel.Component;
 import gui.tree.treeModel.Module;
 import gui.tree.treeModel.Parametar;
 import gui.tree.treeModel.Product;

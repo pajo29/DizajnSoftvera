@@ -16,6 +16,7 @@ public class Node extends Observable implements MutableTreeNode
 	private String name;
 	private Node parent;
 	private ArrayList<Node> children;
+	private int leafCounter = 0;
 	
 	public Node(String name)
 	{
@@ -146,6 +147,27 @@ public class Node extends Observable implements MutableTreeNode
 	public void setParent(Node parent)
 	{
 		this.parent = parent;
+	}
+	
+	public int getLeafCount(int counter, int limit)
+	{
+		leafCounter = 0;
+		leafCounter(this, counter, limit);
+		return leafCounter;
+	}
+	
+	private void leafCounter(Node cmp, int counter, int limit)
+	{
+		if(counter == limit)
+			return;
+		
+		if(cmp.getChildAt(counter).isLeaf())
+			leafCounter++;
+			
+		if(!cmp.getChildAt(counter).isLeaf())
+			leafCounter((Node)cmp.getChildAt(counter), 0, cmp.getChildAt(counter).getChildCount());
+		
+		leafCounter(cmp, counter+1, limit);
 	}
 	
 	public TreePath getPath() { //Not needed right now

@@ -9,7 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import gui.tree.treeModel.Component;
+import gui.tree.treeModel.Node;
+
 
 @SuppressWarnings("serial")
 public class ComponentView extends JPanel implements Observer
@@ -28,7 +29,7 @@ public class ComponentView extends JPanel implements Observer
 	private JPanel fourthPanel;
 	private JPanel fifthPanel;
 	
-	private Component component = null;
+	private Node component = null;
 	
 	private ComponentView()
 	{
@@ -96,14 +97,14 @@ public class ComponentView extends JPanel implements Observer
 	@Override
 	public void update(Observable o, Object arg)
 	{
-		txName.setText(component.getName());
-		txContent.setText(component.getContent());
-		if(component.getParent() == null)
-			txParent.setText("*Nema roditelja, glavna komponenta*");
-		else
-			txParent.setText(component.getParent().toString());
-		txChildren.setText(""+component.getChildCount());
-		txLeafs.setText(""+component.getLeafCount(component, 0, component.getChildCount()));
+//		txName.setText(component.getName());
+//		txContent.setText(component.getContent());
+//		if(component.getParent() == null)
+//			txParent.setText("*Nema roditelja, glavna komponenta*");
+//		else
+//			txParent.setText(component.getParent().toString());
+//		txChildren.setText(""+component.getChildCount());
+//		txLeafs.setText(""+component.getLeafCount(component, 0, component.getChildCount()));
 	}
 	
 //	public void setData(Component cmp, Tab tab)

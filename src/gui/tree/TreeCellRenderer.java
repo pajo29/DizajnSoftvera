@@ -6,6 +6,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import gui.tree.treeModel.Module;
+import gui.tree.treeModel.Parametar;
+import gui.tree.treeModel.Product;
+import gui.tree.treeModel.SoftwareCompany;
+
 
 
 @SuppressWarnings("serial")
@@ -28,18 +33,22 @@ public class TreeCellRenderer extends DefaultTreeCellRenderer
                 super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row,hasFocus);
                 
           
-         
-//          else
-//          {
-//        	  if(value instanceof gui.tree.model.Component)
-//              {
-//           	   if(((gui.tree.model.Component)value).getParent() == null)
-//           		   setIcon(new ImageIcon("src/actions/images/mainComponent.png"));
-//           	   else
-//           		   setIcon(new ImageIcon("src/actions/images/component.png"));
-//              }
-//          }  
-        	 
+            if(value instanceof SoftwareCompany)
+            {
+            	setIcon(new ImageIcon("src/actions/images/softwareCompany.png"));
+            }
+            if(value instanceof Product)
+            {
+            	setIcon(new ImageIcon("src/actions/images/product.png"));
+            }
+            if(value instanceof Module)
+            {
+            	setIcon(new ImageIcon("src/actions/images/module.png"));
+            }
+            if(value instanceof Parametar)
+            {
+            	setIcon(new ImageIcon("src/actions/images/mainComponent.png"));
+            }
         	  
           return this;
 }

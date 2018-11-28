@@ -31,7 +31,8 @@ public class Exit extends AbstractGEDAction
 		int result = JOptionPane.showConfirmDialog(null, "Da li zelite da sacuvate promene?", "Stablo", JOptionPane.YES_NO_CANCEL_OPTION);
 		if(result == JOptionPane.YES_OPTION)
 		{
-			MainFrame.getInstance().getActionManager().getSaveAction().save(true);
+//			MainFrame.getInstance().getActionManager().getSaveAction().save(true);
+			System.exit(0);
 		}
 		if(result == JOptionPane.NO_OPTION)
 			System.exit(0);

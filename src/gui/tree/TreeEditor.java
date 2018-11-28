@@ -11,6 +11,8 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import gui.tree.treeModel.Node;
+
 
 
 public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
@@ -55,12 +57,10 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-//		if(object instanceof gui.tree.model.Component)
-//		{
-//		((gui.tree.model.Component)object).setName(e.getActionCommand());
-//		TabPane.getInstance().getController().renameTab((gui.tree.model.Component)object);
-//		TabPane.getInstance().update();
-//		}
+		if(object instanceof Node)
+		{
+		((Node)object).setName(e.getActionCommand());
+		}
 	}
 	
 	

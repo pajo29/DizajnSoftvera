@@ -7,7 +7,6 @@ import javax.swing.SwingUtilities;
 
 import gui.rightSplitPane.view.SplitPane;
 import gui.tree.Tree;
-import gui.tree.treeModel.Component;
 import gui.tree.treeModel.SoftwareCompany;
 
 @SuppressWarnings("serial")
