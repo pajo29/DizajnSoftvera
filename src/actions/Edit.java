@@ -3,9 +3,6 @@ package actions;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
-import gui.rightSplitPane.view.ComponentView;
-import main.MainFrame;
-import main.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Edit extends AbstractGEDAction

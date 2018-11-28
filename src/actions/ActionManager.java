@@ -2,9 +2,6 @@ package actions;
 
 import java.io.File;
 
-import javax.swing.JOptionPane;
-
-import main.MainFrame;
 
 public class ActionManager
 {
@@ -17,9 +14,6 @@ public class ActionManager
 	private Save saveAction;
 	private SaveAs saveAsAction;
 	private Exit exitAction;
-	private ExportToPDF exportToPDFAction;
-	private ExportToMsExcell exportToMsExcellAction;
-	private ExportToWord exportToWordAction;
 	private About aboutAction;
 	private Help helpAction;
 	
@@ -41,9 +35,6 @@ public class ActionManager
 		saveAction = new Save();
 		saveAsAction = new SaveAs();
 		exitAction = new Exit();
-		exportToPDFAction = new ExportToPDF();
-		exportToMsExcellAction = new ExportToMsExcell();
-		exportToWordAction = new ExportToWord();
 		aboutAction = new About();
 		helpAction = new Help();
 	}
@@ -53,11 +44,6 @@ public class ActionManager
 		if(instance == null)
 			instance = new ActionManager();
 		return instance;
-	}
-	
-	public void noComponentSelected()
-	{
-			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Niste izabrali komponentu", "Neispravan postupak", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public File getCurrentDir()
@@ -128,36 +114,6 @@ public class ActionManager
 	public void setExitAction(Exit exitAction)
 	{
 		this.exitAction = exitAction;
-	}
-
-	public ExportToPDF getExportToPDFAction()
-	{
-		return exportToPDFAction;
-	}
-
-	public void setExportToPDFAction(ExportToPDF exportToPDFAction)
-	{
-		this.exportToPDFAction = exportToPDFAction;
-	}
-
-	public ExportToMsExcell getExportToMsExcellAction()
-	{
-		return exportToMsExcellAction;
-	}
-
-	public void setExportToMsExcellAction(ExportToMsExcell exportToMsExcellAction)
-	{
-		this.exportToMsExcellAction = exportToMsExcellAction;
-	}
-
-	public ExportToWord getExportToWordAction()
-	{
-		return exportToWordAction;
-	}
-
-	public void setExportToWordAction(ExportToWord exportToWordAction)
-	{
-		this.exportToWordAction = exportToWordAction;
 	}
 
 	public New getNewAction()

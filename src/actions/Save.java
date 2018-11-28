@@ -3,8 +3,6 @@ package actions;
 import java.awt.event.ActionEvent;
 import javax.swing.KeyStroke;
 
-import main.MainFrame;
-import main.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Save extends AbstractGEDAction

@@ -2,21 +2,12 @@ package actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
-
-import main.MainFrame;
-import main.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Open extends AbstractGEDAction
 {
 	
-	private boolean componentSet = false;
 	
 	public Open()
 	{

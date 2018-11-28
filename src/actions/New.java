@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
+
+import gui.exceptionHandler.ExceptionHandler;
+import gui.exceptionHandler.ExceptionType;
 import gui.tree.treeModel.Module;
 import gui.tree.treeModel.Parametar;
 import gui.tree.treeModel.Product;
@@ -29,7 +32,7 @@ public class New extends AbstractGEDAction
 		
 		if(cmp == null)
 		{
-			MainFrame.getInstance().getActionManager().noComponentSelected();
+			ExceptionHandler.handleEvent(ExceptionType.NO_COMPONENT_SELECTED);
 			return;
 		}
 		
