@@ -8,8 +8,8 @@ import java.io.ObjectInputStream;
 import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 
-import gui.exceptionHandler.ExceptionHandler;
-import gui.exceptionHandler.ExceptionType;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.tree.treeModel.Node;
 import gui.tree.treeModel.SoftwareCompany;
 import gui.tree.treeModel.TreeModel;
@@ -65,7 +65,7 @@ public class Open extends AbstractGEDAction
 		catch(Exception ee)
 		{
 			ee.printStackTrace();
-			ExceptionHandler.handleEvent(ExceptionType.DESERIALISATION_FAIL);
+			MessageHandler.handleEvent(MessageType.DESERIALISATION_FAIL);
 		}
 		return null;
 	}

@@ -5,8 +5,8 @@ import java.io.IOException;
 
 import javax.swing.KeyStroke;
 
-import gui.exceptionHandler.ExceptionHandler;
-import gui.exceptionHandler.ExceptionType;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import main.MainFrame;
 
 
@@ -28,7 +28,7 @@ public class Save extends AbstractGEDAction
 			MainFrame.getInstance().getActionManager().getSaveAsAction().save(MainFrame.getInstance().getActionManager().getDefaultFile());
 		} catch (IOException e) {
 			e.printStackTrace();
-			ExceptionHandler.handleEvent(ExceptionType.SERIALISATION_FAIL);
+			MessageHandler.handleEvent(MessageType.SERIALISATION_FAIL);
 		}
 	}
 	

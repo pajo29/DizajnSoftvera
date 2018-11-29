@@ -6,8 +6,8 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import actions.AbstractGEDAction;
-import gui.exceptionHandler.ExceptionHandler;
-import gui.exceptionHandler.ExceptionType;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.tree.treeModel.Module;
 import gui.tree.treeModel.Parametar;
 import gui.tree.treeModel.Product;
@@ -33,7 +33,7 @@ public class New extends AbstractGEDAction
 		
 		if(cmp == null)
 		{
-			ExceptionHandler.handleEvent(ExceptionType.NO_COMPONENT_SELECTED);
+			MessageHandler.handleEvent(MessageType.NO_COMPONENT_SELECTED);
 			return;
 		}
 		
@@ -46,17 +46,18 @@ public class New extends AbstractGEDAction
 		if(cmp instanceof Product)
 		{
 			Product component = (Product)cmp;
-			Module newComponent = new Module("Modul: "+(component.getChildCount()+1));
-			component.addChild(newComponent);
+//			Module newComponent = new Module("Modul: "+(component.getChildCount()+1));
+//			component.addChild(newComponent);
+			new NewChooser(component, false);
 		}
 		if(cmp instanceof Module)
 		{
 			Module component = (Module)cmp;
-			new NewChooser(component);
+			new NewChooser(component, true);
 		}
 		if(cmp instanceof Parametar)
 		{
-			ExceptionHandler.handleEvent(ExceptionType.PARAMETAR_SELECTED);
+			MessageHandler.handleEvent(MessageType.PARAMETAR_SELECTED);
 			return;
 		}
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());

@@ -11,6 +11,7 @@ import javax.swing.SwingUtilities;
 import gui.parameters.desktopShortcut.model.DestkopShortcut;
 import gui.parameters.model.ParametarConfig;
 import gui.parameters.path.model.Path;
+import gui.tree.treeModel.Module;
 import gui.tree.treeModel.Node;
 import gui.tree.treeModel.Parametar;
 import main.MainSplitPane;
@@ -20,22 +21,41 @@ public class NewChooser extends JFrame
 {
 	private JComboBox<String> types;
 	private String[] availableTypes = {"Path", "Desktop shortcut"};
+	private JComboBox<String> moduleParametarComboBox;
+	private String[] moduleParametar = {"Module", "Parametar"};
 	private JButton chooseButton;
 	
 	private Node component;
-	public NewChooser(Node component)
+	public NewChooser(Node component, boolean module)
 	{
 		this.component = component;
-		types = new JComboBox<String>(availableTypes);
-		chooseButton = new JButton("Choose");
-		chooseButton.addActionListener(e-> {
-			chooseType();
-		});
-		
 		JPanel panel = new JPanel();
+		if(module)
+		{
+			types = new JComboBox<String>(availableTypes);
+			chooseButton = new JButton("Choose");
+			chooseButton.addActionListener(e-> {
+				chooseType(true);
+			});
+			panel.add(types);
+		}
+		else
+		{
+			moduleParametarComboBox = new JComboBox<String>(moduleParametar);
+			chooseButton = new JButton("Choose");
+			chooseButton.addActionListener(e-> {
+				chooseType(false);
+			});
+			panel.add(moduleParametarComboBox);
+		}
 		
 		
-		panel.add(types);
+		
+		
+		
+		
+		
+		
 		panel.add(chooseButton);
 		
 		add(panel);
@@ -46,23 +66,42 @@ public class NewChooser extends JFrame
 		setVisible(true);
 	}
 	
-	public void chooseType()
+	public void chooseType(boolean module)
 	{
 		ParametarConfig pmc = null;
-		switch((String)types.getSelectedItem())
+		if(module)
 		{
-		case "Path":
-			 pmc = new Path("Path parametar");
-			 break;
-		case "Desktop shortcut":
-			pmc = new DestkopShortcut("Desktop shortcut parametar");
-			break;
+			switch((String)types.getSelectedItem())
+			{
+			case "Path":
+				 pmc = new Path("Path parametar");
+				 break;
+			case "Desktop shortcut":
+				pmc = new DestkopShortcut("Desktop shortcut parametar");
+				break;
+			}
+			component.addChild(new Parametar(pmc.getName(), pmc));
 		}
+		else
+		{
+			
+			switch((String)moduleParametarComboBox.getSelectedItem())
+			{
+			case "Module":
+				 Module mod = new Module("Modul: " + (component.getChildCount() + 1));
+				 component.addChild(mod);
+				 break;
+			case "Parametar":
+				new NewChooser(component, true);
+				break;
+			}
+		}
+			
 		
-		
-		component.addChild(new Parametar(pmc.getName(), pmc));
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
 		dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+		
+		
 	}
 	
 }

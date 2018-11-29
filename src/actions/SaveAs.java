@@ -9,8 +9,8 @@ import java.io.ObjectOutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 
-import gui.exceptionHandler.ExceptionHandler;
-import gui.exceptionHandler.ExceptionType;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.tree.treeModel.Node;
 import main.MainFrame;
 import main.MainSplitPane;
@@ -47,7 +47,7 @@ public class SaveAs extends AbstractGEDAction
 				save(fileChooser.getSelectedFile());
 			} catch (IOException e1) {
 				e1.printStackTrace();
-				ExceptionHandler.handleEvent(ExceptionType.SERIALISATION_FAIL);
+				MessageHandler.handleEvent(MessageType.SERIALISATION_FAIL);
 			}
 		}
 	}

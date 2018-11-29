@@ -4,6 +4,8 @@ package main;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.rightSplitPane.view.SplitPane;
 import gui.tree.Tree;
 import gui.tree.treeModel.Node;
@@ -29,8 +31,8 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		if(JOptionPane.showConfirmDialog(MainFrame.getInstance(), "Da li zelite da ucitate softversku kompaniju?", "Startno ucitavanje", JOptionPane.YES_NO_OPTION) 
-				== JOptionPane.YES_OPTION)
+		int rez = MessageHandler.handleEvent(MessageType.PROGRAM_START);
+		if(rez == JOptionPane.YES_OPTION)
 		{
 			Node node = (Node)MainFrame.getInstance().getActionManager().getOpenAction().openFile();
 			if(node == null)

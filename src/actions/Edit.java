@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 
-import gui.exceptionHandler.ExceptionHandler;
-import gui.exceptionHandler.ExceptionType;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.parameters.model.ParametarConfig;
 import gui.tree.treeModel.Parametar;
 import main.MainSplitPane;
@@ -37,8 +37,7 @@ public class Edit extends AbstractGEDAction
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();
-			ExceptionHandler.handleEvent(ExceptionType.WRONG_COMPONENT_SELECTED);
+			MessageHandler.handleEvent(MessageType.WRONG_COMPONENT_SELECTED);
 		}
 	}
 

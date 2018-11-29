@@ -3,7 +3,8 @@ package gui.tree.treeModel;
 import gui.parameters.model.ParametarConfig;
 
 @SuppressWarnings("serial")
-public class Parametar extends Node {
+public class Parametar extends Node 
+{
 	
 	private ParametarConfig parametar;
 	

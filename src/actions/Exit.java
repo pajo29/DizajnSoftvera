@@ -6,8 +6,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import gui.exceptionHandler.ExceptionHandler;
-import gui.exceptionHandler.ExceptionType;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import main.MainFrame;
 
 @SuppressWarnings("serial")
@@ -32,13 +32,13 @@ public class Exit extends AbstractGEDAction
 	{
 		if(MainFrame.getInstance().getActionManager().isChanges())
 		{
-		int result = JOptionPane.showConfirmDialog(null, "Da li zelite da sacuvate promene?", "Stablo", JOptionPane.YES_NO_CANCEL_OPTION);
+		int result = MessageHandler.handleEvent(MessageType.CLOSING);
 		if(result == JOptionPane.YES_OPTION)
 		{
 			try {
 				MainFrame.getInstance().getActionManager().getSaveAsAction().save(MainFrame.getInstance().getActionManager().getDefaultFile());
 			} catch (IOException e) {
-				ExceptionHandler.handleEvent(ExceptionType.SERIALISATION_FAIL);
+				MessageHandler.handleEvent(MessageType.SERIALISATION_FAIL);
 			}
 			System.exit(0);
 		}
