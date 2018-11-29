@@ -27,7 +27,7 @@ public class LookAndFeelView extends JPanel
 		
 		theme = new JComboBox<>(themeChooser);
 		
-		image = new ImageIcon();
+		image = new ImageIcon("src/actions/images/lightTheme.png");
 		imageDisplay = new JLabel(image);
 		
 		theme.addActionListener(e->

@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 import javax.swing.JFileChooser;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import gui.messageHandler.MessageHandler;
@@ -32,7 +33,9 @@ public class Open extends AbstractGEDAction
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		MainSplitPane.getInstance().getTree().setModel(new TreeModel((SoftwareCompany)openFile()));
+		Node node = openFile();
+		if(node != null)
+			MainSplitPane.getInstance().getTree().setModel(new TreeModel((SoftwareCompany)node));
 	}
 	
 	public Node openFile()
@@ -55,6 +58,7 @@ public class Open extends AbstractGEDAction
 			MainFrame.getInstance().getActionManager().setDefaultFile(fileChooser.getSelectedFile());
             MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
             MainFrame.getInstance().getActionManager().setChanges(false);
+            MainSplitPane.getInstance().getSplitPane().setUpSide(new JPanel());
             return node;
 			}
 			if(res == JFileChooser.CANCEL_OPTION)
