@@ -1,6 +1,5 @@
 package gui.parameters.path.model;
 
-
 import gui.parameters.model.ParametarConfig;
 import gui.parameters.path.view.PathView;
 

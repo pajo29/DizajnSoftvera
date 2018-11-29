@@ -46,8 +46,6 @@ public class New extends AbstractGEDAction
 		if(cmp instanceof Product)
 		{
 			Product component = (Product)cmp;
-//			Module newComponent = new Module("Modul: "+(component.getChildCount()+1));
-//			component.addChild(newComponent);
 			new NewChooser(component, false);
 		}
 		if(cmp instanceof Module)

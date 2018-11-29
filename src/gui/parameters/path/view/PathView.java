@@ -1,7 +1,6 @@
 package gui.parameters.path.view;
 
 import java.awt.Dimension;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
