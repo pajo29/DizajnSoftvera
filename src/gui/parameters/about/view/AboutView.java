@@ -1,6 +1,8 @@
 package gui.parameters.about.view;
 
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,6 +27,28 @@ public class AboutView extends JPanel
 		aboutField.setMinimumSize(new Dimension(500, 300));
 		aboutField.setPreferredSize(new Dimension(500, 300));
 		aboutField.setMaximumSize(new Dimension(500, 300));
+		aboutField.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent e)
+			{
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e)
+			{
+				about.content = aboutField.getText();
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e)
+			{
+				
+			}
+			
+
+		});
 		
 		
 		add(label);

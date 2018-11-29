@@ -18,6 +18,13 @@ public class DesktopShortcutView extends JPanel{
 		this.dsModel = dsModel;
 		label = new JLabel(this.dsModel.getLabel());
 		checkBox = new JCheckBox("Desktop shortcut");
+		checkBox.addActionListener(e ->
+		{
+			if(checkBox.isSelected())
+				dsModel.setContent(true);
+			else
+				dsModel.setContent(false);
+		});
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		

@@ -6,6 +6,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import gui.parameters.lookAndFeel.model.LookAndFeel;
+import gui.parameters.lookAndFeel.model.LookAndFeelType;
 
 @SuppressWarnings("serial")
 public class LookAndFeelView extends JPanel 
@@ -33,6 +34,15 @@ public class LookAndFeelView extends JPanel
 		theme.addActionListener(e->
 		{
 			changePicture();
+			switch((String)theme.getSelectedItem())
+			{
+			case "Light":
+				this.model.setType(LookAndFeelType.LIGHT_THEME);
+				break;
+			case "Dark":
+				this.model.setType(LookAndFeelType.DARK_THEME);
+			}
+			
 		});
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
