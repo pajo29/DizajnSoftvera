@@ -3,7 +3,6 @@ package gui.rightSplitPane.view;
 
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
 
 
 @SuppressWarnings("serial")

@@ -1,11 +1,11 @@
 package actions.parametersActions;
 
 import java.awt.event.ActionEvent;
-
-import javax.swing.JOptionPane;
-
+import javax.swing.JFileChooser;
 import actions.AbstractGEDAction;
+import gui.parameters.path.view.PathView;
 import main.MainFrame;
+import main.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Browse extends AbstractGEDAction{
@@ -19,7 +19,16 @@ public class Browse extends AbstractGEDAction{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		JOptionPane.showMessageDialog(MainFrame.getInstance(), "ovo ne radi nista prijatelju", "Ovo je titl", JOptionPane.ERROR_MESSAGE);
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		int res = fileChooser.showOpenDialog(MainFrame.getInstance());
+		
+		
+		if(res == JFileChooser.APPROVE_OPTION)
+		{
+			((PathView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getAdress().setText(fileChooser.getSelectedFile().getAbsolutePath());
+		}
+		
 	}
 
 }

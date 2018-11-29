@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import gui.parameters.about.model.About;
 import gui.parameters.desktopShortcut.model.DestkopShortcut;
 import gui.parameters.model.ParametarConfig;
 import gui.parameters.path.model.Path;
@@ -20,7 +21,7 @@ import main.MainSplitPane;
 public class NewChooser extends JFrame
 {
 	private JComboBox<String> types;
-	private String[] availableTypes = {"Path", "Desktop shortcut"};
+	private String[] availableTypes = {"Path", "Desktop shortcut", "About"};
 	private JComboBox<String> moduleParametarComboBox;
 	private String[] moduleParametar = {"Module", "Parametar"};
 	private JButton chooseButton;
@@ -78,6 +79,9 @@ public class NewChooser extends JFrame
 				 break;
 			case "Desktop shortcut":
 				pmc = new DestkopShortcut("Desktop shortcut parametar");
+				break;
+			case "About":
+				pmc = new About("About parametar");
 				break;
 			}
 			component.addChild(new Parametar(pmc.getName(), pmc));

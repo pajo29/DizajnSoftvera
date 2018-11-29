@@ -39,5 +39,21 @@ public class PathView extends JPanel{
 		
 		add(panel);
 	}
+	
+	public Path getPathModel() {
+		return pathModel;
+	}
+
+	public JLabel getLabel() {
+		return label;
+	}
+
+	public JTextField getAdress() {
+		return adress;
+	}
+
+	public JButton getBrowseButton() {
+		return browseButton;
+	}
 
 }
