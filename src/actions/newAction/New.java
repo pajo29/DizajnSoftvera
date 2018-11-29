@@ -1,10 +1,11 @@
-package actions;
+package actions.newAction;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
+import actions.AbstractGEDAction;
 import gui.exceptionHandler.ExceptionHandler;
 import gui.exceptionHandler.ExceptionType;
 import gui.tree.treeModel.Module;
@@ -22,7 +23,7 @@ public class New extends AbstractGEDAction
 	public New()
 	{
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control T"));
-		putValue(SMALL_ICON, loadIcon("images/newFile.png"));
+		putValue(SMALL_ICON, loadIcon("../images/newFile.png"));
 		putValue(NAME, "mNew file");
 		putValue(SHORT_DESCRIPTION, "New file");
 	}
@@ -51,8 +52,7 @@ public class New extends AbstractGEDAction
 		if(cmp instanceof Module)
 		{
 			Module component = (Module)cmp;
-			Parametar newComponent = new Parametar("Parametar: "+(component.getChildCount()+1));
-			component.addChild(newComponent);
+			new NewChooser(component);
 		}
 		if(cmp instanceof Parametar)
 		{

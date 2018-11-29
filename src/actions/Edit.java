@@ -4,6 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 
+import gui.exceptionHandler.ExceptionHandler;
+import gui.exceptionHandler.ExceptionType;
+import gui.parameters.model.ParametarConfig;
+import gui.tree.treeModel.Parametar;
+import main.MainSplitPane;
+
 @SuppressWarnings("serial")
 public class Edit extends AbstractGEDAction
 {
@@ -24,7 +30,16 @@ public class Edit extends AbstractGEDAction
 	
 	public void edit()
 	{
-		
+		try
+		{
+		Parametar node = (Parametar)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+		MainSplitPane.getInstance().getSplitPane().setUpSide(((ParametarConfig)node.getParametar()).getGui());	
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			ExceptionHandler.handleEvent(ExceptionType.WRONG_COMPONENT_SELECTED);
+		}
 	}
 
 }

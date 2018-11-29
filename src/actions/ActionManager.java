@@ -2,6 +2,9 @@ package actions;
 
 import java.io.File;
 
+import actions.newAction.New;
+import actions.parametersActions.Browse;
+
 
 public class ActionManager
 {
@@ -16,6 +19,12 @@ public class ActionManager
 	private Exit exitAction;
 	private About aboutAction;
 	private Help helpAction;
+	
+	/*
+	 * Parameters Actions
+	 */
+	private Browse browseAction;
+	
 	
 	private File defaultFile = null;
 	private File currentDir = new File(System.getProperty("user.home")+"/eclipse-workspace/RN75-2018(InstaFram)");
@@ -37,6 +46,9 @@ public class ActionManager
 		exitAction = new Exit();
 		aboutAction = new About();
 		helpAction = new Help();
+		
+		
+		browseAction = new Browse();
 	}
 	
 	public static ActionManager getInstace()
@@ -154,5 +166,9 @@ public class ActionManager
 	public Help getHelpAction()
 	{
 		return helpAction;
+	}
+
+	public Browse getBrowseAction() {
+		return browseAction;
 	}
 }

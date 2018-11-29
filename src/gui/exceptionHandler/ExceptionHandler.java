@@ -25,6 +25,9 @@ public class ExceptionHandler {
 		case DESERIALISATION_FAIL:
 			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ucitavanje neuspesno!", "Greska", JOptionPane.ERROR_MESSAGE);
 			break;
+		case WRONG_COMPONENT_SELECTED:
+			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Za izmenu se mogu samo parametri otvarati!", "Greska", JOptionPane.ERROR_MESSAGE);
+			break;
 		}
 	}
 	

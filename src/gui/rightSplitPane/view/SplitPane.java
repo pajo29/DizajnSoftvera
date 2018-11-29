@@ -17,9 +17,10 @@ public class SplitPane extends JSplitPane
 	{
 		
 		downSide = ComponentView.getInstance();
+		upSide = new JPanel();
 		
 		setOrientation(JSplitPane.VERTICAL_SPLIT);
-		setTopComponent(new JTextArea());
+		setTopComponent(upSide);
 		setBottomComponent(downSide);
 		setDividerLocation(400);
 		disable();
@@ -33,6 +34,16 @@ public class SplitPane extends JSplitPane
 	public JPanel getDownSide()
 	{
 		return downSide;
+	}
+
+	public void setUpSide(JPanel upSide) {
+		this.upSide = upSide;
+		setTopComponent(upSide);
+		setDividerLocation(400);
+	}
+
+	public void setDownSide(JPanel downSide) {
+		this.downSide = downSide;
 	}
 	
 	

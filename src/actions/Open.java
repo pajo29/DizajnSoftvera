@@ -65,7 +65,7 @@ public class Open extends AbstractGEDAction
 		catch(Exception ee)
 		{
 			ee.printStackTrace();
-			ExceptionHandler.handleEvent(ExceptionType.SERIALISATION_FAIL);
+			ExceptionHandler.handleEvent(ExceptionType.DESERIALISATION_FAIL);
 		}
 		return null;
 	}
