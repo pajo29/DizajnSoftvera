@@ -16,6 +16,12 @@ public class Logo extends ParametarConfig
 		super(name, "Izaberite logo za vasu instalaciju");
 		super.gui = new LogoView(this);
 	}
-	
-	
+
+	public Image getContent() {
+		return content;
+	}
+
+	public void setContent(Image content) {
+		this.content = content;
+	}
 }

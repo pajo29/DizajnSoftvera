@@ -19,6 +19,11 @@ public class Browse extends AbstractGEDAction{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		
+	}
+	
+	public void browseForPath()
+	{
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		int res = fileChooser.showOpenDialog(MainFrame.getInstance());
@@ -29,6 +34,10 @@ public class Browse extends AbstractGEDAction{
 			((PathView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getAdress().setText(fileChooser.getSelectedFile().getAbsolutePath());
 			((PathView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getPathModel().setContent(fileChooser.getSelectedFile().getAbsolutePath());;
 		}
+	}
+	
+	public void browseForLogo()
+	{
 		
 	}
 
