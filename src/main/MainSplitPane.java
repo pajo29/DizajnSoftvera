@@ -3,10 +3,12 @@ package main;
 
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
-import javax.swing.SwingUtilities;
 
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.rightSplitPane.view.SplitPane;
 import gui.tree.Tree;
+import gui.tree.treeModel.Node;
 import gui.tree.treeModel.SoftwareCompany;
 
 @SuppressWarnings("serial")
@@ -29,8 +31,21 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		setTree(new SoftwareCompany("Softverska kompanija"));
+		int rez = MessageHandler.handleEvent(MessageType.PROGRAM_START);
 		splitPane = new SplitPane();
+		if(rez == JOptionPane.YES_OPTION)
+		{
+			Node node = (Node)MainFrame.getInstance().getActionManager().getOpenAction().openFile();
+			if(node == null)
+                setTree(new SoftwareCompany("Softverska kompanija"));
+			else
+				setTree((SoftwareCompany)node);
+		}
+		else
+		{
+			setTree(new SoftwareCompany("Softverska kompanija"));
+		}
+		
 		
 		setRightComponent(splitPane);
 		setDividerLocation(230);

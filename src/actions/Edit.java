@@ -3,8 +3,11 @@ package actions;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
-import gui.rightSplitPane.view.ComponentView;
-import main.MainFrame;
+
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
+import gui.parameters.model.ParametarConfig;
+import gui.tree.treeModel.Parametar;
 import main.MainSplitPane;
 
 @SuppressWarnings("serial")
@@ -27,7 +30,15 @@ public class Edit extends AbstractGEDAction
 	
 	public void edit()
 	{
-		
+		try
+		{
+		Parametar node = (Parametar)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+		MainSplitPane.getInstance().getSplitPane().setUpSide(((ParametarConfig)node.getParametar()).getGui());	
+		}
+		catch(Exception e)
+		{
+			MessageHandler.handleEvent(MessageType.WRONG_COMPONENT_SELECTED);
+		}
 	}
 
 }

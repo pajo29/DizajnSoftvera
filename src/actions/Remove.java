@@ -7,6 +7,8 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.MutableTreeNode;
 
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.tree.treeModel.Node;
 import main.MainFrame;
 import main.MainSplitPane;
@@ -35,11 +37,13 @@ public class Remove extends AbstractGEDAction
 		
 		if(cmp == null)
 		{
-			MainFrame.getInstance().getActionManager().noComponentSelected();
+			MessageHandler.handleEvent(MessageType.NO_COMPONENT_SELECTED);
 			return;
 		}
 		
-		if(removeNotification((Node)cmp) == JOptionPane.YES_OPTION)
+		int rez = MessageHandler.handleEvent(MessageType.NODE_REMOVAL);
+		
+		if(rez == JOptionPane.YES_OPTION)
 		{
 		if(cmp == MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent())
 		{
@@ -52,15 +56,9 @@ public class Remove extends AbstractGEDAction
 		((Node)component.getParent()).remove((MutableTreeNode)cmp);
 		}
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
+		MainSplitPane.getInstance().getTree().clearSelection();
 		MainFrame.getInstance().getActionManager().setChanges(true);
 		}
-	}
-	
-	private int removeNotification(Node cmp)
-	{
-		int res = JOptionPane.showConfirmDialog(MainFrame.getInstance(), "Da li ste sigurni?\nBice obrisano\n"
-				+ cmp.getChildCount() + " deteta i " + cmp.getLeafCount(0, cmp.getChildCount())+" lista", "Paznja", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-		return res;
 	}
 
 }

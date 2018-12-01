@@ -1,9 +1,13 @@
-package actions;
+package actions.newAction;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
+
+import actions.AbstractGEDAction;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.tree.treeModel.Module;
 import gui.tree.treeModel.Parametar;
 import gui.tree.treeModel.Product;
@@ -19,7 +23,7 @@ public class New extends AbstractGEDAction
 	public New()
 	{
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control T"));
-		putValue(SMALL_ICON, loadIcon("images/newFile.png"));
+		putValue(SMALL_ICON, loadIcon("../images/newFile.png"));
 		putValue(NAME, "mNew file");
 		putValue(SHORT_DESCRIPTION, "New file");
 	}
@@ -29,7 +33,7 @@ public class New extends AbstractGEDAction
 		
 		if(cmp == null)
 		{
-			MainFrame.getInstance().getActionManager().noComponentSelected();
+			MessageHandler.handleEvent(MessageType.NO_COMPONENT_SELECTED);
 			return;
 		}
 		
@@ -42,18 +46,16 @@ public class New extends AbstractGEDAction
 		if(cmp instanceof Product)
 		{
 			Product component = (Product)cmp;
-			Module newComponent = new Module("Modul: "+(component.getChildCount()+1));
-			component.addChild(newComponent);
+			new NewChooser(component, false);
 		}
 		if(cmp instanceof Module)
 		{
 			Module component = (Module)cmp;
-			Parametar newComponent = new Parametar("Parametar: "+(component.getChildCount()+1));
-			component.addChild(newComponent);
+			new NewChooser(component, true);
 		}
 		if(cmp instanceof Parametar)
 		{
-			System.out.println("Ne mos bato na parametar");
+			MessageHandler.handleEvent(MessageType.PARAMETAR_SELECTED);
 			return;
 		}
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());

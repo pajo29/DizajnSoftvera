@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import gui.tree.treeModel.Node;
 
 
 @SuppressWarnings("serial")
@@ -29,7 +28,7 @@ public class ComponentView extends JPanel implements Observer
 	private JPanel fourthPanel;
 	private JPanel fifthPanel;
 	
-	private Node component = null;
+//	private Node component = null;
 	
 	private ComponentView()
 	{
