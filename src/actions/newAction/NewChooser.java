@@ -10,6 +10,7 @@ import javax.swing.SwingUtilities;
 
 import gui.parameters.about.model.About;
 import gui.parameters.desktopShortcut.model.DestkopShortcut;
+import gui.parameters.logo.model.Logo;
 import gui.parameters.lookAndFeel.model.LookAndFeel;
 import gui.parameters.model.ParametarConfig;
 import gui.parameters.path.model.Path;
@@ -22,7 +23,7 @@ import main.MainSplitPane;
 public class NewChooser extends JFrame
 {
 	private JComboBox<String> types;
-	private String[] availableTypes = {"Path", "Desktop shortcut", "About", "Look and Feel"};
+	private String[] availableTypes = {"Path", "Desktop shortcut", "About", "Look and Feel", "Logo"};
 	private JComboBox<String> moduleParametarComboBox;
 	private String[] moduleParametar = {"Module", "Parametar"};
 	private JButton chooseButton;
@@ -80,6 +81,8 @@ public class NewChooser extends JFrame
 			case "Look and Feel":
 				pmc = new LookAndFeel("Look and feel parametar");
 				break;
+			case "Logo":
+				pmc = new Logo("Logo parametar");
 			}
 			component.addChild(new Parametar(pmc.getName(), pmc));
 		}

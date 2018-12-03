@@ -28,6 +28,7 @@ public class PathView extends JPanel{
 		adress.setPreferredSize(new Dimension(500, 35));
 		adress.setMaximumSize(new Dimension(500, 35));
 		browseButton = new JButton(MainFrame.getInstance().getActionManager().getBrowseAction());
+		browseButton.addActionListener(e->{MainFrame.getInstance().getActionManager().getBrowseAction().browseForPath();});
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		add(label);
@@ -35,7 +36,7 @@ public class PathView extends JPanel{
 		JPanel panel = new JPanel();
 		panel.add(adress);
 		panel.add(browseButton);
-		
+		//TODO Napraviti kompresiju u Logo
 		add(panel);
 	}
 	

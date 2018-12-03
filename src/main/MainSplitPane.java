@@ -32,6 +32,7 @@ public class MainSplitPane extends JSplitPane
 	public void initialise()
 	{
 		int rez = MessageHandler.handleEvent(MessageType.PROGRAM_START);
+		splitPane = new SplitPane();
 		if(rez == JOptionPane.YES_OPTION)
 		{
 			Node node = (Node)MainFrame.getInstance().getActionManager().getOpenAction().openFile();
@@ -44,7 +45,7 @@ public class MainSplitPane extends JSplitPane
 		{
 			setTree(new SoftwareCompany("Softverska kompanija"));
 		}
-		splitPane = new SplitPane();
+		
 		
 		setRightComponent(splitPane);
 		setDividerLocation(230);
