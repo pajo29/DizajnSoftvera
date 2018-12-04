@@ -18,7 +18,7 @@ public class Exit extends AbstractGEDAction
 	{
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control E"));
 		putValue(SMALL_ICON, loadIcon("images/exit.png"));
-		putValue(NAME, "mExit");
+		putValue(NAME, "Exit");
 		putValue(SHORT_DESCRIPTION, "Exit program");
 	}
 	

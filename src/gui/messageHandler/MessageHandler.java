@@ -26,10 +26,13 @@ public class MessageHandler {
 			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Cuvanje neuspesno!", "Greska", JOptionPane.ERROR_MESSAGE);
 			break;
 		case DESERIALISATION_FAIL:
-			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ucitavanje neuspesno!", "Greska", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ucitavanje neuspesno!\nProverite da li ste izabrali ispravan fajl.", "Greska", JOptionPane.ERROR_MESSAGE);
 			break;
-		case WRONG_COMPONENT_SELECTED:
+		case WRONG_COMPONENT_SELECTED_PARAMETAR:
 			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Za izmenu se mogu samo parametri otvarati!", "Greska", JOptionPane.ERROR_MESSAGE);
+			break;
+		case WRONG_COMPONENT_SELECTED_PRODUCT:
+			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Za exportovanje se moze samo proizvod izabrati!", "Greska", JOptionPane.ERROR_MESSAGE);
 			break;
 		case PROGRAM_START:
 			int rez = JOptionPane.showConfirmDialog(MainFrame.getInstance(), "Da li zelite da otvorite neku kompaniju?", "?", JOptionPane.YES_NO_OPTION);

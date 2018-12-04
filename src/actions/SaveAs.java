@@ -24,7 +24,7 @@ public class SaveAs extends AbstractGEDAction
 	{
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control shift S"));
 		putValue(SMALL_ICON, loadIcon("images/saveAs.png"));
-		putValue(NAME, "mSaveAs");
+		putValue(NAME, "SaveAs");
 		putValue(SHORT_DESCRIPTION, "Save As");
 	}
 	

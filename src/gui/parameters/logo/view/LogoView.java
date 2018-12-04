@@ -24,6 +24,8 @@ public class LogoView extends JPanel
 		label = new JLabel(this.model.getLabel());
 		imageView = new JLabel();
 		browseButton = new JButton(MainFrame.getInstance().getActionManager().getBrowseAction());
+		browseButton.addActionListener(e ->
+		{MainFrame.getInstance().getActionManager().getBrowseAction().browseForLogo();});
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		

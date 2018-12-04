@@ -19,6 +19,8 @@ public class ActionManager
 	private Exit exitAction;
 	private About aboutAction;
 	private Help helpAction;
+	private ExportProduct exportAction;
+	private ImportProduct importAction;
 	
 	/*
 	 * Parameters Actions
@@ -46,6 +48,8 @@ public class ActionManager
 		exitAction = new Exit();
 		aboutAction = new About();
 		helpAction = new Help();
+		exportAction = new ExportProduct();
+		importAction = new ImportProduct();
 		
 		
 		browseAction = new Browse();
@@ -68,6 +72,10 @@ public class ActionManager
 		this.currentDir = currentDir;
 	}
 
+	public ImportProduct getImportAction() {
+		return importAction;
+	}
+
 	public Open getOpenAction()
 	{
 		return openAction;
@@ -86,6 +94,10 @@ public class ActionManager
 	public void setEditAction(Edit closeAction)
 	{
 		this.editAction = closeAction;
+	}
+
+	public ExportProduct getExportAction() {
+		return exportAction;
 	}
 
 	public Remove getRemoveAction()
