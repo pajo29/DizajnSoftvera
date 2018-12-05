@@ -21,8 +21,8 @@ public class Remove extends AbstractGEDAction
 	{
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control W"));
 		putValue(SMALL_ICON, loadIcon("images/remove.png"));
-		putValue(NAME, "mRemove");
-		putValue(SHORT_DESCRIPTION, "Remove");
+		putValue(NAME, "Remove");
+		putValue(SHORT_DESCRIPTION, "Remove component");
 	}
 
 	@Override

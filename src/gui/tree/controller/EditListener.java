@@ -1,11 +1,13 @@
 package gui.tree.controller;
 
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import gui.tree.treePopupMenu.PopupMenu;
 import main.MainFrame;
 
-public class EditListener implements MouseListener
+public class EditListener extends MouseAdapter implements MouseListener
 {
 	@Override
 	public void mouseClicked(MouseEvent e)
@@ -33,7 +35,10 @@ public class EditListener implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent e)
 	{
-		
+		if(e.isPopupTrigger())
+		{
+			Popup(e);
+		}
 	}
 
 	@Override
@@ -41,6 +46,12 @@ public class EditListener implements MouseListener
 	{
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private void Popup(MouseEvent e)
+	{
+		PopupMenu pm = new PopupMenu();
+		pm.show(e.getComponent(), e.getX(), e.getY());
 	}
 
 }

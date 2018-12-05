@@ -1,14 +1,14 @@
 package gui.tree.treeModel;
 
-import gui.parameters.model.ParametarConfig;
+import gui.parameters.parametar.model.ParametarModel;
 
 @SuppressWarnings("serial")
 public class Parametar extends Node 
 {
 	
-	private ParametarConfig parametar;
+	private ParametarModel parametar;
 	
-	public Parametar(String name, ParametarConfig parametar)
+	public Parametar(String name, ParametarModel parametar)
 	{
 		super(name);
 		this.parametar = parametar;
@@ -20,7 +20,7 @@ public class Parametar extends Node
 		return super.toString();
 	}
 
-	public ParametarConfig getParametar() {
+	public ParametarModel getParametar() {
 		return parametar;
 	}
 

@@ -4,23 +4,19 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import gui.parameters.about.model.About;
-import gui.parameters.desktopShortcut.model.DestkopShortcut;
-import gui.parameters.logo.model.Logo;
-import gui.parameters.lookAndFeel.model.LookAndFeel;
-import gui.parameters.model.ParametarConfig;
-import gui.parameters.path.model.Path;
+import gui.parameters.parametar.model.ParametarModel;
+import gui.parameters.parametar.model.PredefinedParametarType;
 import gui.tree.treeModel.Module;
 import gui.tree.treeModel.Node;
 import gui.tree.treeModel.Parametar;
 import main.MainSplitPane;
 
 @SuppressWarnings("serial")
-public class NewChooser extends JFrame
+public class NewChooser extends JDialog
 {
 	private JComboBox<String> types;
 	private String[] availableTypes = {"Path", "Desktop shortcut", "About", "Look and Feel", "Logo"};
@@ -59,30 +55,31 @@ public class NewChooser extends JFrame
 		setSize(400, 150);
 		setLocationRelativeTo(null);
 		setTitle("Odabir parametra");
+		setModalityType(ModalityType.APPLICATION_MODAL);
 		setVisible(true);
 	}
 	
 	public void chooseType(boolean module)
 	{
-		ParametarConfig pmc = null;
+		ParametarModel pmc = null;
 		if(module)
 		{
 			switch((String)types.getSelectedItem())
 			{
 			case "Path":
-				 pmc = new Path("Path parametar");
+				 pmc = new ParametarModel("Path", PredefinedParametarType.PATH);
 				 break;
 			case "Desktop shortcut":
-				pmc = new DestkopShortcut("Desktop shortcut parametar");
+				pmc = new ParametarModel("Desktop shortcut", PredefinedParametarType.DESKTOP_SHORTCUT);
 				break;
 			case "About":
-				pmc = new About("About parametar");
+				pmc = new ParametarModel("About parametar", PredefinedParametarType.ABOUT);
 				break;
 			case "Look and Feel":
-				pmc = new LookAndFeel("Look and feel parametar");
+				pmc = new ParametarModel("Look and feel parametar", PredefinedParametarType.LOOK_AND_FEEL);
 				break;
 			case "Logo":
-				pmc = new Logo("Logo parametar");
+				pmc = new ParametarModel("Logo parametar", PredefinedParametarType.LOGO);
 			}
 			component.addChild(new Parametar(pmc.getName(), pmc));
 		}

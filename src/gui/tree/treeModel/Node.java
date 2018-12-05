@@ -3,18 +3,15 @@ package gui.tree.treeModel;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Observable;
 
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
-import javax.swing.tree.TreePath;
 
 
-@SuppressWarnings("serial")
 public class Node extends Observable implements MutableTreeNode, Serializable
 {
-
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private Node parent;
 	private ArrayList<Node> children;
@@ -170,22 +167,6 @@ public class Node extends Observable implements MutableTreeNode, Serializable
 			leafCounter((Node)cmp.getChildAt(counter), 0, cmp.getChildAt(counter).getChildCount());
 		
 		leafCounter(cmp, counter+1, limit);
-	}
-	
-	public TreePath getPath() { //Not needed right now
-		
-		TreeNode node = this;
-		List<Object> nodes = new ArrayList<Object>();
-		
-		nodes.add(node);
-		node = node.getParent();
-		
-		while (node != null) {
-			nodes.add(0, node);
-			node = node.getParent();
-		}
-		
-		return nodes.isEmpty() ? null : new TreePath(nodes.toArray());
 	}
 
 }

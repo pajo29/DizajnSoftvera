@@ -5,8 +5,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import actions.AbstractGEDAction;
-import gui.parameters.logo.view.LogoView;
-import gui.parameters.path.view.PathView;
+import gui.parameters.logo.LogoView;
+import gui.parameters.path.PathView;
 import main.MainFrame;
 import main.MainSplitPane;
 
@@ -36,7 +36,6 @@ public class Browse extends AbstractGEDAction{
 		if(res == JFileChooser.APPROVE_OPTION)
 		{
 			((PathView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getAdress().setText(fileChooser.getSelectedFile().getAbsolutePath());
-			((PathView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getPathModel().setContent(fileChooser.getSelectedFile().getAbsolutePath());
 		}
 	}
 	
@@ -49,7 +48,6 @@ public class Browse extends AbstractGEDAction{
 		if(res == JFileChooser.APPROVE_OPTION)
 		{
 			((LogoView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getLabel().setIcon(new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath()));
-			((LogoView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getModel().setContent(new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath()));
 		}
 	}
 

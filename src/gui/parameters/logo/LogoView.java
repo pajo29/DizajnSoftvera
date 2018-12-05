@@ -1,11 +1,10 @@
-package gui.parameters.logo.view;
+package gui.parameters.logo;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import gui.parameters.logo.model.Logo;
 import main.MainFrame;
 
 @SuppressWarnings("serial")
@@ -16,12 +15,10 @@ public class LogoView extends JPanel
 	
 	private JButton browseButton;
 	
-	private Logo model;
-	
-	public LogoView(Logo model)
+
+	public LogoView(String label)
 	{
-		this.model = model;
-		label = new JLabel(this.model.getLabel());
+		this.label = new JLabel(label);
 		imageView = new JLabel();
 		browseButton = new JButton(MainFrame.getInstance().getActionManager().getBrowseAction());
 		browseButton.addActionListener(e ->
@@ -30,7 +27,7 @@ public class LogoView extends JPanel
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
 		JPanel panel = new JPanel();
-		panel.add(label);
+		panel.add(this.label);
 		panel.add(browseButton);
 		
 		add(panel);
@@ -49,8 +46,5 @@ public class LogoView extends JPanel
 		return browseButton;
 	}
 
-	public Logo getModel() {
-		return model;
-	}
 
 }

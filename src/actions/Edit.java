@@ -6,7 +6,7 @@ import javax.swing.KeyStroke;
 
 import gui.messageHandler.MessageHandler;
 import gui.messageHandler.MessageType;
-import gui.parameters.model.ParametarConfig;
+import gui.parameters.parametar.model.ParametarModel;
 import gui.tree.treeModel.Parametar;
 import main.MainSplitPane;
 
@@ -18,8 +18,8 @@ public class Edit extends AbstractGEDAction
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(
 		        KeyEvent.VK_3, ActionEvent.ALT_MASK));
 		putValue(SMALL_ICON, loadIcon("images/edit.png"));
-		putValue(NAME, "mEdit");
-		putValue(SHORT_DESCRIPTION, "Edit");
+		putValue(NAME, "Edit");
+		putValue(SHORT_DESCRIPTION, "Edit parametar");
 	}
 
 	@Override
@@ -33,11 +33,11 @@ public class Edit extends AbstractGEDAction
 		try
 		{
 		Parametar node = (Parametar)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
-		MainSplitPane.getInstance().getSplitPane().setUpSide(((ParametarConfig)node.getParametar()).getGui());	
+		MainSplitPane.getInstance().getSplitPane().setUpSide(((ParametarModel)node.getParametar()).createGUI());
 		}
 		catch(Exception e)
 		{
-			MessageHandler.handleEvent(MessageType.WRONG_COMPONENT_SELECTED);
+			MessageHandler.handleEvent(MessageType.WRONG_COMPONENT_SELECTED_PARAMETAR);
 		}
 	}
 

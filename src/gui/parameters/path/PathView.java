@@ -1,4 +1,4 @@
-package gui.parameters.path.view;
+package gui.parameters.path;
 
 import java.awt.Dimension;
 import javax.swing.BoxLayout;
@@ -7,7 +7,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import gui.parameters.path.model.Path;
 import main.MainFrame;
 
 @SuppressWarnings("serial")
@@ -17,12 +16,10 @@ public class PathView extends JPanel{
 	private JTextField adress;
 	private JButton browseButton;
 	
-	private Path pathModel;
-	
-	public PathView(Path pathModel)
+
+	public PathView(String label)
 	{
-		this.pathModel = pathModel;
-		label = new JLabel(this.pathModel.getLabel());
+		this.label = new JLabel(label);
 		adress = new JTextField();
 		adress.setMinimumSize(new Dimension(500, 35));
 		adress.setPreferredSize(new Dimension(500, 35));
@@ -31,18 +28,14 @@ public class PathView extends JPanel{
 		browseButton.addActionListener(e->{MainFrame.getInstance().getActionManager().getBrowseAction().browseForPath();});
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		add(label);
+		add(this.label);
 		
 		JPanel panel = new JPanel();
 		panel.add(adress);
 		panel.add(browseButton);
-		//TODO Napraviti kompresiju u Logo
 		add(panel);
 	}
 	
-	public Path getPathModel() {
-		return pathModel;
-	}
 
 	public JLabel getLabel() {
 		return label;

@@ -1,19 +1,16 @@
-package gui.parameters.lookAndFeel.view;
+package gui.parameters.lookAndFeel;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import gui.parameters.lookAndFeel.model.LookAndFeel;
-import gui.parameters.lookAndFeel.model.LookAndFeelType;
 
 @SuppressWarnings("serial")
 public class LookAndFeelView extends JPanel 
 {
 	private JLabel label;
-	private LookAndFeel model;
-	
+
 	private JComboBox<String> theme;
 	
 	private ImageIcon image;
@@ -21,10 +18,9 @@ public class LookAndFeelView extends JPanel
 	
 	private String[] themeChooser = {"Light", "Dark"};
 	
-	public LookAndFeelView(LookAndFeel model)
+	public LookAndFeelView(String label)
 	{
-		this.model = model;
-		label = new JLabel(this.model.getLabel());
+		this.label = new JLabel(label);
 		
 		theme = new JComboBox<>(themeChooser);
 		
@@ -34,22 +30,13 @@ public class LookAndFeelView extends JPanel
 		theme.addActionListener(e->
 		{
 			changePicture();
-			switch((String)theme.getSelectedItem())
-			{
-			case "Light":
-				this.model.setType(LookAndFeelType.LIGHT_THEME);
-				break;
-			case "Dark":
-				this.model.setType(LookAndFeelType.DARK_THEME);
-			}
-			
 		});
 		
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
 		JPanel panel = new JPanel();
 		
-		panel.add(label);
+		panel.add(this.label);
 		panel.add(theme);
 		add(panel);
 		add(imageDisplay);
