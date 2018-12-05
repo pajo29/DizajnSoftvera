@@ -4,6 +4,7 @@ import gui.parameters.about.AboutView;
 import gui.parameters.desktopShortcut.DesktopShortcutView;
 import gui.parameters.logo.LogoView;
 import gui.parameters.lookAndFeel.LookAndFeelView;
+import gui.parameters.parametar.view.ParametarView;
 import gui.parameters.path.PathView;
 
 import javax.swing.*;
@@ -82,8 +83,9 @@ public class ParametarModel implements Serializable
                 case "PATH":
                     return new PathView(label);
             }
-
         }
+        else
+            return new ParametarView(label, GUI, content);
         return null;
     }
 

@@ -19,7 +19,7 @@ import main.MainSplitPane;
 public class NewChooser extends JDialog
 {
 	private JComboBox<String> types;
-	private String[] availableTypes = {"Path", "Desktop shortcut", "About", "Look and Feel", "Logo"};
+	private String[] availableTypes = {"Path", "Desktop shortcut", "About", "Look and Feel", "Logo", "Custom"};
 	private JComboBox<String> moduleParametarComboBox;
 	private String[] moduleParametar = {"Module", "Parametar"};
 	private JButton chooseButton;
@@ -68,20 +68,27 @@ public class NewChooser extends JDialog
 			{
 			case "Path":
 				 pmc = new ParametarModel("Path", PredefinedParametarType.PATH);
+				 component.addChild(new Parametar(pmc.getName(), pmc));
 				 break;
 			case "Desktop shortcut":
 				pmc = new ParametarModel("Desktop shortcut", PredefinedParametarType.DESKTOP_SHORTCUT);
+				component.addChild(new Parametar(pmc.getName(), pmc));
 				break;
 			case "About":
 				pmc = new ParametarModel("About parametar", PredefinedParametarType.ABOUT);
+				component.addChild(new Parametar(pmc.getName(), pmc));
 				break;
 			case "Look and Feel":
 				pmc = new ParametarModel("Look and feel parametar", PredefinedParametarType.LOOK_AND_FEEL);
+				component.addChild(new Parametar(pmc.getName(), pmc));
 				break;
 			case "Logo":
 				pmc = new ParametarModel("Logo parametar", PredefinedParametarType.LOGO);
+				case "Custom":
+				new CustomDialog(component);
+				break;
 			}
-			component.addChild(new Parametar(pmc.getName(), pmc));
+
 		}
 		else
 		{

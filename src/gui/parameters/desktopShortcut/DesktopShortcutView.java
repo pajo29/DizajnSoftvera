@@ -1,12 +1,10 @@
 package gui.parameters.desktopShortcut;
 
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import gui.parameters.parametar.view.ParametarView;
+import javax.swing.*;
+
 
 @SuppressWarnings("serial")
-public class DesktopShortcutView extends ParametarView
+public class DesktopShortcutView extends JPanel
 {
 	
 	private JLabel label;
