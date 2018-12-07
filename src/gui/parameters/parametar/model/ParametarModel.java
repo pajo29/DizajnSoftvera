@@ -66,27 +66,25 @@ public class ParametarModel implements Serializable
             label = "Izaberite putanju instalacije";
     }
 
-    public JPanel createGUI()
+
+    public String getContent()
     {
-        if(predefined)
-        {
-            switch (GUI)
-            {
-                case "ABOUT":
-                    return new AboutView(label);
-                case "DESKTOP_SHORTCUT":
-                    return new DesktopShortcutView(label);
-                case "LOGO":
-                    return new LogoView(label);
-                case "LOOK_AND_FEEL":
-                    return new LookAndFeelView(label);
-                case "PATH":
-                    return new PathView(label);
-            }
-        }
-        else
-            return new ParametarView(label, GUI, content);
-        return null;
+        return content;
+    }
+
+    public String getGUI()
+    {
+        return GUI;
+    }
+
+    public String getLabel()
+    {
+        return label;
+    }
+
+    public boolean isPredefined()
+    {
+        return predefined;
     }
 
     public String getName()

@@ -31,20 +31,20 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		int rez = MessageHandler.handleEvent(MessageType.PROGRAM_START);
+//		int rez = MessageHandler.handleEvent(MessageType.PROGRAM_START);
 		splitPane = new SplitPane();
-		if(rez == JOptionPane.YES_OPTION)
-		{
-			Node node = (Node)MainFrame.getInstance().getActionManager().getOpenAction().openFile();
-			if(node == null)
-                setTree(new SoftwareCompany("Softverska kompanija"));
-			else
-				setTree((SoftwareCompany)node);
-		}
-		else
-		{
+//		if(rez == JOptionPane.YES_OPTION)
+//		{
+//			Node node = (Node)MainFrame.getInstance().getActionManager().getOpenAction().openFile();
+//			if(node == null)
+//                setTree(new SoftwareCompany("Softverska kompanija"));
+//			else
+//				setTree((SoftwareCompany)node);
+//		}
+//		else
+//		{
 			setTree(new SoftwareCompany("Softverska kompanija"));
-		}
+//		}
 		
 		
 		setRightComponent(splitPane);

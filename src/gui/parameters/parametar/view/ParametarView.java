@@ -1,5 +1,11 @@
 package gui.parameters.parametar.view;
 
+import gui.parameters.about.AboutView;
+import gui.parameters.desktopShortcut.DesktopShortcutView;
+import gui.parameters.logo.LogoView;
+import gui.parameters.lookAndFeel.LookAndFeelView;
+import gui.parameters.path.PathView;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -17,6 +23,7 @@ public class ParametarView extends JPanel
         {
             case "Text field":
                 JTextField txF = new JTextField();
+                txF.setText(content);
                 txF.setMinimumSize(new Dimension(300, 35));
                 txF.setPreferredSize(new Dimension(300, 35));
                 txF.setMaximumSize(new Dimension(300, 35));
@@ -24,6 +31,7 @@ public class ParametarView extends JPanel
                 break;
             case "Text area":
                 JTextArea tx = new JTextArea();
+                tx.setText(content);
                 tx.setMinimumSize(new Dimension(500, 300));
                 tx.setPreferredSize(new Dimension(500, 300));
                 tx.setMaximumSize(new Dimension(500, 300));
@@ -38,5 +46,28 @@ public class ParametarView extends JPanel
                 add(new Checkbox(content));
                 break;
         }
+    }
+
+    public static JPanel createGUI(boolean predefined, String GUI, String content, String label)
+    {
+        if(predefined)
+        {
+            switch (GUI)
+            {
+                case "ABOUT":
+                    return new AboutView(label);
+                case "DESKTOP_SHORTCUT":
+                    return new DesktopShortcutView(label);
+                case "LOGO":
+                    return new LogoView(label);
+                case "LOOK_AND_FEEL":
+                    return new LookAndFeelView(label);
+                case "PATH":
+                    return new PathView(label);
+            }
+        }
+        else
+            return new ParametarView(label, GUI, content);
+        return null;
     }
 }

@@ -7,6 +7,7 @@ import javax.swing.KeyStroke;
 import gui.messageHandler.MessageHandler;
 import gui.messageHandler.MessageType;
 import gui.parameters.parametar.model.ParametarModel;
+import gui.parameters.parametar.view.ParametarView;
 import gui.tree.treeModel.Parametar;
 import main.MainSplitPane;
 
@@ -33,7 +34,7 @@ public class Edit extends AbstractGEDAction
 		try
 		{
 		Parametar node = (Parametar)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
-		MainSplitPane.getInstance().getSplitPane().setUpSide(((ParametarModel)node.getParametar()).createGUI());
+		MainSplitPane.getInstance().getSplitPane().setUpSide(ParametarView.createGUI(((ParametarModel)node.getParametar()).isPredefined(), ((ParametarModel)node.getParametar()).getGUI(), ((ParametarModel)node.getParametar()).getContent(), ((ParametarModel)node.getParametar()).getLabel()));
 		}
 		catch(Exception e)
 		{

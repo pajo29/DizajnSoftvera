@@ -86,6 +86,7 @@ public class NewChooser extends JDialog
 				pmc = new ParametarModel("Logo parametar", PredefinedParametarType.LOGO);
 				case "Custom":
 				new CustomDialog(component);
+				dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 				break;
 			}
 
