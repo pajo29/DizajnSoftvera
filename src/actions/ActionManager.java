@@ -21,7 +21,13 @@ public class ActionManager
 	private Help helpAction;
 	private ExportProduct exportAction;
 	private ImportProduct importAction;
-	
+
+	private Cut cutAction;
+	private Copy copyAction;
+	private Paste pasteAction;
+	private Undo undoAction;
+	private Redo redoAction;
+
 	/*
 	 * Parameters Actions
 	 */
@@ -50,8 +56,13 @@ public class ActionManager
 		helpAction = new Help();
 		exportAction = new ExportProduct();
 		importAction = new ImportProduct();
-		
-		
+
+		cutAction = new Cut();
+		copyAction = new Copy();
+		pasteAction = new Paste();
+		undoAction = new Undo();
+		redoAction = new Redo();
+
 		browseAction = new Browse();
 	}
 	
@@ -182,5 +193,30 @@ public class ActionManager
 
 	public Browse getBrowseAction() {
 		return browseAction;
+	}
+
+	public Cut getCutAction()
+	{
+		return cutAction;
+	}
+
+	public Copy getCopyAction()
+	{
+		return copyAction;
+	}
+
+	public Paste getPasteAction()
+	{
+		return pasteAction;
+	}
+
+	public Undo getUndoAction()
+	{
+		return undoAction;
+	}
+
+	public Redo getRedoAction()
+	{
+		return redoAction;
 	}
 }

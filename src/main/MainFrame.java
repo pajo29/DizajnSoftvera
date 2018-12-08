@@ -43,7 +43,6 @@ public class MainFrame extends JFrame {
 		addWindowListener(new CloseListener());
 		setSize(1000, 1000);
 		setLocationRelativeTo(null);
-		setTitle("InstaFram RN75/18");
 		setVisible(true);
 	}
 	

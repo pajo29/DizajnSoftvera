@@ -21,7 +21,7 @@ public class MenuBar extends JMenuBar{
 		
 		
 		menuFile = new MenuFile();
-		menuView = new MenuView();
+		menuView = new MenuEdit();
 		menuTools = new MenuTools();
 		
 		menuPara = new MenuParametrizacija();

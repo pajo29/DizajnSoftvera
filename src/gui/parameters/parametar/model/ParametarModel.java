@@ -1,15 +1,6 @@
 package gui.parameters.parametar.model;
 
-import gui.parameters.about.AboutView;
-import gui.parameters.desktopShortcut.DesktopShortcutView;
-import gui.parameters.logo.LogoView;
-import gui.parameters.lookAndFeel.LookAndFeelView;
-import gui.parameters.parametar.view.ParametarView;
-import gui.parameters.path.PathView;
-
-import javax.swing.*;
 import java.io.Serializable;
-import java.nio.file.Path;
 
 public class ParametarModel implements Serializable
 {

@@ -4,7 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import gui.tree.treePopupMenu.PopupMenu;
+import gui.menu.treePopupMenu.PopupMenu;
 import main.MainFrame;
 
 public class EditListener extends MouseAdapter implements MouseListener

@@ -1,4 +1,4 @@
-package gui.tree.treePopupMenu;
+package gui.menu.treePopupMenu;
 
 import javax.swing.JPopupMenu;
 
@@ -16,8 +16,11 @@ public class PopupMenu extends JPopupMenu {
 		add(MainFrame.getInstance().getActionManager().getImportAction());
 		addSeparator();
 		add(MainFrame.getInstance().getActionManager().getEditAction());
-		addSeparator();
 		add(MainFrame.getInstance().getActionManager().getRemoveAction());
+		addSeparator();
+		add(MainFrame.getInstance().getActionManager().getCopyAction());
+		add(MainFrame.getInstance().getActionManager().getCutAction());
+		add(MainFrame.getInstance().getActionManager().getPasteAction());
 	}
 
 }

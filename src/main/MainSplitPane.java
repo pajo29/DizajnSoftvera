@@ -44,9 +44,9 @@ public class MainSplitPane extends JSplitPane
 //		else
 //		{
 			setTree(new SoftwareCompany("Softverska kompanija"));
+			setNodes();
 //		}
-		
-		
+
 		setRightComponent(splitPane);
 		setDividerLocation(230);
 		setLeftComponent(tree);
@@ -83,6 +83,11 @@ public class MainSplitPane extends JSplitPane
 	public gui.tree.treeModel.TreeModel getTreeModel()
 	{
 		return treeModel;
+	}
+
+	private void setNodes()
+	{
+		MainFrame.getInstance().setTitle("InstaFram RN 75/18 Pavle Prica");
 	}
 	
 	
