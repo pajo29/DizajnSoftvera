@@ -1,5 +1,7 @@
 package gui.rightSplitPane.view;
 
+import gui.tree.treeModel.Node;
+
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
@@ -20,16 +22,16 @@ public class ComponentView extends JPanel implements Observer
 	private JTextField txContent;
 	private JTextField txParent;
 	private JTextField txChildren;
-	private JTextField txLeafs;
-	
+	private JTextField txGUI;
+
 	private JPanel firstPanel;
 	private JPanel secondPanel;
 	private JPanel thirdPanel;
 	private JPanel fourthPanel;
 	private JPanel fifthPanel;
-	
-//	private Node component = null;
-	
+
+	private Node component = null;
+
 	private ComponentView()
 	{
 		txName = new JTextField();
@@ -48,16 +50,16 @@ public class ComponentView extends JPanel implements Observer
 		txChildren.setEditable(false);
 		txChildren.setPreferredSize(new Dimension(400, 40));
 		
-		txLeafs = new JTextField();
-		txLeafs.setEditable(false);
-		txLeafs.setPreferredSize(new Dimension(400, 40));
-		
+		txGUI = new JTextField();
+		txGUI.setEditable(false);
+		txGUI.setPreferredSize(new Dimension(400, 40));
+
 		firstPanel = new JPanel();
 		secondPanel = new JPanel();
 		thirdPanel = new JPanel();
 		fourthPanel = new JPanel();
 		fifthPanel = new JPanel();
-		
+
 		firstPanel.add(new JLabel("Naziv: "));
 		firstPanel.add(txName);
 		
@@ -70,9 +72,9 @@ public class ComponentView extends JPanel implements Observer
 		fourthPanel.add(new JLabel("Deca: "));
 		fourthPanel.add(txChildren);
 		
-		fifthPanel.add(new JLabel("Listovi: "));
-		fifthPanel.add(txLeafs);
-		
+		fifthPanel.add(new JLabel("GUI: "));
+		fifthPanel.add(txGUI);
+
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
 		add(firstPanel);
@@ -80,8 +82,6 @@ public class ComponentView extends JPanel implements Observer
 		add(thirdPanel);
 		add(fourthPanel);
 		add(fifthPanel);
-		
-		
 	}
 	
 	public static ComponentView getInstance()
@@ -106,28 +106,12 @@ public class ComponentView extends JPanel implements Observer
 //		txLeafs.setText(""+component.getLeafCount(component, 0, component.getChildCount()));
 	}
 	
-//	public void setData(Component cmp, Tab tab)
-//	{
-//		txName.setText(cmp.getName());
-//		txContent.setText(cmp.getContent());
-//		if(cmp.getParent() == null)
-//		{
-//			txParent.setText("*Nema roditelja, glavna komponenta*");
-//		}
-//		else
-//			txParent.setText(cmp.getParent().toString());
-//		txChildren.setText(""+cmp.getChildCount());
-//		txLeafs.setText(""+cmp.getLeafCount(cmp, 0, cmp.getChildCount()));
-//		component = cmp;
-//		cmp.addObserver(this);
-//	}
-	
 	public void empty()
 	{
 		txName.setText("");
 		txContent.setText("");
 		txParent.setText("");
 		txChildren.setText("");
-		txLeafs.setText("");
+		txGUI.setText("");
 	}
 }
