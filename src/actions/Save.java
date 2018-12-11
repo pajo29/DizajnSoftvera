@@ -19,7 +19,7 @@ public class Save extends AbstractGEDAction
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control S"));
 		putValue(SMALL_ICON, loadIcon("images/save.png"));
 		putValue(NAME, "Save");
-		putValue(SHORT_DESCRIPTION, "Save");
+		putValue(SHORT_DESCRIPTION, "Save workspace");
 	}
 	
 	public void actionPerformed(ActionEvent arg0) 

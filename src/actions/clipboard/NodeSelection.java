@@ -1,6 +1,9 @@
 package actions.clipboard;
 
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.tree.treeModel.Node;
+import gui.tree.treeModel.Parametar;
 
 import java.awt.datatransfer.*;
 import java.io.IOException;
@@ -8,18 +11,18 @@ import java.util.ArrayList;
 
 public class NodeSelection implements ClipboardOwner, Transferable
 {
-    private Node selectedNode;
+    private Parametar selectedNode;
 
     private DataFlavor dataFlavor;
     private DataFlavor[] dataFlavours = {dataFlavor};
 
-    public NodeSelection(Node selectedNode)
+    public NodeSelection(Parametar selectedNode)
     {
         this.selectedNode = selectedNode;
 
         try
         {
-            dataFlavor = new DataFlavor(Class.forName("gui.tree.treeModel.Node"), "Children");
+            dataFlavor = new DataFlavor(Class.forName("gui.tree.treeModel.Parametar"), "Selected parametar");
         } catch (ClassNotFoundException e)
         {
             e.printStackTrace();
@@ -51,6 +54,6 @@ public class NodeSelection implements ClipboardOwner, Transferable
         if (dataFlavor.equals (this.dataFlavor))
             return (selectedNode);
         else
-            throw new UnsupportedFlavorException (this.dataFlavor);
+            throw new UnsupportedFlavorException(this.dataFlavor);
     }
 }

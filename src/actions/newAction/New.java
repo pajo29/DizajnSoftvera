@@ -43,10 +43,10 @@ public class New extends AbstractGEDAction
 			}
 			else
 			{
-				if (cmp instanceof SoftwareCompany)
+				if (cmp instanceof Module)
 				{
-					if (node instanceof Product)
-						((SoftwareCompany) cmp).addChild((Product) node);
+					if (node instanceof Parametar)
+						((Module) cmp).addChild((Parametar) node);
 					else
 						MessageHandler.handleEvent(MessageType.WRONG_TYPE_IN_CLIPBOARD);
 				}
@@ -54,20 +54,11 @@ public class New extends AbstractGEDAction
 				{
 					if (cmp instanceof Product)
 					{
-						if (node instanceof Module)
-							((Product) cmp).addChild((Module) node);
-						else if (node instanceof Parametar)
+						if (node instanceof Parametar)
 							((Product) cmp).addChild((Parametar) node);
 						else
 							MessageHandler.handleEvent(MessageType.WRONG_TYPE_IN_CLIPBOARD);
 
-					}
-					else
-					{
-						if (cmp instanceof Module)
-							((Module) cmp).addChild((Parametar) node);
-						else
-							MessageHandler.handleEvent(MessageType.WRONG_TYPE_IN_CLIPBOARD);
 					}
 				}
 

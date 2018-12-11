@@ -27,7 +27,7 @@ public class Open extends AbstractGEDAction
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
 		putValue(SMALL_ICON, loadIcon("images/open.png"));
 		putValue(NAME, "Open");
-		putValue(SHORT_DESCRIPTION, "Open File");
+		putValue(SHORT_DESCRIPTION, "Open workspace");
 	}
 
 	@Override

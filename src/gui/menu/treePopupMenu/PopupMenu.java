@@ -23,7 +23,6 @@ public class PopupMenu extends JPopupMenu {
 			addSeparator();
 			add(MainFrame.getInstance().getActionManager().getRemoveAction());
 			addSeparator();
-			add(MainFrame.getInstance().getActionManager().getPasteAction());
 		}
 		if(path.getLastPathComponent() instanceof Product)
 		{
@@ -34,8 +33,6 @@ public class PopupMenu extends JPopupMenu {
 			add(MainFrame.getInstance().getActionManager().getEditAction());
 			add(MainFrame.getInstance().getActionManager().getRemoveAction());
 			addSeparator();
-			add(MainFrame.getInstance().getActionManager().getCopyAction());
-			add(MainFrame.getInstance().getActionManager().getCutAction());
 			add(MainFrame.getInstance().getActionManager().getPasteAction());
 		}
 		if(path.getLastPathComponent() instanceof Module)
@@ -44,8 +41,6 @@ public class PopupMenu extends JPopupMenu {
 			addSeparator();
 			add(MainFrame.getInstance().getActionManager().getRemoveAction());
 			addSeparator();
-			add(MainFrame.getInstance().getActionManager().getCopyAction());
-			add(MainFrame.getInstance().getActionManager().getCutAction());
 			add(MainFrame.getInstance().getActionManager().getPasteAction());
 		}
 		if(path.getLastPathComponent() instanceof Parametar)
@@ -55,7 +50,6 @@ public class PopupMenu extends JPopupMenu {
 			addSeparator();
 			add(MainFrame.getInstance().getActionManager().getCopyAction());
 			add(MainFrame.getInstance().getActionManager().getCutAction());
-			add(MainFrame.getInstance().getActionManager().getPasteAction());
 		}
 	}
 

@@ -51,6 +51,9 @@ public class MessageHandler {
 			case WRONG_TYPE_IN_CLIPBOARD:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ne moze se izvrsiti paste!\nPogresan tip podatka pokusavate da nalepite!", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
+			case WRONG_TYPE_TO_COPY:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ne mozete kopirati tu komponentu!\nMozete kopirati samo parametar!", "Greska", JOptionPane.ERROR_MESSAGE);
+				break;
 		}
 
 		return 0;

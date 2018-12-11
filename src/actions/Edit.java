@@ -38,6 +38,7 @@ public class Edit extends AbstractGEDAction
 		}
 		catch(Exception e)
 		{
+			e.printStackTrace();
 			MessageHandler.handleEvent(MessageType.WRONG_COMPONENT_SELECTED_PARAMETAR);
 		}
 	}

@@ -57,6 +57,11 @@ public class ParametarModel implements Serializable
             label = "Izaberite putanju instalacije";
     }
 
+    @Override
+    public String toString()
+    {
+        return name;
+    }
 
     public String getContent()
     {

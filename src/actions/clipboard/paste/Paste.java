@@ -30,14 +30,9 @@ public class Paste extends AbstractGEDAction
         {
             if(clipboardContent != null)
             {
-                if (clipboardContent.isDataFlavorSupported(new DataFlavor(Class.forName("gui.tree.treeModel.Node"), "Children")))
+                if (clipboardContent.isDataFlavorSupported(new DataFlavor(Class.forName("gui.tree.treeModel.Parametar"), "Selected Parametar")))
                 {
-                    Node node = (Node) clipboardContent.getTransferData(new DataFlavor(Class.forName("gui.tree.treeModel.Node"), "Children"));
-                    if(node instanceof Product)
-                        MainFrame.getInstance().getActionManager().getNewAction().addNewChild(new Product(node));
-                    else if(node instanceof Module)
-                        MainFrame.getInstance().getActionManager().getNewAction().addNewChild(new Module(node));
-                    else if(node instanceof Parametar)
+                    Parametar node = (Parametar) clipboardContent.getTransferData(new DataFlavor(Class.forName("gui.tree.treeModel.Parametar"), "Selected Parametar"));
                         MainFrame.getInstance().getActionManager().getNewAction().addNewChild(new Parametar(node));
                 }
             }
@@ -45,6 +40,7 @@ public class Paste extends AbstractGEDAction
             {
                 MessageHandler.handleEvent(MessageType.CLIPBOARD_EMPTY);
             }
+            MainSplitPane.getInstance().getTree().clearSelection();
         } catch (Exception e)
         {
             e.printStackTrace();

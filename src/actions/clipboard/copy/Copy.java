@@ -2,7 +2,10 @@ package actions.clipboard.copy;
 
 import actions.AbstractGEDAction;
 import actions.clipboard.NodeSelection;
+import gui.messageHandler.MessageHandler;
+import gui.messageHandler.MessageType;
 import gui.tree.treeModel.Node;
+import gui.tree.treeModel.Parametar;
 import main.MainFrame;
 import main.MainSplitPane;
 
@@ -23,8 +26,16 @@ public class Copy extends AbstractGEDAction
     @Override
     public void actionPerformed(ActionEvent actionEvent)
     {
-        Node selectedNode;
-        selectedNode = (Node) MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+        Parametar selectedNode = null;
+        try
+        {
+            selectedNode = (Parametar) MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+        }
+        catch (Exception e)
+        {
+            MessageHandler.handleEvent(MessageType.WRONG_TYPE_TO_COPY);
+            return;
+        }
         NodeSelection nodeSelection = new NodeSelection(selectedNode);
         MainFrame.getInstance().getClipboard().setContents(nodeSelection, MainFrame.getInstance());
     }

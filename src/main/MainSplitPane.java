@@ -12,6 +12,8 @@ import gui.tree.Tree;
 import gui.tree.treeModel.Node;
 import gui.tree.treeModel.SoftwareCompany;
 
+import java.io.File;
+
 @SuppressWarnings("serial")
 public class MainSplitPane extends JSplitPane
 {
@@ -32,15 +34,24 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		int rez = MessageHandler.handleEvent(MessageType.PROGRAM_START);
 		splitPane = new SplitPane();
-		if(rez == JOptionPane.YES_OPTION)
+		File file = new File("workspace.ser");
+		if(file.exists())
 		{
-			Node node = WorkspaceLoader.programStart();
-			if(node == null)
-                setTree(new SoftwareCompany("Softverska kompanija"));
-			else
-				setTree((SoftwareCompany)node);
+			int rez = MessageHandler.handleEvent(MessageType.PROGRAM_START);
+
+			if (rez == JOptionPane.YES_OPTION)
+			{
+				Node node = WorkspaceLoader.programStart();
+				if (node == null)
+					setTree(new SoftwareCompany("Softverska kompanija"));
+				else
+					setTree((SoftwareCompany) node);
+			} else
+			{
+				setTree(new SoftwareCompany("Softverska kompanija"));
+				setNodes();
+			}
 		}
 		else
 		{
