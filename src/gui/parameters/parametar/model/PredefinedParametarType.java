@@ -2,5 +2,5 @@ package gui.parameters.parametar.model;
 
 public enum PredefinedParametarType
 {
-    ABOUT, DESKTOP_SHORTCUT, LOGO, LOOK_AND_FEEL, PATH
+    TERMS_OF_USE, DESKTOP_SHORTCUT, LOGO, LOOK_AND_FEEL, NAME, AUTHOR, START_AFTER_INSTALL
 }

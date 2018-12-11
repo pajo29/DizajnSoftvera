@@ -46,7 +46,7 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 	
 	public boolean isCellEditable(EventObject arg0) {
 		if (arg0 instanceof MouseEvent)
-			if (((MouseEvent)arg0).getClickCount() == 1 && ((MouseEvent)arg0).isControlDown()){
+			if (((MouseEvent)arg0).getClickCount() == 2 && ((MouseEvent)arg0).isControlDown()){
 				return true;
 			}
 				return false;

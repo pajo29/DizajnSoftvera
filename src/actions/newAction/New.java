@@ -6,7 +6,6 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import actions.AbstractGEDAction;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import gui.messageHandler.MessageHandler;
 import gui.messageHandler.MessageType;
 import gui.tree.treeModel.*;

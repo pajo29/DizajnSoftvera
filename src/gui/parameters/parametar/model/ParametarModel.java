@@ -31,30 +31,38 @@ public class ParametarModel implements Serializable
 
     private void formGUI(PredefinedParametarType type)
     {
-        if(type == PredefinedParametarType.ABOUT)
-            GUI = "ABOUT";
+        if(type == PredefinedParametarType.TERMS_OF_USE)
+            GUI = type.toString();
         if(type == PredefinedParametarType.DESKTOP_SHORTCUT)
-            GUI = "DESKTOP_SHORTCUT";
+            GUI = type.toString();
         if(type == PredefinedParametarType.LOGO)
-            GUI = "LOGO";
+            GUI = type.toString();
         if(type == PredefinedParametarType.LOOK_AND_FEEL)
-            GUI = "LOOK_AND_FEEL";
-        if(type == PredefinedParametarType.PATH)
-            GUI = "PATH";
+            GUI = type.toString();
+        if(type == PredefinedParametarType.NAME)
+            GUI = type.toString();
+        if(type == PredefinedParametarType.AUTHOR)
+            GUI = type.toString();
+        if(type == PredefinedParametarType.START_AFTER_INSTALL)
+            GUI = type.toString();
     }
 
     private void formLabel(PredefinedParametarType type)
     {
-        if(type == PredefinedParametarType.ABOUT)
-            label = "Upisite Vas about";
+        if(type == PredefinedParametarType.TERMS_OF_USE)
+            label = "Upisite Vas uslove koriscenja";
         if(type == PredefinedParametarType.DESKTOP_SHORTCUT)
             label = "Da li zelite precicu na Vasem Desktopu?";
         if(type == PredefinedParametarType.LOGO)
             label = "Izaberite Vas logo";
         if(type == PredefinedParametarType.LOOK_AND_FEEL)
             label = "Izaberite Vas izgled";
-        if(type == PredefinedParametarType.PATH)
-            label = "Izaberite putanju instalacije";
+        if(type == PredefinedParametarType.NAME)
+            label = "Upisite ime proizvoda";
+        if(type == PredefinedParametarType.AUTHOR)
+            label = "Upisite nesto o autoru";
+        if(type == PredefinedParametarType.START_AFTER_INSTALL)
+            label = "Pokrenuti nakon instalacije";
     }
 
     @Override

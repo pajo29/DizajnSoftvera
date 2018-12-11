@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class Paste extends AbstractGEDAction
 {
@@ -30,10 +31,14 @@ public class Paste extends AbstractGEDAction
         {
             if(clipboardContent != null)
             {
-                if (clipboardContent.isDataFlavorSupported(new DataFlavor(Class.forName("gui.tree.treeModel.Parametar"), "Selected Parametar")))
+                if (clipboardContent.isDataFlavorSupported(new DataFlavor(Class.forName("java.util.ArrayList"), "Selected Parametar")))
                 {
-                    Parametar node = (Parametar) clipboardContent.getTransferData(new DataFlavor(Class.forName("gui.tree.treeModel.Parametar"), "Selected Parametar"));
-                        MainFrame.getInstance().getActionManager().getNewAction().addNewChild(new Parametar(node));
+                        ArrayList<Parametar> parametars = (ArrayList<Parametar>) clipboardContent.getTransferData(new DataFlavor(Class.forName("java.util.ArrayList"), "Selected Parametar"));
+                        for (Parametar par : parametars)
+                        {
+
+                            MainFrame.getInstance().getActionManager().getNewAction().addNewChild(new Parametar(par));
+                        }
                 }
             }
             else

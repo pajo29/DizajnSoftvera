@@ -32,7 +32,6 @@ public class Node extends Observable implements MutableTreeNode, Serializable, C
 	public Node(Node node)
 	{
 		this.name = node.getName();
-		this.parent = (Node) node.getParent();
 		this.children = node.getChildren();
 	}
 

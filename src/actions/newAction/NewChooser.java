@@ -19,7 +19,7 @@ import main.MainSplitPane;
 public class NewChooser extends JDialog
 {
 	private JComboBox<String> types;
-	private String[] availableTypes = {"Path", "Desktop shortcut", "About", "Look and Feel", "Logo", "Custom"};
+	private String[] availableTypes = {"Autor", "Naziv", "Pokretanje nakon instalacije", "Desktop shortcut", "Uslovi koriscenja", "Look and Feel", "Logo", "Custom"};
 	private JComboBox<String> moduleParametarComboBox;
 	private String[] moduleParametar = {"Module", "Parametar"};
 	private JButton chooseButton;
@@ -66,28 +66,38 @@ public class NewChooser extends JDialog
 		{
 			switch((String)types.getSelectedItem())
 			{
-			case "Path":
-				 pmc = new ParametarModel("Path", PredefinedParametarType.PATH);
-				 component.addChild(new Parametar(pmc.getName(), pmc));
-				 break;
-			case "Desktop shortcut":
-				pmc = new ParametarModel("Desktop shortcut", PredefinedParametarType.DESKTOP_SHORTCUT);
-				component.addChild(new Parametar(pmc.getName(), pmc));
+				case "Naziv":
+				 	pmc = new ParametarModel("Naziv", PredefinedParametarType.NAME);
+				 	component.addChild(new Parametar(pmc.getName(), pmc));
+				 	break;
+				case "Desktop shortcut":
+					pmc = new ParametarModel("Desktop shortcut", PredefinedParametarType.DESKTOP_SHORTCUT);
+					component.addChild(new Parametar(pmc.getName(), pmc));
 				break;
-			case "About":
-				pmc = new ParametarModel("About parametar", PredefinedParametarType.ABOUT);
-				component.addChild(new Parametar(pmc.getName(), pmc));
-				break;
-			case "Look and Feel":
-				pmc = new ParametarModel("Look and feel parametar", PredefinedParametarType.LOOK_AND_FEEL);
-				component.addChild(new Parametar(pmc.getName(), pmc));
-				break;
-			case "Logo":
-				pmc = new ParametarModel("Logo parametar", PredefinedParametarType.LOGO);
+					case "Uslovi koriscenja":
+					pmc = new ParametarModel("Uslovi koriscenja", PredefinedParametarType.TERMS_OF_USE);
+					component.addChild(new Parametar(pmc.getName(), pmc));
+					break;
+				case "Look and Feel":
+					pmc = new ParametarModel("Look and feel", PredefinedParametarType.LOOK_AND_FEEL);
+					component.addChild(new Parametar(pmc.getName(), pmc));
+					break;
+				case "Pokretanje nakon instalacije":
+					pmc = new ParametarModel("Pokretanje nakon instalacije", PredefinedParametarType.START_AFTER_INSTALL);
+					component.addChild(new Parametar(pmc.getName(), pmc));
+					break;
+				case "Logo":
+					pmc = new ParametarModel("Logo", PredefinedParametarType.LOGO);
+					component.addChild(new Parametar(pmc.getName(), pmc));
+					break;
+				case "Autor":
+					pmc = new ParametarModel("Autor", PredefinedParametarType.AUTHOR);
+					component.addChild(new Parametar(pmc.getName(), pmc));
+					break;
 				case "Custom":
-				new CustomDialog(component);
-				dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-				break;
+					new CustomDialog(component);
+					dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+					break;
 			}
 
 		}

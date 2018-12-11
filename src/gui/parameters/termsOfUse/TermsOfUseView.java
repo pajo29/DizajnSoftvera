@@ -1,4 +1,4 @@
-package gui.parameters.about;
+package gui.parameters.termsOfUse;
 
 import java.awt.Dimension;
 
@@ -7,13 +7,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
-public class AboutView extends JPanel
+public class TermsOfUseView extends JPanel
 {
 	private JLabel label;
 	private JTextArea aboutField;
 	
 
-	public AboutView(String label)
+	public TermsOfUseView(String label)
 	{
 		this.label = new JLabel(label);
 		aboutField = new JTextArea();

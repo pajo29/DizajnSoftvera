@@ -1,10 +1,12 @@
 package gui.parameters.parametar.view;
 
-import gui.parameters.about.AboutView;
+import gui.parameters.author.AuthorView;
+import gui.parameters.name.NameView;
+import gui.parameters.startAfterInstall.StartAfterInstallView;
+import gui.parameters.termsOfUse.TermsOfUseView;
 import gui.parameters.desktopShortcut.DesktopShortcutView;
 import gui.parameters.logo.LogoView;
 import gui.parameters.lookAndFeel.LookAndFeelView;
-import gui.parameters.path.PathView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,16 +56,20 @@ public class ParametarView extends JPanel
         {
             switch (GUI)
             {
-                case "ABOUT":
-                    return new AboutView(label);
+                case "TERMS_OF_USE":
+                    return new TermsOfUseView(label);
                 case "DESKTOP_SHORTCUT":
                     return new DesktopShortcutView(label);
                 case "LOGO":
                     return new LogoView(label);
                 case "LOOK_AND_FEEL":
                     return new LookAndFeelView(label);
-                case "PATH":
-                    return new PathView(label);
+                case "NAME":
+                    return new NameView(label);
+                case "AUTHOR":
+                    return new AuthorView(label);
+                case "START_AFTER_INSTALL":
+                    return new StartAfterInstallView(label);
             }
         }
         else

@@ -11,7 +11,9 @@ import main.MainSplitPane;
 
 import javax.swing.*;
 import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreePath;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class Cut extends AbstractGEDAction
 {
@@ -26,18 +28,25 @@ public class Cut extends AbstractGEDAction
     @Override
     public void actionPerformed(ActionEvent actionEvent)
     {
-        Parametar selectedNode = null;
+        ArrayList<Node> selectedNodes = new ArrayList<Node>();
+        TreePath[] paths = MainSplitPane.getInstance().getTree().getSelectionPaths();
         try
         {
-            selectedNode = (Parametar) MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+            for(int i = 0; i < paths.length; i++)
+            {
+                selectedNodes.add((Node)paths[i].getLastPathComponent());
+            }
         }
         catch (Exception e)
         {
             MessageHandler.handleEvent(MessageType.WRONG_TYPE_TO_COPY);
             return;
         }
-        NodeSelection nodeSelection = new NodeSelection(selectedNode);
+        NodeSelection nodeSelection = new NodeSelection(selectedNodes);
         MainFrame.getInstance().getClipboard().setContents(nodeSelection, MainFrame.getInstance());
-        ((Node)selectedNode.getParent()).remove((MutableTreeNode) selectedNode);
+        for(Node nodes: selectedNodes)
+        {
+            ((Node)nodes.getParent()).remove((MutableTreeNode) nodes);
+        }
     }
 }
