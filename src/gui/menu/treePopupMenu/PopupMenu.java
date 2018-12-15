@@ -47,9 +47,6 @@ public class PopupMenu extends JPopupMenu {
 		{
 			add(MainFrame.getInstance().getActionManager().getEditAction());
 			add(MainFrame.getInstance().getActionManager().getRemoveAction());
-			addSeparator();
-			add(MainFrame.getInstance().getActionManager().getCopyAction());
-			add(MainFrame.getInstance().getActionManager().getCutAction());
 		}
 	}
 

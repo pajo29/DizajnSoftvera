@@ -28,7 +28,7 @@ public class Browse extends AbstractGEDAction{
 
 		if(res == JFileChooser.APPROVE_OPTION)
 		{
-			((LogoView)MainSplitPane.getInstance().getSplitPane().getUpSide()).getLabel().setIcon(new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath()));
+			((LogoView)MainSplitPane.getInstance().getSplitPane().getPanel()).getLabel().setIcon(new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath()));
 		}
 	}
 	

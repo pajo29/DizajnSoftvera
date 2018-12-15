@@ -34,7 +34,8 @@ public class Edit extends AbstractGEDAction
 		try
 		{
 		Parametar node = (Parametar)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
-		MainSplitPane.getInstance().getSplitPane().setUpSide(ParametarView.createGUI(((ParametarModel)node.getParametar()).isPredefined(), ((ParametarModel)node.getParametar()).getGUI(), ((ParametarModel)node.getParametar()).getContent(), ((ParametarModel)node.getParametar()).getLabel()));
+		MainSplitPane.getInstance().getSplitPane().setContent(ParametarView.createGUI(((ParametarModel)node.getParametar()).isPredefined(), ((ParametarModel)node.getParametar()).getGUI(), ((ParametarModel)node.getParametar()).getContent(), ((ParametarModel)node.getParametar()).getLabel()));
+
 		}
 		catch(Exception e)
 		{

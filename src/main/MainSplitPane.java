@@ -7,7 +7,7 @@ import javax.swing.JSplitPane;
 import actions.WorkspaceLoader;
 import gui.messageHandler.MessageHandler;
 import gui.messageHandler.MessageType;
-import gui.rightSplitPane.view.SplitPane;
+import gui.rightSplitPane.view.ParametarView;
 import gui.tree.Tree;
 import gui.tree.treeModel.Node;
 import gui.tree.treeModel.SoftwareCompany;
@@ -23,7 +23,7 @@ public class MainSplitPane extends JSplitPane
 	 */
 	private static MainSplitPane instance = null;
 	
-	private SplitPane splitPane;
+	private ParametarView splitPane;
 	
 	private Tree tree;
 	private gui.tree.treeModel.TreeModel treeModel;
@@ -34,7 +34,7 @@ public class MainSplitPane extends JSplitPane
 	
 	public void initialise()
 	{
-		splitPane = new SplitPane();
+		splitPane = ParametarView.getInstance();
 		File file = new File("workspace.ser");
 		if(file.exists())
 		{
@@ -82,7 +82,7 @@ public class MainSplitPane extends JSplitPane
 		return instance;
 	}
 
-	public SplitPane getSplitPane()
+	public ParametarView getSplitPane()
 	{
 		return splitPane;
 	}
