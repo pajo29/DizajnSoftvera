@@ -2,7 +2,7 @@ package users.model;
 
 import java.io.Serializable;
 
-public class User implements Serializable
+public class User
 {
 
     private int ID;
@@ -23,7 +23,7 @@ public class User implements Serializable
     @Override
     public String toString()
     {
-        return this.name + "username: " + this.username + " pass: "+this.password;
+        return this.name + " username: " + this.username + " pass: "+this.password;
     }
 
     public int getID()

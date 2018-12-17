@@ -1,5 +1,7 @@
 package gui.menu;
 
+import main.MainFrame;
+
 import javax.swing.Box;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -27,7 +29,6 @@ public class MenuBar extends JMenuBar{
 		menuPara = new MenuParametrizacija();
 		menuHelp = new MenuHelp();
 		menuAbout = new MenuAbout();
-		
 		
 		
 		

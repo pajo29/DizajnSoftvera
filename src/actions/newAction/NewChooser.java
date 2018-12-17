@@ -13,7 +13,7 @@ import parameters.parametar.model.PredefinedParametarType;
 import tree.treeModel.Module;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class NewChooser extends JDialog

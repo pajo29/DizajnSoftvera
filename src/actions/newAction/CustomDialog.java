@@ -3,7 +3,7 @@ package actions.newAction;
 import parameters.parametar.model.ParametarModel;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 import javax.swing.*;
 import java.awt.*;

@@ -14,7 +14,7 @@ import tree.treeModel.Node;
 import tree.treeModel.Product;
 import tree.treeModel.SoftwareCompany;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class ImportProduct extends AbstractGEDAction

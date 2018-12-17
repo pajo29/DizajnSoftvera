@@ -6,7 +6,7 @@ import messageHandler.MessageHandler;
 import messageHandler.MessageType;
 import tree.treeModel.Node;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 import javax.swing.*;
 import javax.swing.tree.MutableTreeNode;

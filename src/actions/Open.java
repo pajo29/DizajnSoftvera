@@ -14,7 +14,7 @@ import tree.treeModel.Node;
 import tree.treeModel.SoftwareCompany;
 import tree.treeModel.TreeModel;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Open extends AbstractGEDAction

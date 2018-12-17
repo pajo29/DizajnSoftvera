@@ -5,7 +5,7 @@ import messageHandler.MessageHandler;
 import messageHandler.MessageType;
 import tree.treeModel.*;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 import javax.swing.*;
 import java.awt.datatransfer.DataFlavor;

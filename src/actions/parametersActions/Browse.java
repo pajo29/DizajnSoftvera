@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 import actions.AbstractGEDAction;
 import parameters.logo.LogoView;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Browse extends AbstractGEDAction{

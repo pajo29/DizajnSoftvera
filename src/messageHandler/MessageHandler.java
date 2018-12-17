@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import tree.treeModel.Node;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 public class MessageHandler {
 	
@@ -54,8 +54,8 @@ public class MessageHandler {
 			case WRONG_TYPE_TO_COPY:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ne mozete kopirati tu komponentu!\nMozete kopirati samo parametar!", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
-			case CONNECTION_FAILED:
-				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Niste online!", "Greska", JOptionPane.ERROR_MESSAGE);
+			case USERS_NOT_FOUND:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Datoteka sa korisnicima nije pronadjena.\nNapravljena nova", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
 		}
 

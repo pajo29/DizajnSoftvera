@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 
 import gui.menu.treePopupMenu.PopupMenu;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 import javax.swing.*;
 import javax.swing.tree.TreePath;

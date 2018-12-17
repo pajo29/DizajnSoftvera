@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import actions.ActionManager;
+import gui.MainSplitPane;
 import listeners.CloseListener;
 import gui.menu.MenuBar;
 import gui.statusBar.StatusBarView;

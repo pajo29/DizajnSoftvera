@@ -9,7 +9,7 @@ import messageHandler.MessageType;
 import parameters.parametar.model.ParametarModel;
 import parameters.parametar.view.ParametarView;
 import tree.treeModel.Parametar;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class Edit extends AbstractGEDAction

@@ -13,7 +13,7 @@ import messageHandler.MessageType;
 import tree.treeModel.Node;
 import tree.treeModel.Product;
 import main.MainFrame;
-import main.MainSplitPane;
+import gui.MainSplitPane;
 
 @SuppressWarnings("serial")
 public class ExportProduct extends AbstractGEDAction {
