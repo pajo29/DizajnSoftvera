@@ -54,6 +54,9 @@ public class MessageHandler {
 			case WRONG_TYPE_TO_COPY:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ne mozete kopirati tu komponentu!\nMozete kopirati samo parametar!", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
+			case CONNECTION_FAILED:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Niste online!", "Greska", JOptionPane.ERROR_MESSAGE);
+				break;
 		}
 
 		return 0;
