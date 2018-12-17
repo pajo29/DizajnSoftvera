@@ -6,14 +6,13 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 import javax.swing.JFileChooser;
-import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.tree.treeModel.Node;
-import gui.tree.treeModel.SoftwareCompany;
-import gui.tree.treeModel.TreeModel;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import tree.treeModel.Node;
+import tree.treeModel.SoftwareCompany;
+import tree.treeModel.TreeModel;
 import main.MainFrame;
 import main.MainSplitPane;
 

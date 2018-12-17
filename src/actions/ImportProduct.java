@@ -8,11 +8,11 @@ import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.tree.treeModel.Node;
-import gui.tree.treeModel.Product;
-import gui.tree.treeModel.SoftwareCompany;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import tree.treeModel.Node;
+import tree.treeModel.Product;
+import tree.treeModel.SoftwareCompany;
 import main.MainFrame;
 import main.MainSplitPane;
 

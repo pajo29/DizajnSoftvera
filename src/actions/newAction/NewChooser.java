@@ -8,11 +8,11 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import gui.parameters.parametar.model.ParametarModel;
-import gui.parameters.parametar.model.PredefinedParametarType;
-import gui.tree.treeModel.Module;
-import gui.tree.treeModel.Node;
-import gui.tree.treeModel.Parametar;
+import parameters.parametar.model.ParametarModel;
+import parameters.parametar.model.PredefinedParametarType;
+import tree.treeModel.Module;
+import tree.treeModel.Node;
+import tree.treeModel.Parametar;
 import main.MainSplitPane;
 
 @SuppressWarnings("serial")

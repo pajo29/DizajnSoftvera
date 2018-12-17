@@ -1,8 +1,8 @@
 package actions.newAction;
 
-import gui.parameters.parametar.model.ParametarModel;
-import gui.tree.treeModel.Node;
-import gui.tree.treeModel.Parametar;
+import parameters.parametar.model.ParametarModel;
+import tree.treeModel.Node;
+import tree.treeModel.Parametar;
 import main.MainSplitPane;
 
 import javax.swing.*;

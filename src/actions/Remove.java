@@ -7,9 +7,9 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.MutableTreeNode;
 
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.tree.treeModel.Node;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import tree.treeModel.Node;
 import main.MainFrame;
 import main.MainSplitPane;
 

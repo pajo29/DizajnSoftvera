@@ -6,9 +6,9 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import actions.AbstractGEDAction;
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.tree.treeModel.*;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import tree.treeModel.*;
 import main.MainFrame;
 import main.MainSplitPane;
 

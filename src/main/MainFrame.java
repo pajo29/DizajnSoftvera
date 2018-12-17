@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import actions.ActionManager;
-import gui.listeners.CloseListener;
+import listeners.CloseListener;
 import gui.menu.MenuBar;
 import gui.statusBar.StatusBarView;
 import gui.toolbar.MainToolBar;

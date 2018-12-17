@@ -6,8 +6,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
 import main.MainFrame;
 
 @SuppressWarnings("serial")

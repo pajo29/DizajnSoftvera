@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.parameters.parametar.model.ParametarModel;
-import gui.parameters.parametar.view.ParametarView;
-import gui.tree.treeModel.Parametar;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import parameters.parametar.model.ParametarModel;
+import parameters.parametar.view.ParametarView;
+import tree.treeModel.Parametar;
 import main.MainSplitPane;
 
 @SuppressWarnings("serial")

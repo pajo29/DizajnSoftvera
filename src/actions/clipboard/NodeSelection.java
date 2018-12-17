@@ -1,6 +1,6 @@
 package actions.clipboard;
 
-import gui.tree.treeModel.Node;
+import tree.treeModel.Node;
 
 import java.awt.datatransfer.*;
 import java.io.IOException;

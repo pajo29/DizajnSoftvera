@@ -5,12 +5,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
 import actions.WorkspaceLoader;
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.rightSplitPane.view.ParametarView;
-import gui.tree.Tree;
-import gui.tree.treeModel.Node;
-import gui.tree.treeModel.SoftwareCompany;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import gui.rightSplitPane.ParametarView;
+import tree.Tree;
+import tree.treeModel.Node;
+import tree.treeModel.SoftwareCompany;
 
 import java.io.File;
 
@@ -26,7 +26,7 @@ public class MainSplitPane extends JSplitPane
 	private ParametarView splitPane;
 	
 	private Tree tree;
-	private gui.tree.treeModel.TreeModel treeModel;
+	private tree.treeModel.TreeModel treeModel;
 	
 	private MainSplitPane()
 	{
@@ -67,7 +67,7 @@ public class MainSplitPane extends JSplitPane
 	public void setTree(SoftwareCompany scmp)
 	{
 		tree = new Tree();
-		treeModel = new gui.tree.treeModel.TreeModel(scmp);
+		treeModel = new tree.treeModel.TreeModel(scmp);
 		tree.setModel(treeModel);
 	}
 	
@@ -92,7 +92,7 @@ public class MainSplitPane extends JSplitPane
 		return tree;
 	}
 
-	public gui.tree.treeModel.TreeModel getTreeModel()
+	public tree.treeModel.TreeModel getTreeModel()
 	{
 		return treeModel;
 	}

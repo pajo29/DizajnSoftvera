@@ -3,10 +3,10 @@ package gui.menu.treePopupMenu;
 import javax.swing.JPopupMenu;
 import javax.swing.tree.TreePath;
 
-import gui.tree.treeModel.Module;
-import gui.tree.treeModel.Parametar;
-import gui.tree.treeModel.Product;
-import gui.tree.treeModel.SoftwareCompany;
+import tree.treeModel.Module;
+import tree.treeModel.Parametar;
+import tree.treeModel.Product;
+import tree.treeModel.SoftwareCompany;
 import main.MainFrame;
 
 @SuppressWarnings("serial")

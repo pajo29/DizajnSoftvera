@@ -9,9 +9,9 @@ import java.io.ObjectOutputStream;
 import javax.swing.JFileChooser;
 import javax.swing.KeyStroke;
 
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.tree.treeModel.Node;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import tree.treeModel.Node;
 import main.MainFrame;
 import main.MainSplitPane;
 

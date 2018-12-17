@@ -2,10 +2,10 @@ package actions.clipboard.copy;
 
 import actions.AbstractGEDAction;
 import actions.clipboard.NodeSelection;
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.tree.treeModel.Node;
-import gui.tree.treeModel.Parametar;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import tree.treeModel.Node;
+import tree.treeModel.Parametar;
 import main.MainFrame;
 import main.MainSplitPane;
 

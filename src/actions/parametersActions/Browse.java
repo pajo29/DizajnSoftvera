@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import actions.AbstractGEDAction;
-import gui.parameters.logo.LogoView;
+import parameters.logo.LogoView;
 import main.MainFrame;
 import main.MainSplitPane;
 

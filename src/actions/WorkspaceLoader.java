@@ -1,8 +1,8 @@
 package actions;
 
-import gui.messageHandler.MessageHandler;
-import gui.messageHandler.MessageType;
-import gui.tree.treeModel.Node;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import tree.treeModel.Node;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
