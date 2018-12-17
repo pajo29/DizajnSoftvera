@@ -5,12 +5,14 @@ import messageHandler.MessageType;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class UserDatabase
 {
 
-    private static UserDatabase instance = null; //TODO Napraviti da moze parametar u parametar (Slozeni parametar) ARGHJASDKDL
+    private static UserDatabase instance = null;
 
     private ArrayList<User> users;
 
@@ -38,13 +40,28 @@ public class UserDatabase
         catch (Exception e)
         {
             MessageHandler.handleEvent(MessageType.USERS_NOT_FOUND);
+            try
+            {
+                FileWriter fw = new FileWriter("korisnici.txt");
+            } catch (IOException e1)
+            {
+                e1.printStackTrace();
+            }
+            return;
         }
 
-        for(User usr: users)
+    }
+
+    public User findUserByUserAndPass(String username, String password)
+    {
+        for(User user: users)
         {
-            System.out.println(usr);
+            if(user.getUsername().equals(username) && user.getPassword().equals(password))
+            {
+                return user;
+            }
         }
-
+        return null;
     }
 
     public static UserDatabase getInstance()

@@ -1,7 +1,7 @@
 package application;
 
-import main.MainFrame;
 import users.model.UserDatabase;
+import users.view.Login;
 
 public class Main {
 
@@ -10,7 +10,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		UserDatabase.getInstance().loadUsers();
-		MainFrame.getInstance();
+		Login.getInstance();
 	}
 
 }
