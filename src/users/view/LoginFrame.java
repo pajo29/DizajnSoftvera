@@ -1,6 +1,9 @@
 package users.view;
 
 
+import actions.ActionManager;
+import main.MainFrame;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -55,7 +58,7 @@ LoginFrame extends JFrame {
 
         JPanel actionsPanel = new JPanel();
         JButton btnRegistration = new JButton("Registracija");
-        JButton btnLogin = new JButton("Uloguj se");
+        JButton btnLogin = new JButton(ActionManager.getInstace().getLoginAction());
         this.getRootPane().setDefaultButton(btnLogin);
         actionsPanel.add(btnLogin);
         actionsPanel.add(new JLabel("  "));

@@ -1,15 +1,8 @@
 package actions;
 
-import client.model.ClientDatabase;
-import exceptionHandler.*;
-import login.LoginFrame;
 import main.MainFrame;
-import mainFrame.MainFrame;
 import messageHandler.MessageHandler;
 import messageHandler.MessageType;
-import user.model.User;
-import user.model.UserDatabase;
-import user.view.Profile;
 import users.model.User;
 import users.model.UserDatabase;
 import users.view.LoginFrame;
@@ -21,7 +14,7 @@ public class Login extends AbstractGEDAction {
 	public Login() {
 
 		putValue(SHORT_DESCRIPTION, "Loguje se u aplikaciju");
-		putValue(NAME, "LoginFrame");
+		putValue(NAME, "Login");
 	}
 	
 	@Override

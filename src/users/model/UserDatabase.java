@@ -3,10 +3,7 @@ package users.model;
 import messageHandler.MessageHandler;
 import messageHandler.MessageType;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class UserDatabase
@@ -23,6 +20,7 @@ public class UserDatabase
 
     public void loadUsers()
     {
+        users.clear();
         try
         {
             FileReader fr = new FileReader("korisnici.txt");
@@ -52,6 +50,26 @@ public class UserDatabase
 
     }
 
+    public void addUser(User user)
+    {
+        try
+        {
+            FileWriter fw = new FileWriter("korisnici.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            String str = "";
+            str += user.getID()+";"+user.getName()+";"+user.getUsername()+";"+user.getPassword()+";"+user.getRole();
+            bw.newLine();
+            bw.write(str);
+
+            bw.close();
+            fw.close();
+
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public User findUserByUserAndPass(String username, String password)
     {
         for(User user: users)
@@ -62,6 +80,24 @@ public class UserDatabase
             }
         }
         return null;
+    }
+
+    public boolean checkIfUserExists(User user)
+    {
+        for (User usr: users)
+        {
+            if(usr.getUsername().equals(user.getUsername()) && usr.getPassword().equals(user.getPassword()))
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public ArrayList<User> getUsers()
+    {
+        return users;
     }
 
     public static UserDatabase getInstance()

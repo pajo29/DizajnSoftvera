@@ -1,5 +1,7 @@
 package users.view;
 
+import actions.ActionManager;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -63,7 +65,7 @@ public class RegistrationFrame extends JDialog {
 
 
         JPanel actionsPanel = new JPanel();
-        actionsPanel.add(new JButton("Registruj se"));
+        actionsPanel.add(new JButton(ActionManager.getInstace().getRegistrationAction()));
         actionsPanel.add(new JLabel("  "));
         JButton btnBack = new JButton("Nazad");
         actionsPanel.add(btnBack);

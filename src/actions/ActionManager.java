@@ -35,6 +35,9 @@ public class ActionManager
 	 * Parameters Actions
 	 */
 	private Browse browseAction;
+
+	private Login loginAction;
+	private Registration registrationAction;
 	
 	
 	private File defaultFile = new File("workspace.ser");
@@ -67,6 +70,9 @@ public class ActionManager
 		redoAction = new Redo();
 
 		browseAction = new Browse();
+
+		loginAction = new Login();
+		registrationAction = new Registration();
 	}
 	
 	public static ActionManager getInstace()
@@ -221,5 +227,15 @@ public class ActionManager
 	public Redo getRedoAction()
 	{
 		return redoAction;
+	}
+
+	public Login getLoginAction()
+	{
+		return loginAction;
+	}
+
+	public Registration getRegistrationAction()
+	{
+		return registrationAction;
 	}
 }

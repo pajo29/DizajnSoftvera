@@ -60,6 +60,15 @@ public class MessageHandler {
 			case WRONG_CREDIDENTALS:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Pogresni kredidentali", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
+			case COMPLETE_REGISTRATION:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Uspesno registrovan korisnik!", "Uspeh!", JOptionPane.INFORMATION_MESSAGE);
+				break;
+			case INCOMPLETE_REGISTRATION:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Neuspesno registrovanje!", "Greska", JOptionPane.ERROR_MESSAGE);
+				break;
+			case USER_ALREADY_EXISTS:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Korisnik vec postoji!", "Greska", JOptionPane.ERROR_MESSAGE);
+				break;
 		}
 
 		return 0;
