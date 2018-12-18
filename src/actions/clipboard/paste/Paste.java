@@ -18,7 +18,6 @@ public class Paste extends AbstractGEDAction
 
     public Paste()
     {
-        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("control V"));
         putValue(SMALL_ICON, loadIcon("../../images/paste.png"));
         putValue(NAME, "Paste");
         putValue(SHORT_DESCRIPTION, "Paste file");

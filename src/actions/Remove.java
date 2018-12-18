@@ -7,6 +7,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.MutableTreeNode;
 
+import command.RemoveCommand;
 import messageHandler.MessageHandler;
 import messageHandler.MessageType;
 import tree.treeModel.Node;
@@ -41,22 +42,13 @@ public class Remove extends AbstractGEDAction
 				return;
 			}
 
+
+
 			int rez = MessageHandler.handleEvent(MessageType.NODE_REMOVAL);
 
 			if (rez == JOptionPane.YES_OPTION)
 			{
-				if (cmp == MainSplitPane.getInstance().getTree().getPathForRow(0).getLastPathComponent())
-				{
-
-					((Node) cmp).getChildren().clear();
-				} else
-				{
-					Node component = (Node) cmp;
-					((Node) component.getParent()).remove((MutableTreeNode) cmp);
-				}
-				SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
-				MainSplitPane.getInstance().getTree().clearSelection();
-				MainFrame.getInstance().getActionManager().setChanges(true);
+				MainFrame.getInstance().getCommandManager().addCommand(new RemoveCommand((Node)cmp));
 			}
 	}
 

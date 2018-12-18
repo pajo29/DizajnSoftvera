@@ -6,6 +6,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import actions.AbstractGEDAction;
+import command.AddNodeCommand;
 import messageHandler.MessageHandler;
 import messageHandler.MessageType;
 import tree.treeModel.*;
@@ -45,7 +46,7 @@ public class New extends AbstractGEDAction
 				if (cmp instanceof Module)
 				{
 					if (node instanceof Parametar)
-						((Module) cmp).addChild((Parametar) node);
+						MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)cmp, (Parametar)node));
 					else
 						MessageHandler.handleEvent(MessageType.WRONG_TYPE_IN_CLIPBOARD);
 				}
@@ -54,7 +55,7 @@ public class New extends AbstractGEDAction
 					if (cmp instanceof Product)
 					{
 						if (node instanceof Parametar)
-							((Product) cmp).addChild((Parametar) node);
+							MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Product)cmp, (Parametar)node));
 						else
 							MessageHandler.handleEvent(MessageType.WRONG_TYPE_IN_CLIPBOARD);
 
@@ -77,8 +78,9 @@ public class New extends AbstractGEDAction
 			{
 				SoftwareCompany component = (SoftwareCompany) cmp;
 				Product newComponent = new Product("Proizvod: " + (component.getChildCount() + 1));
-				component.addChild(newComponent);
+				MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, newComponent));
 			}
+
 			if (cmp instanceof Product)
 			{
 				Product component = (Product) cmp;

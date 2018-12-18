@@ -67,7 +67,9 @@ public class ActionManager
 		copyAction = new Copy();
 		pasteAction = new Paste();
 		undoAction = new Undo();
+		undoAction.setEnabled(false);
 		redoAction = new Redo();
+		redoAction.setEnabled(false);
 
 		browseAction = new Browse();
 

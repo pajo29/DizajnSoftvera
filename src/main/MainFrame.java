@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import actions.ActionManager;
+import command.CommandManager;
 import gui.MainSplitPane;
 import listeners.CloseListener;
 import gui.menu.MenuBar;
@@ -31,10 +32,13 @@ public class MainFrame extends JFrame implements ClipboardOwner
 	private Clipboard clipboard;
 
 	private User user;
+
+	private CommandManager commandManager;
 	
 	private MainFrame(User user)
 	{
 		this.user = user;
+		commandManager = new CommandManager();
 	}
 	
 	private void initialise()
@@ -86,6 +90,11 @@ public class MainFrame extends JFrame implements ClipboardOwner
 	public User getUser()
 	{
 		return user;
+	}
+
+	public CommandManager getCommandManager()
+	{
+		return commandManager;
 	}
 
 	@Override

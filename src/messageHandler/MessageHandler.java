@@ -70,6 +70,9 @@ public class MessageHandler {
 			case USER_ALREADY_EXISTS:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Korisnik vec postoji!", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
+			case INCOMPLETE_CUSTOM:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Popunite sva polja!", "Greska", JOptionPane.ERROR_MESSAGE);
+				break;
 		}
 
 		return 0;

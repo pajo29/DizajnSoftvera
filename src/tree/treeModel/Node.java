@@ -31,11 +31,12 @@ public class Node extends Observable implements MutableTreeNode, Serializable, C
 		this.children = node.getChildren();
 	}
 
+
 	public void addChild(Node childNode) {
 		childNode.parent = this;
 		children.add(childNode);
 	}
-	
+
 
 	@SuppressWarnings("unchecked")
 	@Override
