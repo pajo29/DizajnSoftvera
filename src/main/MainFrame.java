@@ -83,6 +83,11 @@ public class MainFrame extends JFrame implements ClipboardOwner
 		return instance;
 	}
 
+	public User getUser()
+	{
+		return user;
+	}
+
 	@Override
 	public void lostOwnership(Clipboard clipboard, Transferable transferable)
 	{

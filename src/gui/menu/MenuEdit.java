@@ -10,12 +10,24 @@ public class MenuEdit extends JMenu
 
 	public MenuEdit()
 	{
-		add(MainFrame.getInstance().getActionManager().getUndoAction());
-		add(MainFrame.getInstance().getActionManager().getRedoAction());
-		addSeparator();
-		add(MainFrame.getInstance().getActionManager().getCopyAction());
-		add(MainFrame.getInstance().getActionManager().getCutAction());
-		add(MainFrame.getInstance().getActionManager().getPasteAction());
+		if(MainFrame.getInstance().getUser().getRole().equals("operativni korisnik"))
+		{
+			add(MainFrame.getInstance().getActionManager().getUndoAction());
+			add(MainFrame.getInstance().getActionManager().getRedoAction());
+			addSeparator();
+			add(MainFrame.getInstance().getActionManager().getCopyAction());
+			add(MainFrame.getInstance().getActionManager().getPasteAction());
+		}
+		else
+		{
+			add(MainFrame.getInstance().getActionManager().getUndoAction());
+			add(MainFrame.getInstance().getActionManager().getRedoAction());
+			addSeparator();
+			add(MainFrame.getInstance().getActionManager().getCopyAction());
+			add(MainFrame.getInstance().getActionManager().getCutAction());
+			add(MainFrame.getInstance().getActionManager().getPasteAction());
+		}
+
 		setText("Edit");
 	}
 }
