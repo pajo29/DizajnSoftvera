@@ -4,3 +4,4 @@
 4;Zoran Vasic;vaske;kukuruz;operativni korisnik
 5;jasdas;joca;joca;admin
 6;paja;paja;paja;admin
+7;Nikola Sreckovic;srecko;srecko123;operativni korisnik

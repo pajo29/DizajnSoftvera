@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 
 import main.MainFrame;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 @SuppressWarnings("serial")
 public class LogoView extends JPanel
 {
@@ -21,6 +24,14 @@ public class LogoView extends JPanel
 		this.label = new JLabel(label);
 		imageView = new JLabel();
 		browseButton = new JButton(MainFrame.getInstance().getActionManager().getBrowseAction());
+		browseButton.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent actionEvent)
+			{
+				MainFrame.getInstance().getActionManager().getBrowseAction().browseForLogo();
+			}
+		});
 
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		

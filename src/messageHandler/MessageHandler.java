@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import tree.treeModel.Node;
 import main.MainFrame;
 import gui.MainSplitPane;
+import users.view.LoginFrame;
 
 public class MessageHandler {
 	
@@ -35,7 +36,7 @@ public class MessageHandler {
 			JOptionPane.showMessageDialog(MainFrame.getInstance(), "Za exportovanje se moze samo proizvod izabrati!", "Greska", JOptionPane.ERROR_MESSAGE);
 			break;
 		case PROGRAM_START:
-			int rez = JOptionPane.showConfirmDialog(MainFrame.getInstance(), "Da li zelite da nastavite gde ste stali?", "?", JOptionPane.YES_NO_OPTION);
+			int rez = JOptionPane.showConfirmDialog(LoginFrame.getInstance(), "Da li zelite da nastavite gde ste stali?", "?", JOptionPane.YES_NO_OPTION);
 			return rez;
 		case NODE_REMOVAL:
 			Node cmp = (Node)MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();

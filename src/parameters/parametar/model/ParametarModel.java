@@ -45,6 +45,10 @@ public class ParametarModel implements Serializable
             GUI = type.toString();
         if(type == PredefinedParametarType.START_AFTER_INSTALL)
             GUI = type.toString();
+        if(type == PredefinedParametarType.PATH)
+        {
+            GUI = type.toString();
+        }
     }
 
     private void formLabel(PredefinedParametarType type)
@@ -63,6 +67,8 @@ public class ParametarModel implements Serializable
             label = "Upisite nesto o autoru";
         if(type == PredefinedParametarType.START_AFTER_INSTALL)
             label = "Pokrenuti nakon instalacije";
+        if(type == PredefinedParametarType.PATH)
+            label = "Izaberite putanju instalacije";
     }
 
     @Override

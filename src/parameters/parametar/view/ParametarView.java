@@ -2,6 +2,7 @@ package parameters.parametar.view;
 
 import parameters.author.AuthorView;
 import parameters.name.NameView;
+import parameters.path.PathView;
 import parameters.startAfterInstall.StartAfterInstallView;
 import parameters.termsOfUse.TermsOfUseView;
 import parameters.desktopShortcut.DesktopShortcutView;
@@ -70,6 +71,8 @@ public class ParametarView extends JPanel
                     return new AuthorView(label);
                 case "START_AFTER_INSTALL":
                     return new StartAfterInstallView(label);
+                case "PATH":
+                    return new PathView(label);
             }
         }
         else

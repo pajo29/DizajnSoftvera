@@ -3,8 +3,8 @@ package application;
 import users.model.UserDatabase;
 import users.view.LoginFrame;
 
-public class Main {
-
+public class Main //TODO NA MODUL SE KACI PROIZVOD KOJI SE INSTALIRA, + DODATI PATH GDE CE SE INSTALIRATI PROIZVOD
+{
 	/*
 	 * Author Pavle Prica
 	 */
@@ -13,5 +13,4 @@ public class Main {
 		UserDatabase.getInstance().loadUsers();
 		LoginFrame.getInstance();
 	}
-
 }

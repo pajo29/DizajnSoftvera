@@ -19,7 +19,7 @@ import gui.MainSplitPane;
 public class NewChooser extends JDialog
 {
 	private JComboBox<String> types;
-	private String[] availableTypes = {"Autor", "Naziv", "Pokretanje nakon instalacije", "Desktop shortcut", "Uslovi koriscenja", "Look and Feel", "Logo", "Custom"};
+	private String[] availableTypes = {"Autor", "Naziv", "Pokretanje nakon instalacije", "Desktop shortcut", "Uslovi koriscenja", "Look and Feel", "Logo", "Path", "Custom"};
 	private JComboBox<String> moduleParametarComboBox;
 	private String[] moduleParametar = {"Module", "Parametar"};
 	private JButton chooseButton;
@@ -92,6 +92,10 @@ public class NewChooser extends JDialog
 					break;
 				case "Autor":
 					pmc = new ParametarModel("Autor", PredefinedParametarType.AUTHOR);
+					component.addChild(new Parametar(pmc.getName(), pmc));
+					break;
+				case "Path":
+					pmc = new ParametarModel("Path", PredefinedParametarType.PATH);
 					component.addChild(new Parametar(pmc.getName(), pmc));
 					break;
 				case "Custom":
