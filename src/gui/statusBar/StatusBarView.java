@@ -1,5 +1,7 @@
 package gui.statusBar;
 
+import users.model.User;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JPanel;
@@ -14,13 +16,13 @@ public class StatusBarView extends JPanel
 	private JTextField txAction;
 	private JTextField txStatus;
 	
-	public StatusBarView()
+	public StatusBarView(User user)
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		txDate = new JTextField("Datum i vreme: "+sdf.format(new Date()));
 		txDate.setEditable(false);
 		
-		txUser = new JTextField("Korisnik: <   >");
+		txUser = new JTextField("Korisnik: <"+user.getName()+":"+user.getRole()+">");
 		txUser.setEditable(false);
 		
 		txAction = new JTextField("Akcija: <   >");

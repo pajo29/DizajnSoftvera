@@ -1,16 +1,17 @@
 package application;
 
 import users.model.UserDatabase;
-import users.view.Login;
+import users.view.LoginFrame;
 
 public class Main {
 
 	/*
 	 * Author Pavle Prica
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		UserDatabase.getInstance().loadUsers();
-		Login.getInstance();
+		LoginFrame.getInstance();
 	}
 
 }

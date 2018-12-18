@@ -15,6 +15,7 @@ import listeners.CloseListener;
 import gui.menu.MenuBar;
 import gui.statusBar.StatusBarView;
 import gui.toolbar.MainToolBar;
+import users.model.User;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame implements ClipboardOwner
@@ -28,9 +29,12 @@ public class MainFrame extends JFrame implements ClipboardOwner
 	private MainSplitPane mainSplitPane;
 
 	private Clipboard clipboard;
+
+	private User user;
 	
-	private MainFrame()
+	private MainFrame(User user)
 	{
+		this.user = user;
 	}
 	
 	private void initialise()
@@ -45,7 +49,7 @@ public class MainFrame extends JFrame implements ClipboardOwner
 		
 		add(panel, BorderLayout.NORTH);
 		add(mainSplitPane);
-		add(new StatusBarView(), BorderLayout.SOUTH);
+		add(new StatusBarView(user), BorderLayout.SOUTH);
 		
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		addWindowListener(new CloseListener());
@@ -64,13 +68,18 @@ public class MainFrame extends JFrame implements ClipboardOwner
 		return actionManager;
 	}
 
-	public static MainFrame getInstance()
+	public static MainFrame getInstance(User user)
 	{
 		if(instance == null)
 		{
-			instance = new MainFrame();
+			instance = new MainFrame(user);
 			instance.initialise();
 		}
+		return instance;
+	}
+
+	public static MainFrame getInstance()
+	{
 		return instance;
 	}
 

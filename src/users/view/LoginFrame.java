@@ -5,18 +5,19 @@ import java.awt.*;
 
 import javax.swing.*;
 
-public class Login extends JFrame {
+public class
+LoginFrame extends JFrame {
 
-    private static Login instance = null;
+    private static LoginFrame instance = null;
 
     private JPasswordField tfPassword;
     private JTextField tfUser;
 
-    private Login() {
+    private LoginFrame() {
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         setSize(380, 250);
-        setTitle("Login");
+        setTitle("LoginFrame");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -60,7 +61,7 @@ public class Login extends JFrame {
         actionsPanel.add(new JLabel("  "));
         actionsPanel.add(btnRegistration);
         btnRegistration.addActionListener(e -> {
-            Registration.getInstance().show();
+            RegistrationFrame.getInstance().show();
         });
 
         labelAndFieldPanel.add(leftPanel);
@@ -87,8 +88,8 @@ public class Login extends JFrame {
         return tfPassword;
     }
 
-    public static Login getInstance() {
-        if(instance == null) instance = new Login();
+    public static LoginFrame getInstance() {
+        if(instance == null) instance = new LoginFrame();
         return instance;
     }
 

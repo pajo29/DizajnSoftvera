@@ -3,31 +3,26 @@ package users.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Registration extends JDialog {
+public class RegistrationFrame extends JDialog {
 
-    private static Registration instance = null;
+    private static RegistrationFrame instance = null;
 
     private JTextField tfName;
     private JTextField tfUsername;
     private JPasswordField tfPassword;
     private JComboBox<String> cmbRole;
 
-    private Registration() {
+    private RegistrationFrame() {
         setModalityType(ModalityType.APPLICATION_MODAL);
         setSize(400, 500);
         setTitle("Registracija");
@@ -111,8 +106,8 @@ public class Registration extends JDialog {
 
     }
 
-    public static Registration getInstance() {
-        if(instance == null) instance = new Registration();
+    public static RegistrationFrame getInstance() {
+        if(instance == null) instance = new RegistrationFrame();
         return instance;
     }
 

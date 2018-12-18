@@ -57,6 +57,9 @@ public class MessageHandler {
 			case USERS_NOT_FOUND:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Datoteka sa korisnicima nije pronadjena.\nNapravljena nova", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
+			case WRONG_CREDIDENTALS:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Pogresni kredidentali", "Greska", JOptionPane.ERROR_MESSAGE);
+				break;
 		}
 
 		return 0;
