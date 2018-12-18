@@ -11,6 +11,8 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellEditor;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import command.EditCommand;
+import main.MainFrame;
 import tree.treeModel.Node;
 
 
@@ -59,7 +61,8 @@ public class TreeEditor extends DefaultTreeCellEditor implements ActionListener
 	{
 		if(object instanceof Node)
 		{
-		((Node)object).setName(e.getActionCommand());
+//		((Node)object).setName(e.getActionCommand());
+			MainFrame.getInstance().getCommandManager().addCommand(new EditCommand(e, (Node)object));
 		}
 	}
 	

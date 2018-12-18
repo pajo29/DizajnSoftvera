@@ -42,9 +42,6 @@ public class Cut extends AbstractGEDAction
         }
         NodeSelection nodeSelection = new NodeSelection(selectedNodes);
         MainFrame.getInstance().getClipboard().setContents(nodeSelection, MainFrame.getInstance());
-        for(Node nodes: selectedNodes)
-        {
-            ((Node)nodes.getParent()).remove((MutableTreeNode) nodes);
-        }
+        MainFrame.getInstance().getActionManager().getPasteAction().setCut(true);
     }
 }

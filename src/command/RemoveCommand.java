@@ -37,12 +37,11 @@ public class RemoveCommand extends AbstractCommand
         }
         else
         {
-            Node component = node;
             nodeParent.remove((MutableTreeNode) node);
         }
         SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
         MainSplitPane.getInstance().getTree().clearSelection();
-        MainFrame.getInstance().getActionManager().setChanges(true);
+        MainFrame.getInstance().getActionManager().setChanges(true); //TODO DODAJ NA POZICIJU NAZAD
     }
 
     @Override
@@ -54,8 +53,6 @@ public class RemoveCommand extends AbstractCommand
             {
                 node.addChild(n);
             }
-
-
         }
         else
         {

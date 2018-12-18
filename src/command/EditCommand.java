@@ -5,32 +5,36 @@ import main.MainFrame;
 import tree.treeModel.Node;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
-public class AddNodeCommand extends  AbstractCommand
+public class EditCommand extends AbstractCommand
 {
-
     private Node node;
-    private Node newNode;
+    private ActionEvent e;
+    private String oldName;
 
-    public AddNodeCommand(Node node, Node newNode)
+    public EditCommand(ActionEvent e, Node node)
     {
+        this.e = e;
         this.node = node;
-        this.newNode = newNode;
+        this.oldName = node.getName();
     }
 
     @Override
     public void doCommand()
     {
-        node.addChild(newNode);
+        node.setName(e.getActionCommand());
         SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
+        MainSplitPane.getInstance().getTree().clearSelection();
         MainFrame.getInstance().getActionManager().setChanges(true);
     }
 
     @Override
     public void undoCommand()
     {
-        newNode.removeFromParent();
+        node.setName(oldName);
         SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
+        MainSplitPane.getInstance().getTree().clearSelection();
         MainFrame.getInstance().getActionManager().setChanges(true);
     }
 }
