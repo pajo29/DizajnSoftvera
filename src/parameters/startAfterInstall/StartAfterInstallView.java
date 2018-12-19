@@ -1,20 +1,38 @@
 package parameters.startAfterInstall;
 
-import javax.swing.*;
+import tree.treeModel.Node;
 
-public class StartAfterInstallView extends JPanel
+import javax.swing.*;
+import java.util.Observable;
+import java.util.Observer;
+
+public class StartAfterInstallView extends JPanel implements Observer
 {
+    private JLabel name;
     private JLabel label;
     private JCheckBox checkBox;
 
-    public StartAfterInstallView(String label)
+    private Node node;
+
+    public StartAfterInstallView(String label, Node node)
     {
+        this.node = node;
+        node.addObserver(this);
+        name = new JLabel(node.getName());
         this.label = new JLabel(label);
         checkBox = new JCheckBox("Pokretanje nakon instalacije");
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
+        add(name);
         add(this.label);
         add(checkBox);
+    }
+
+    @Override
+    public void update(Observable observable, Object o)
+    {
+        this.node = (Node)o;
+        this.name.setText(node.getName());
     }
 }

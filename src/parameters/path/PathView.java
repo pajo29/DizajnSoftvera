@@ -62,7 +62,6 @@ public class PathView extends JPanel implements Observer
             public void keyReleased(KeyEvent keyEvent)
             {
                 ((Parametar)node).getParametar().setContent(browsePath.getText());
-
             }
         });
 

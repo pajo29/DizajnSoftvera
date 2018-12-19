@@ -59,19 +59,19 @@ public class ParametarView extends JPanel
             switch (GUI)
             {
                 case "TERMS_OF_USE":
-                    return new TermsOfUseView(label);
+                    return new TermsOfUseView(label, node);
                 case "DESKTOP_SHORTCUT":
-                    return new DesktopShortcutView(label);
+//                    return new DesktopShortcutView(label, node);
                 case "LOGO":
-                    return new LogoView(label);
+                    return new LogoView(label, node);
                 case "LOOK_AND_FEEL":
-                    return new LookAndFeelView(label);
+                    return new LookAndFeelView(label, node);
                 case "NAME":
-                    return new NameView(label);
+                    return new NameView(label, node);
                 case "AUTHOR":
-                    return new AuthorView(label);
+//                    return new AuthorView(label, node);
                 case "START_AFTER_INSTALL":
-                    return new StartAfterInstallView(label);
+                    return new StartAfterInstallView(label, node);
                 case "PATH":
                     return new PathView(label, node);
             }

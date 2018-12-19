@@ -1,23 +1,63 @@
 package parameters.name;
 
+import tree.treeModel.Node;
+import tree.treeModel.Parametar;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Observable;
+import java.util.Observer;
 
-public class NameView extends JPanel
+public class NameView extends JPanel implements Observer
 {
-
+    private JLabel name;
     private JLabel label;
     private JTextField txName;
 
-    public NameView(String label)
+    private Node node;
+
+    public NameView(String label, Node node)
     {
+        this.node = node;
+        node.addObserver(this);
+        name = new JLabel(node.getName());
         this.label = new JLabel(label);
-        txName = new JTextField();
+        txName = new JTextField(((Parametar)node).getParametar().getContent());
         txName.setMinimumSize(new Dimension(100, 35));
         txName.setPreferredSize(new Dimension(100, 35));
         txName.setMaximumSize(new Dimension(100, 35));
+        txName.addKeyListener(new KeyListener()
+        {
+            @Override
+            public void keyTyped(KeyEvent keyEvent)
+            {
 
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent)
+            {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent)
+            {
+                ((Parametar)node).getParametar().setContent(txName.getText());
+            }
+        });
+
+        add(name);
         add(this.label);
         add(txName);
+    }
+
+    @Override
+    public void update(Observable observable, Object o)
+    {
+        this.node = (Node)o;
+        this.name.setText(node.getName());
     }
 }
