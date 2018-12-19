@@ -16,6 +16,8 @@ public class RemoveCommand extends AbstractCommand
 
     private ArrayList<Node> removedNodes;
 
+    private int removeIndex;
+
     public RemoveCommand(Node node)
     {
         this.node = node;
@@ -37,7 +39,8 @@ public class RemoveCommand extends AbstractCommand
         }
         else
         {
-            nodeParent.remove((MutableTreeNode) node);
+            removeIndex = nodeParent.getChildren().indexOf(node);
+            node.removeFromParent();
         }
         SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
         MainSplitPane.getInstance().getTree().clearSelection();

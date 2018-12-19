@@ -34,4 +34,6 @@ public class TermsOfUseView extends JPanel
 		return aboutField;
 	}
 
+	//TODO NAPRAVITI OBSERVER NA PANELU NA PROMENU SADRZAJA DA UPDATEUJE CONTENT I NA BAZI TOGA DA SE CUVA
+
 }

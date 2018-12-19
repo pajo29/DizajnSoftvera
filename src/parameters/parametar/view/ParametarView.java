@@ -8,6 +8,7 @@ import parameters.termsOfUse.TermsOfUseView;
 import parameters.desktopShortcut.DesktopShortcutView;
 import parameters.logo.LogoView;
 import parameters.lookAndFeel.LookAndFeelView;
+import tree.treeModel.Node;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,7 +52,7 @@ public class ParametarView extends JPanel
         }
     }
 
-    public static JPanel createGUI(boolean predefined, String GUI, String content, String label)
+    public static JPanel createGUI(boolean predefined, String GUI, String content, String label, Node node)
     {
         if(predefined)
         {
@@ -72,7 +73,7 @@ public class ParametarView extends JPanel
                 case "START_AFTER_INSTALL":
                     return new StartAfterInstallView(label);
                 case "PATH":
-                    return new PathView(label);
+                    return new PathView(label, node);
             }
         }
         else

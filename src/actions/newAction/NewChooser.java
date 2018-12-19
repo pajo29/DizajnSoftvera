@@ -71,35 +71,35 @@ public class NewChooser extends JDialog
 			{
 				case "Naziv":
 				 	pmc = new ParametarModel("Naziv", PredefinedParametarType.NAME);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 				 	break;
 				case "Desktop shortcut":
 					pmc = new ParametarModel("Desktop shortcut", PredefinedParametarType.DESKTOP_SHORTCUT);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 				break;
 					case "Uslovi koriscenja":
 					pmc = new ParametarModel("Uslovi koriscenja", PredefinedParametarType.TERMS_OF_USE);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Look and Feel":
 					pmc = new ParametarModel("Look and feel", PredefinedParametarType.LOOK_AND_FEEL);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Pokretanje nakon instalacije":
 					pmc = new ParametarModel("Pokretanje nakon instalacije", PredefinedParametarType.START_AFTER_INSTALL);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Logo":
 					pmc = new ParametarModel("Logo", PredefinedParametarType.LOGO);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Autor":
 					pmc = new ParametarModel("Autor", PredefinedParametarType.AUTHOR);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Path":
 					pmc = new ParametarModel("Path", PredefinedParametarType.PATH);
-					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Module)component, new Parametar(pmc.getName(), pmc)));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Custom":
 					this.dispose();
