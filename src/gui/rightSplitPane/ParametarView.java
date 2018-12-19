@@ -1,6 +1,8 @@
 package gui.rightSplitPane;
 
 
+import tree.treeModel.Node;
+
 import javax.swing.*;
 
 
@@ -11,6 +13,8 @@ public class ParametarView extends JPanel
 	private static ParametarView instance = null;
 
 	private JPanel panel;
+
+	private Node node;
 
 
 	private ParametarView()
@@ -26,8 +30,9 @@ public class ParametarView extends JPanel
 	}
 
 
-	public void setContent(JPanel upSide) {
+	public void setContent(JPanel upSide, Node node) {
 		panel = upSide;
+		this.node = node;
 		this.remove(0);
 		this.add(panel);
 		SwingUtilities.updateComponentTreeUI(this);

@@ -1,6 +1,12 @@
 package actions.newAction;
 
+import com.sun.xml.internal.ws.api.message.Message;
+import command.AddNodeCommand;
+import main.MainFrame;
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
 import parameters.parametar.model.ParametarModel;
+import tree.treeModel.Module;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
 import gui.MainSplitPane;
@@ -84,8 +90,13 @@ public class CustomDialog extends JDialog
 
         okButton.addActionListener(e ->
         {
+            if(txName.getText().equals("") || txLabel.getText().equals("") || txContent.getText().equals(""))
+            {
+                MessageHandler.handleEvent(MessageType.INCOMPLETE_CUSTOM);
+                return;
+            }
             ParametarModel pm = new ParametarModel(txName.getText(), txLabel.getText(), (String)GUI.getSelectedItem(), txContent.getText());
-            component.addChild(new Parametar(pm.getName(), pm));
+            MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pm.getName(), pm)));
             SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });

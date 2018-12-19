@@ -8,12 +8,15 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import command.AddNodeCommand;
+import main.MainFrame;
 import parameters.parametar.model.ParametarModel;
 import parameters.parametar.model.PredefinedParametarType;
 import tree.treeModel.Module;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
 import gui.MainSplitPane;
+import tree.treeModel.Product;
 
 @SuppressWarnings("serial")
 public class NewChooser extends JDialog
@@ -68,39 +71,39 @@ public class NewChooser extends JDialog
 			{
 				case "Naziv":
 				 	pmc = new ParametarModel("Naziv", PredefinedParametarType.NAME);
-				 	component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 				 	break;
 				case "Desktop shortcut":
 					pmc = new ParametarModel("Desktop shortcut", PredefinedParametarType.DESKTOP_SHORTCUT);
-					component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 				break;
 					case "Uslovi koriscenja":
 					pmc = new ParametarModel("Uslovi koriscenja", PredefinedParametarType.TERMS_OF_USE);
-					component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Look and Feel":
 					pmc = new ParametarModel("Look and feel", PredefinedParametarType.LOOK_AND_FEEL);
-					component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Pokretanje nakon instalacije":
 					pmc = new ParametarModel("Pokretanje nakon instalacije", PredefinedParametarType.START_AFTER_INSTALL);
-					component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Logo":
 					pmc = new ParametarModel("Logo", PredefinedParametarType.LOGO);
-					component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Autor":
 					pmc = new ParametarModel("Autor", PredefinedParametarType.AUTHOR);
-					component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Path":
 					pmc = new ParametarModel("Path", PredefinedParametarType.PATH);
-					component.addChild(new Parametar(pmc.getName(), pmc));
+					MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, new Parametar(pmc.getName(), pmc)));
 					break;
 				case "Custom":
+					this.dispose();
 					new CustomDialog(component);
-					dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 					break;
 			}
 
@@ -112,9 +115,10 @@ public class NewChooser extends JDialog
 			{
 			case "Module":
 				 Module mod = new Module("Modul: " + (component.getChildCount() + 1));
-				 component.addChild(mod);
+				 MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand((Product)component, mod));
 				 break;
 			case "Parametar":
+				this.dispose();
 				new NewChooser(component, true);
 				break;
 			}
@@ -122,8 +126,7 @@ public class NewChooser extends JDialog
 			
 		
 		SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
-		dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-		
+		this.dispose();
 		
 	}
 	

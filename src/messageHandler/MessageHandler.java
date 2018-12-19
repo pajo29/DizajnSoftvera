@@ -50,7 +50,7 @@ public class MessageHandler {
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Paste neuspesan!\nClipboard je prazan.", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
 			case WRONG_TYPE_IN_CLIPBOARD:
-				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ne moze se izvrsiti paste!\nPogresan tip podatka pokusavate da nalepite!", "Greska", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ne moze se izvrsiti paste!\n Mozete pastovati samo na proizvod/modul", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
 			case WRONG_TYPE_TO_COPY:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Ne mozete kopirati tu komponentu!\nMozete kopirati samo parametar!", "Greska", JOptionPane.ERROR_MESSAGE);
@@ -69,6 +69,9 @@ public class MessageHandler {
 				break;
 			case USER_ALREADY_EXISTS:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Korisnik vec postoji!", "Greska", JOptionPane.ERROR_MESSAGE);
+				break;
+			case INCOMPLETE_CUSTOM:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Popunite sva polja!", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
 		}
 

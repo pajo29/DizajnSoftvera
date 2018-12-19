@@ -1,5 +1,7 @@
 package actions;
 
+import main.MainFrame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
@@ -15,6 +17,6 @@ public class Redo extends AbstractGEDAction
     @Override
     public void actionPerformed(ActionEvent actionEvent)
     {
-
+        MainFrame.getInstance().getCommandManager().doCommand();
     }
 }

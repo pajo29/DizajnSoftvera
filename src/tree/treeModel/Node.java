@@ -31,11 +31,12 @@ public class Node extends Observable implements MutableTreeNode, Serializable, C
 		this.children = node.getChildren();
 	}
 
+
 	public void addChild(Node childNode) {
 		childNode.parent = this;
 		children.add(childNode);
 	}
-	
+
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -83,6 +84,7 @@ public class Node extends Observable implements MutableTreeNode, Serializable, C
 	@Override
 	public void insert(MutableTreeNode child, int index)
 	{
+		((Node)child.getParent()).addChild((Node)child);
 		children.add(index, (Node) child);
 	}
 
@@ -134,6 +136,8 @@ public class Node extends Observable implements MutableTreeNode, Serializable, C
 	public void setName(String name)
 	{
 		this.name = name;
+		setChanged();
+		notifyObservers(this);
 	}
 
 	public ArrayList<Node> getChildren()

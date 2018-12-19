@@ -101,4 +101,9 @@ public class ParametarModel implements Serializable
     {
         return name;
     }
+
+    public void setContent(String content)
+    {
+        this.content = content;
+    }
 }
