@@ -20,6 +20,11 @@ public class Parametar extends Node
 		parametar = ((Parametar)node).getParametar();
 	}
 
+	public void parametarChanged()
+	{
+		setChanged();
+		notifyObservers(parametar);
+	}
 	
 	@Override
 	public String toString()

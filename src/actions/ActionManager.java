@@ -31,6 +31,8 @@ public class ActionManager
 	private Undo undoAction;
 	private Redo redoAction;
 
+	private Preview previewAction;
+
 	/*
 	 * Parameters Actions
 	 */
@@ -70,6 +72,8 @@ public class ActionManager
 		undoAction.setEnabled(false);
 		redoAction = new Redo();
 		redoAction.setEnabled(false);
+
+		previewAction = new Preview();
 
 		browseAction = new Browse();
 
@@ -125,6 +129,11 @@ public class ActionManager
 	public Remove getRemoveAction()
 	{
 		return removeAction;
+	}
+
+	public Preview getPreviewAction()
+	{
+		return previewAction;
 	}
 
 	public void setRemoveAction(Remove switchAction)

@@ -56,7 +56,7 @@ public class Open extends AbstractGEDAction
 			
             MainFrame.getInstance().getActionManager().setCurrentDir(fileChooser.getSelectedFile());
             MainFrame.getInstance().getActionManager().setChanges(false);
-            MainSplitPane.getInstance().getSplitPane().reset();
+            MainSplitPane.getInstance().getSplitPane().remove();
             return node;
 			}
 			if(res == JFileChooser.CANCEL_OPTION)

@@ -22,7 +22,6 @@ public class RemoveCommand extends AbstractCommand
     {
         this.node = node;
         nodeParent = (Node)node.getParent();
-
     }
 
     @Override
@@ -35,16 +34,19 @@ public class RemoveCommand extends AbstractCommand
             {
                 removedNodes.add(n);
             }
+            MainSplitPane.getInstance().getSplitPane().remove();
             ((Node) node).getChildren().clear();
         }
         else
         {
+            MainSplitPane.getInstance().getSplitPane().checkForRemove(node);
             removeIndex = nodeParent.getChildren().indexOf(node);
             node.removeFromParent();
         }
+
         SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getTree());
         MainSplitPane.getInstance().getTree().clearSelection();
-        MainFrame.getInstance().getActionManager().setChanges(true); //TODO DODAJ NA POZICIJU NAZAD
+        MainFrame.getInstance().getActionManager().setChanges(true);
     }
 
     @Override

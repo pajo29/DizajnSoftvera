@@ -9,7 +9,7 @@ import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 
-public class Node extends Observable implements MutableTreeNode, Serializable, Cloneable
+public class Node extends Observable implements MutableTreeNode, Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private String name;
@@ -99,7 +99,6 @@ public class Node extends Observable implements MutableTreeNode, Serializable, C
 	public void remove(MutableTreeNode node)
 	{
 		children.remove(node);
-		
 	}
 
 	@Override
