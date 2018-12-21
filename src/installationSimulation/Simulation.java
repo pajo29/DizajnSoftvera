@@ -1,5 +1,6 @@
 package installationSimulation;
 
+import parameters.parametar.view.ParametarView;
 import tree.treeModel.Module;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
@@ -19,6 +20,10 @@ public class Simulation
         this.product = product;
         productParametars = new ArrayList<>();
         parametarsFill((Node)product, productParametars, 0);
+        for (Parametar par: productParametars)
+        {
+            InstallationDialog id = new InstallationDialog(ParametarView.createGUI(par.getParametar().isPredefined(), par.getParametar().getGUI(), par.getParametar().getContent(), par.getParametar().getLabel(), par));
+        }
 
     }
 

@@ -1,5 +1,7 @@
 package parameters.parametar.model;
 
+import tree.treeModel.Parametar;
+
 import java.io.Serializable;
 
 public class ParametarModel implements Serializable
@@ -27,6 +29,15 @@ public class ParametarModel implements Serializable
         formLabel(type);
         formGUI(type);
         predefined = true;
+    }
+
+    public ParametarModel(ParametarModel parametarModel)
+    {
+        this.name = parametarModel.getName();
+        this.label = parametarModel.getLabel();
+        this.GUI = parametarModel.getGUI();
+        this.predefined = parametarModel.isPredefined();
+        this.content = parametarModel.getContent();
     }
 
     private void formGUI(PredefinedParametarType type)

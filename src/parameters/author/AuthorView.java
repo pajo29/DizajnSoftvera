@@ -24,7 +24,7 @@ public class AuthorView extends JPanel implements Observer
         node.addObserver(this);
         name = new JLabel(node.getName());
         this.label = new JLabel(label);
-        aboutAuthor = new JTextArea();
+        aboutAuthor = new JTextArea(((Parametar)node).getParametar().getContent());
         aboutAuthor.addKeyListener(new KeyListener()
         {
             @Override
@@ -40,7 +40,7 @@ public class AuthorView extends JPanel implements Observer
             }
 
             @Override
-            public void keyReleased(KeyEvent keyEvent) //TODO NAPRAVITI DOBAR KEY LISTENER ZA AUTORA + NAPRAVITI KONSTRUKTOR KOPIJE ZA PARAMETAR KAO SADRZAJ U NODE-U PARAMETAR
+            public void keyReleased(KeyEvent keyEvent)
             {
                 ((Parametar)node).getParametar().setContent(aboutAuthor.getText());
             }
