@@ -3,6 +3,7 @@ package parameters.path;
 import main.MainFrame;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
+import tree.treeModel.Product;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +36,13 @@ public class PathView extends JPanel implements Observer
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                MainFrame.getInstance().getActionManager().getBrowseAction().browseForPath();
+                JFileChooser fileChooser = new JFileChooser();
+                int res = fileChooser.showOpenDialog(MainFrame.getInstance());
+
+                if(res == JFileChooser.APPROVE_OPTION)
+                {
+                    browsePath.setText(fileChooser.getSelectedFile().getAbsolutePath());
+                }
                 ((Parametar)node).getParametar().setContent(browsePath.getText());
             }
         });

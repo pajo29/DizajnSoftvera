@@ -1,5 +1,7 @@
 package installationSimulation;
 
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
 import parameters.logo.LogoView;
 import parameters.parametar.view.ParametarView;
 import tree.treeModel.Module;
@@ -21,9 +23,16 @@ public class Simulation
     private String logoUrl;
     private String lookAndFeel;
 
+
+    //Predefined Parametars
+    public boolean desktopShortcut = false;
+    public boolean startAfterUse = false;
+    public String installPath = "";
+
     public Simulation(Product product)
     {
         this.product = product;
+        installPath = product.getInstalationUrl();
         productParametars = new ArrayList<>();
         parametarsFill((Node)product, productParametars, 0);
 
@@ -31,8 +40,6 @@ public class Simulation
         lookAndFeel = getLookAndFeel();
 
         startWindow();
-
-
 
 
 //        for (Parametar par: productParametars)
@@ -49,6 +56,13 @@ public class Simulation
 
 
     }
+
+    public void install()
+    {
+        MessageHandler.handleEvent(MessageType.SUCCESFUL_INSTALL);
+        System.out.println(installPath);
+    }
+
 
     public void startWindow()
     {

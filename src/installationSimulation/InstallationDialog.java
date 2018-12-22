@@ -1,9 +1,11 @@
 package installationSimulation;
 
+import parameters.desktopShortcut.DesktopShortcutView;
+import parameters.path.PathView;
+import parameters.startAfterInstall.StartAfterInstallView;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class InstallationDialog extends JDialog
 {
@@ -12,14 +14,11 @@ public class InstallationDialog extends JDialog
     private JButton btnNext;
     private JButton btnBack;
 
-    private JPanel parametarPanel;
     private JPanel buttonPanel;
 
-    private Simulation sim;
 
     public InstallationDialog(JPanel panel, String lookAndFeel, String logoUrl, Simulation sim)
     {
-        this.sim = sim;
         btnCancel = new JButton("Cancel");
         btnCancel.addActionListener(e ->
         {
@@ -31,6 +30,27 @@ public class InstallationDialog extends JDialog
             btnNext = new JButton("Next");
         btnNext.addActionListener(e ->
         {
+            if(panel instanceof DesktopShortcutView)
+            {
+                DesktopShortcutView par = (DesktopShortcutView)panel;
+                sim.desktopShortcut = par.getCheckBox().isSelected();
+            }
+            if(panel instanceof StartAfterInstallView)
+            {
+                StartAfterInstallView par = (StartAfterInstallView)panel;
+                sim.startAfterUse = par.getCheckBox().isSelected();
+            }
+            if(panel instanceof PathView)
+            {
+                PathView pathView = (PathView)panel;
+                sim.installPath = pathView.getBrowsePath().getText();
+            }
+            if(sim.window == sim.getProductParametars().size()-1)
+            {
+                sim.install();
+                this.dispose();
+                return;
+            }
             btnBack.setEnabled(true);
             sim.window++;
             sim.startWindow();
@@ -58,7 +78,6 @@ public class InstallationDialog extends JDialog
         buttonPanel.add(new JLabel("   "));
         buttonPanel.add(btnNext);
 
-        parametarPanel = panel;
 
         if(lookAndFeel.equals("Dark"))
         {

@@ -37,6 +37,11 @@ public class StartAfterInstallView extends JPanel implements Observer
         add(checkBox);
     }
 
+    public JCheckBox getCheckBox()
+    {
+        return checkBox;
+    }
+
     @Override
     public void update(Observable observable, Object o)
     {
