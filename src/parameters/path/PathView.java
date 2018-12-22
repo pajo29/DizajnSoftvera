@@ -24,7 +24,7 @@ public class PathView extends JPanel implements Observer
     private Node node;
 
 
-    public PathView(String label, Node node)
+    public PathView(String label, Node node, boolean simulation, String lookAndFeel)
     {
         node.addObserver(this);
         name = new JLabel(node.getName());
@@ -72,7 +72,14 @@ public class PathView extends JPanel implements Observer
         panel.add(browsePath);
         panel.add(browseButton);
 
-        add(name);
+        if(lookAndFeel.equals("Dark"))
+        {
+            this.setBackground(Color.BLACK);
+            browseButton.setBackground(Color.YELLOW);
+        }
+
+        if(!simulation)
+            add(name);
         add(this.label);
         add(panel);
     }

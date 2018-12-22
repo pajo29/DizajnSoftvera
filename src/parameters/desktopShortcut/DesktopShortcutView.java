@@ -3,6 +3,7 @@ package parameters.desktopShortcut;
 import tree.treeModel.Node;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -16,7 +17,7 @@ public class DesktopShortcutView extends JPanel implements Observer
 
 	private Node node;
 	
-	public DesktopShortcutView(String label, Node node)
+	public DesktopShortcutView(String label, Node node, boolean simulation, String lookAndFeel)
 	{
 		this.node = node;
 		node.addObserver(this);
@@ -25,7 +26,15 @@ public class DesktopShortcutView extends JPanel implements Observer
 		checkBox = new JCheckBox("Desktop shortcut");
 
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
+
+		if(lookAndFeel.equals("Dark"))
+		{
+			this.setBackground(Color.BLACK);
+			checkBox.setBackground(Color.BLACK);
+		}
+
+		if(!simulation)
+			add(name);
 		add(this.label);
 		add(checkBox);
 	}

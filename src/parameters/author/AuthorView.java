@@ -18,7 +18,7 @@ public class AuthorView extends JPanel implements Observer
 
     private Node node;
 
-    public AuthorView(String label, Node node)
+    public AuthorView(String label, Node node, boolean simulation, String lookAndFeel)
     {
         this.node = node;
         node.addObserver(this);
@@ -49,7 +49,23 @@ public class AuthorView extends JPanel implements Observer
         aboutAuthor.setPreferredSize(new Dimension(500, 300));
         aboutAuthor.setMaximumSize(new Dimension(500, 300));
 
-        add(name);
+        if(lookAndFeel.equals("Dark"))
+        {
+            this.setBackground(Color.black);
+            aboutAuthor.setBackground(Color.GRAY);
+        }
+
+
+        if(simulation)
+        {
+            aboutAuthor.setEnabled(false);
+            aboutAuthor.setDisabledTextColor(Color.BLACK);
+        }
+        else
+            add(name);
+
+
+
         add(this.label);
         add(aboutAuthor);
     }

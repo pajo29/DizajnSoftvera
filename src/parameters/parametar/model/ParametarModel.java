@@ -10,7 +10,7 @@ public class ParametarModel implements Serializable
     private String name;
     private String label;
     private String GUI;
-    private String content;
+    private String content = "";
 
     private boolean predefined;
 
