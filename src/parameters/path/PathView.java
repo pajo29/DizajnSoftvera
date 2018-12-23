@@ -37,6 +37,7 @@ public class PathView extends JPanel implements Observer
             public void actionPerformed(ActionEvent actionEvent)
             {
                 JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                 int res = fileChooser.showOpenDialog(MainFrame.getInstance());
 
                 if(res == JFileChooser.APPROVE_OPTION)

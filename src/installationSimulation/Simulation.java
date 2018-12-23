@@ -2,7 +2,6 @@ package installationSimulation;
 
 import messageHandler.MessageHandler;
 import messageHandler.MessageType;
-import parameters.logo.LogoView;
 import parameters.parametar.view.ParametarView;
 import tree.treeModel.Module;
 import tree.treeModel.Node;
@@ -27,19 +26,31 @@ public class Simulation
     //Predefined Parametars
     public boolean desktopShortcut = false;
     public boolean startAfterUse = false;
-    public String installPath = "";
+    public String installPath = System.getProperty("user.dir");
 
-    public Simulation(Product product)
+    private String filename;
+    private String productURL;
+
+    public Simulation(Product product, int childCount)
     {
+
         this.product = product;
-        installPath = product.getInstalationUrl();
-        productParametars = new ArrayList<>();
-        parametarsFill((Node)product, productParametars, 0);
+        productURL = product.getInstalationUrl();
+        filename = product.getName();
+        if(childCount == 0)
+        {
+            install();
+            return;
+        }
+        else
+        {
+            productParametars = new ArrayList<>();
+            parametarsFill((Node) product, productParametars, 0);
 
-        logoUrl = getLogo();
-        lookAndFeel = getLookAndFeel();
+            logoUrl = getLogo();
+            lookAndFeel = getLookAndFeel();
 
-        startWindow();
+            startWindow();
 
 
 //        for (Parametar par: productParametars)
@@ -53,12 +64,17 @@ public class Simulation
 //                    lookAndFeel);
 //            InstallationDialog id = new InstallationDialog(panel, lookAndFeel, logoUrl);
 //        }
-
+        }
 
     }
 
     public void install()
     {
+        Install.getInstance().copyToDestination(installPath, productURL, filename);
+        if(desktopShortcut)
+            Install.getInstance().createDesktopShortcut(productURL, filename);
+        if(startAfterUse)
+            Install.getInstance().startAfterUse(productURL, filename);
         MessageHandler.handleEvent(MessageType.SUCCESFUL_INSTALL);
         System.out.println(installPath);
     }

@@ -41,7 +41,7 @@ public class NewProductDialog extends JDialog
         panel.add(new JLabel("Izaberite: "));
         panel.add(btnBrowse);
         add(panel);
-        setSize(200, 200);
+        setSize(200, 75);
         setLocationRelativeTo(null);
         setTitle("Novi proizvod");
         setModalityType(ModalityType.APPLICATION_MODAL);
