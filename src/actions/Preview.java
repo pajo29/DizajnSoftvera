@@ -2,7 +2,6 @@ package actions;
 
 import gui.MainSplitPane;
 import installationSimulation.Simulation;
-import main.MainFrame;
 import tree.treeModel.Product;
 
 import javax.swing.*;
@@ -22,6 +21,7 @@ public class Preview extends AbstractGEDAction
     @Override
     public void actionPerformed(ActionEvent actionEvent)
     {
-        Simulation sim = new Simulation((Product) MainSplitPane.getInstance().getTree().getLastSelectedPathComponent());
+        Product product = (Product) MainSplitPane.getInstance().getTree().getLastSelectedPathComponent();
+        Simulation sim = new Simulation((Product) MainSplitPane.getInstance().getTree().getLastSelectedPathComponent(), product.getChildren().size());
     }
 }

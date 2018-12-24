@@ -18,7 +18,7 @@ public class NameView extends JPanel implements Observer
 
     private Node node;
 
-    public NameView(String label, Node node)
+    public NameView(String label, Node node, boolean simulation, String lookAndFeel)
     {
         this.node = node;
         node.addObserver(this);
@@ -49,7 +49,19 @@ public class NameView extends JPanel implements Observer
             }
         });
 
-        add(name);
+        if(lookAndFeel.equals("Dark"))
+        {
+            this.setBackground(Color.BLACK);
+            txName.setBackground(Color.GRAY);
+        }
+
+        if(simulation)
+        {
+            txName.setEnabled(false);
+            txName.setDisabledTextColor(Color.BLACK);
+        }
+        else
+            add(name);
         add(this.label);
         add(txName);
     }

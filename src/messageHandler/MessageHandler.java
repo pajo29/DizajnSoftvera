@@ -73,6 +73,9 @@ public class MessageHandler {
 			case INCOMPLETE_CUSTOM:
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Popunite sva polja!", "Greska", JOptionPane.ERROR_MESSAGE);
 				break;
+			case SUCCESFUL_INSTALL:
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), "Uspesna instalacija!!!", "Uspeh!", JOptionPane.INFORMATION_MESSAGE);
+				break;
 		}
 
 		return 0;

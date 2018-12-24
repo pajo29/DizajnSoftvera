@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Observable;
+import java.util.Vector;
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 
@@ -36,7 +38,6 @@ public class Node extends Observable implements MutableTreeNode, Serializable
 		childNode.parent = this;
 		children.add(childNode);
 	}
-
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -84,8 +85,6 @@ public class Node extends Observable implements MutableTreeNode, Serializable
 	@Override
 	public void insert(MutableTreeNode child, int index)
 	{
-		((Node)child.getParent()).addChild((Node)child);
-		children.add(index, (Node) child);
 	}
 
 	@Override

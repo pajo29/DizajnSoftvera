@@ -1,10 +1,14 @@
 package installationSimulation;
 
+import messageHandler.MessageHandler;
+import messageHandler.MessageType;
+import parameters.parametar.view.ParametarView;
 import tree.treeModel.Module;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
 import tree.treeModel.Product;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Simulation
@@ -13,13 +17,134 @@ public class Simulation
     private Product product;
 
     private ArrayList<Parametar> productParametars;
+    public int window = 0;
 
-    public Simulation(Product product)
+    private String logoUrl;
+    private String lookAndFeel;
+
+
+    //Predefined Parametars
+    public boolean desktopShortcut = false;
+    public boolean startAfterUse = false;
+    public String installPath = System.getProperty("user.dir");
+
+    private String filename;
+    private String productURL;
+
+    public Simulation(Product product, int childCount)
     {
-        this.product = product;
-        productParametars = new ArrayList<>();
-        parametarsFill((Node)product, productParametars, 0);
 
+        this.product = product;
+        productURL = product.getInstalationUrl();
+        filename = product.getName();
+        if(childCount == 0)
+        {
+            install();
+            return;
+        }
+        else
+        {
+            productParametars = new ArrayList<>();
+            parametarsFill((Node) product, productParametars, 0);
+
+            logoUrl = getLogo();
+            lookAndFeel = getLookAndFeel();
+
+            startWindow();
+
+
+//        for (Parametar par: productParametars)
+//        {
+//            JPanel panel = ParametarView.createGUI(par.getParametar().isPredefined(),
+//                    par.getParametar().getGUI(),
+//                    par.getParametar().getContent(),
+//                    par.getParametar().getLabel(), //<USED TO TEST WINDOWS>
+//                    par,
+//                    true,
+//                    lookAndFeel);
+//            InstallationDialog id = new InstallationDialog(panel, lookAndFeel, logoUrl);
+//        }
+        }
+
+    }
+
+    public void install()
+    {
+        Install.getInstance().copyToDestination(installPath, productURL, filename);
+        if(desktopShortcut)
+            Install.getInstance().createDesktopShortcut(productURL, filename);
+        if(startAfterUse)
+            Install.getInstance().startAfterUse(productURL, filename);
+        MessageHandler.handleEvent(MessageType.SUCCESFUL_INSTALL);
+        System.out.println(installPath);
+    }
+
+
+    public void startWindow()
+    {
+        Parametar par = productParametars.get(window);
+                    JPanel panel = ParametarView.createGUI(par.getParametar().isPredefined(),
+                    par.getParametar().getGUI(),
+                    par.getParametar().getContent(),
+                    par.getParametar().getLabel(),
+                    par,
+                    true,
+                    lookAndFeel);
+            InstallationDialog id = new InstallationDialog(panel, lookAndFeel, logoUrl, this);
+    }
+
+    private String getLookAndFeel()
+    {
+        String lookAndFeel = "";
+        boolean set = false;
+        ArrayList<Parametar> removeParametars = new ArrayList<>();
+        for (Parametar par: productParametars)
+        {
+            if(par.getParametar().isPredefined() && par.getParametar().getGUI().equals("LOOK_AND_FEEL"))
+            {
+                if(set)
+                {
+                    removeParametars.add(par);
+                }
+                else
+                {
+
+                    lookAndFeel = par.getParametar().getContent();
+                    set = true;
+                    removeParametars.add(par);
+                }
+
+            }
+        }
+        productParametars.removeAll(removeParametars);
+        return lookAndFeel;
+    }
+
+    private String getLogo()
+    {
+        String url = "";
+        boolean set = false;
+        ArrayList<Parametar> removeParametars = new ArrayList<>();
+        for (Parametar par: productParametars)
+        {
+            if(par.getParametar().isPredefined() && par.getParametar().getGUI().equals("LOGO"))
+            {
+                if(set)
+                {
+                    removeParametars.add(par);
+                }
+                    else
+                {
+
+                    url = par.getParametar().getContent();
+                    set = true;
+                    removeParametars.add(par);
+                }
+
+            }
+        }
+        productParametars.removeAll(removeParametars);
+        return url;
     }
 
     private void parametarsFill(Node product, ArrayList<Parametar> parametars, int counter)
@@ -34,5 +159,10 @@ public class Simulation
             parametarsFill((Node)product.getChildAt(counter), parametars, 0);
 
         parametarsFill(product, parametars, counter+1);
+    }
+
+    public ArrayList<Parametar> getProductParametars()
+    {
+        return productParametars;
     }
 }

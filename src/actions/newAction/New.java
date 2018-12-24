@@ -77,8 +77,8 @@ public class New extends AbstractGEDAction
 			if (cmp instanceof SoftwareCompany)
 			{
 				SoftwareCompany component = (SoftwareCompany) cmp;
-				Product newComponent = new Product("Proizvod: " + (component.getChildCount() + 1));
-				MainFrame.getInstance().getCommandManager().addCommand(new AddNodeCommand(component, newComponent));
+				new NewProductDialog(component);
+
 			}
 
 			if (cmp instanceof Product)

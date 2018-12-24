@@ -28,18 +28,22 @@ public class LookAndFeelView extends JPanel implements Observer
 	
 	public LookAndFeelView(String label, Node node)
 	{
+
 		this.node = node;
+
 		node.addObserver(this);
 		name = new JLabel(node.getName());
 		this.label = new JLabel(label);
 		
 		theme = new JComboBox<>(themeChooser);
+
 		
 		image = new ImageIcon("src/actions/images/lightTheme.png");
 		imageDisplay = new JLabel(image);
 		
 		theme.addActionListener(e->
 		{
+			((Parametar)node).getParametar().setContent((String)theme.getSelectedItem());
 			changePicture();
 		});
 		
@@ -47,6 +51,8 @@ public class LookAndFeelView extends JPanel implements Observer
 		
 		JPanel panel = new JPanel();
 
+
+		changePicture();
 		add(name);
 		panel.add(this.label);
 		panel.add(theme);
@@ -56,18 +62,23 @@ public class LookAndFeelView extends JPanel implements Observer
 	
 	private void changePicture()
 	{
-		switch((String)theme.getSelectedItem())
+		String content = ((Parametar)node).getParametar().getContent();
+		if(!content.equals("Dark"))
+			content = "Light";
+		switch(content)
 		{
 		case "Light":
 			image = new ImageIcon("src/actions/images/lightTheme.png");
 			imageDisplay.setIcon(image);
+			theme.setSelectedIndex(0);
 			break;
 		case "Dark":
 			image = new ImageIcon("src/actions/images/darkTheme.png");
 			imageDisplay.setIcon(image);
+			theme.setSelectedIndex(1);
 			break;
 		}
-		((Parametar)node).getParametar().setContent((String)theme.getSelectedItem());
+
 	}
 
 	@Override
