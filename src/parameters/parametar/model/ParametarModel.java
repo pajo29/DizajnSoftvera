@@ -65,7 +65,7 @@ public class ParametarModel implements Serializable
     private void formLabel(PredefinedParametarType type)
     {
         if(type == PredefinedParametarType.TERMS_OF_USE)
-            label = "Upisite Vas uslove koriscenja";
+            label = "USLOVI KORISCENJA:";
         if(type == PredefinedParametarType.DESKTOP_SHORTCUT)
             label = "Da li zelite precicu na Vasem Desktopu?";
         if(type == PredefinedParametarType.LOGO)
@@ -73,9 +73,9 @@ public class ParametarModel implements Serializable
         if(type == PredefinedParametarType.LOOK_AND_FEEL)
             label = "Izaberite Vas izgled";
         if(type == PredefinedParametarType.NAME)
-            label = "Upisite ime proizvoda";
+            label = "IME PROIZVODA:";
         if(type == PredefinedParametarType.AUTHOR)
-            label = "Upisite nesto o autoru";
+            label = "O AUTORU";
         if(type == PredefinedParametarType.START_AFTER_INSTALL)
             label = "Pokrenuti nakon instalacije";
         if(type == PredefinedParametarType.PATH)

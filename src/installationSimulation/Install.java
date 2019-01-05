@@ -44,11 +44,19 @@ public class Install
         }
     }
 
-    public void startAfterUse(String productURL, String fileName)
+    public void startAfterUse(String productURL)
     {
         try
         {
-            Process process = Runtime.getRuntime().exec(productURL + File.separatorChar + fileName);
+			if(productURL.contains(".jar"))
+        	{
+				Process process = Runtime.getRuntime().exec("java -jar "+productURL);
+        	}
+        	else
+        	{
+        		Process process = Runtime.getRuntime().exec(productURL);
+        	}
+        		
         } catch (IOException e)
         {
             e.printStackTrace();

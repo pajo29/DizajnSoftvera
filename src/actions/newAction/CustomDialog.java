@@ -1,6 +1,5 @@
 package actions.newAction;
 
-import com.sun.xml.internal.ws.api.message.Message;
 import command.AddNodeCommand;
 import main.MainFrame;
 import messageHandler.MessageHandler;

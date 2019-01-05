@@ -19,7 +19,7 @@ public class Simulation
     private ArrayList<Parametar> productParametars;
     public int window = 0;
 
-    private String logoUrl;
+    private String logoUrl = "";
     private String lookAndFeel;
 
 
@@ -47,7 +47,8 @@ public class Simulation
             productParametars = new ArrayList<>();
             parametarsFill((Node) product, productParametars, 0);
 
-            logoUrl = getLogo();
+            getLogo();
+            logoUrl = product.getLogoURL();
             lookAndFeel = getLookAndFeel();
 
             startWindow();
@@ -74,7 +75,7 @@ public class Simulation
         if(desktopShortcut)
             Install.getInstance().createDesktopShortcut(productURL, filename);
         if(startAfterUse)
-            Install.getInstance().startAfterUse(productURL, filename);
+            Install.getInstance().startAfterUse(productURL);
         MessageHandler.handleEvent(MessageType.SUCCESFUL_INSTALL);
         System.out.println(installPath);
     }
@@ -120,31 +121,17 @@ public class Simulation
         return lookAndFeel;
     }
 
-    private String getLogo()
+    private void getLogo()
     {
-        String url = "";
-        boolean set = false;
         ArrayList<Parametar> removeParametars = new ArrayList<>();
         for (Parametar par: productParametars)
         {
             if(par.getParametar().isPredefined() && par.getParametar().getGUI().equals("LOGO"))
             {
-                if(set)
-                {
                     removeParametars.add(par);
-                }
-                    else
-                {
-
-                    url = par.getParametar().getContent();
-                    set = true;
-                    removeParametars.add(par);
-                }
-
             }
         }
         productParametars.removeAll(removeParametars);
-        return url;
     }
 
     private void parametarsFill(Node product, ArrayList<Parametar> parametars, int counter)

@@ -30,6 +30,7 @@ public class InstallationDialog extends JDialog
             btnNext = new JButton("Next");
         btnNext.addActionListener(e ->
         {
+        	this.dispose();
             if(panel instanceof DesktopShortcutView)
             {
                 DesktopShortcutView par = (DesktopShortcutView)panel;
@@ -42,19 +43,22 @@ public class InstallationDialog extends JDialog
             }
             if(panel instanceof PathView)
             {
+            	
                 PathView pathView = (PathView)panel;
+                if(pathView.getBrowsePath().getText().equals(""))
+                	return;
                 sim.installPath = pathView.getBrowsePath().getText();
             }
             if(sim.window == sim.getProductParametars().size()-1)
             {
                 sim.install();
-                this.dispose();
+                
                 return;
             }
             btnBack.setEnabled(true);
             sim.window++;
             sim.startWindow();
-            this.dispose();
+            this.setVisible(false);
         });
         btnBack = new JButton("Back");
         btnBack.addActionListener(e ->
@@ -63,7 +67,7 @@ public class InstallationDialog extends JDialog
                 btnBack.setEnabled(false);
             sim.window--;
             sim.startWindow();
-            this.dispose();
+            this.setVisible(false);
         });
 
         JPanel downPanel = new JPanel();

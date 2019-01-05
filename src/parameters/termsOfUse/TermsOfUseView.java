@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -24,6 +25,7 @@ public class TermsOfUseView extends JPanel implements Observer
 
 	public TermsOfUseView(String label, Node node, boolean simulation, String lookAndFeel)
 	{
+		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		this.node = node;
 		node.addObserver(this);
 		name = new JLabel(node.getName());

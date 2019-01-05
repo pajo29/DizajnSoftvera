@@ -52,26 +52,7 @@ public class PathView extends JPanel implements Observer
         browsePath.setPreferredSize(new Dimension(300, 30));
         browsePath.setMinimumSize(new Dimension(300, 30));
         browsePath.setMaximumSize(new Dimension(300, 30));
-        browsePath.addKeyListener(new KeyListener()
-        {
-            @Override
-            public void keyTyped(KeyEvent keyEvent)
-            {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent)
-            {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent)
-            {
-                ((Parametar)node).getParametar().setContent(browsePath.getText());
-            }
-        });
+        browsePath.setEditable(false);
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 

@@ -1,6 +1,5 @@
 package actions;
 
-import com.sun.xml.internal.ws.api.message.Message;
 import main.MainFrame;
 import messageHandler.MessageHandler;
 import messageHandler.MessageType;
