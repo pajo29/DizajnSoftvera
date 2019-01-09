@@ -1,7 +1,5 @@
 package actions;
 
-import com.sun.corba.se.impl.presentation.rmi.ExceptionHandler;
-import com.sun.xml.internal.ws.api.model.ExceptionType;
 import messageHandler.MessageHandler;
 import messageHandler.MessageType;
 import users.model.User;

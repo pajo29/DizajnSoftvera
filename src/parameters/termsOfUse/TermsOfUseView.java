@@ -3,12 +3,13 @@ package parameters.termsOfUse;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
 
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -22,8 +23,9 @@ public class TermsOfUseView extends JPanel implements Observer
 	
 	private Node node;
 
-	public TermsOfUseView(String label, Node node)
+	public TermsOfUseView(String label, Node node, boolean simulation, String lookAndFeel)
 	{
+		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		this.node = node;
 		node.addObserver(this);
 		name = new JLabel(node.getName());
@@ -53,7 +55,19 @@ public class TermsOfUseView extends JPanel implements Observer
 			}
 		});
 
-		add(name);
+		if(lookAndFeel.equals("Dark"))
+		{
+			this.setBackground(Color.BLACK);
+			aboutField.setBackground(Color.GRAY);
+
+		}
+		if(simulation)
+		{
+			aboutField.setEnabled(false);
+			aboutField.setDisabledTextColor(Color.BLACK);
+		}
+		else
+			add(name);
 		add(this.label);
 		add(aboutField);
 	}

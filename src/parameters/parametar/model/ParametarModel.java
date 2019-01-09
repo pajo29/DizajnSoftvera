@@ -1,5 +1,7 @@
 package parameters.parametar.model;
 
+import tree.treeModel.Parametar;
+
 import java.io.Serializable;
 
 public class ParametarModel implements Serializable
@@ -8,7 +10,7 @@ public class ParametarModel implements Serializable
     private String name;
     private String label;
     private String GUI;
-    private String content;
+    private String content = "";
 
     private boolean predefined;
 
@@ -27,6 +29,15 @@ public class ParametarModel implements Serializable
         formLabel(type);
         formGUI(type);
         predefined = true;
+    }
+
+    public ParametarModel(ParametarModel parametarModel)
+    {
+        this.name = parametarModel.getName();
+        this.label = parametarModel.getLabel();
+        this.GUI = parametarModel.getGUI();
+        this.predefined = parametarModel.isPredefined();
+        this.content = parametarModel.getContent();
     }
 
     private void formGUI(PredefinedParametarType type)
@@ -54,7 +65,7 @@ public class ParametarModel implements Serializable
     private void formLabel(PredefinedParametarType type)
     {
         if(type == PredefinedParametarType.TERMS_OF_USE)
-            label = "Upisite Vas uslove koriscenja";
+            label = "USLOVI KORISCENJA:";
         if(type == PredefinedParametarType.DESKTOP_SHORTCUT)
             label = "Da li zelite precicu na Vasem Desktopu?";
         if(type == PredefinedParametarType.LOGO)
@@ -62,9 +73,9 @@ public class ParametarModel implements Serializable
         if(type == PredefinedParametarType.LOOK_AND_FEEL)
             label = "Izaberite Vas izgled";
         if(type == PredefinedParametarType.NAME)
-            label = "Upisite ime proizvoda";
+            label = "IME PROIZVODA:";
         if(type == PredefinedParametarType.AUTHOR)
-            label = "Upisite nesto o autoru";
+            label = "O AUTORU";
         if(type == PredefinedParametarType.START_AFTER_INSTALL)
             label = "Pokrenuti nakon instalacije";
         if(type == PredefinedParametarType.PATH)

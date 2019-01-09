@@ -17,7 +17,7 @@ public class Parametar extends Node
 	public Parametar(Node node)
 	{
 		super(node);
-		parametar = ((Parametar)node).getParametar();
+		parametar = new ParametarModel(((Parametar)node).getParametar());
 	}
 
 	public void parametarChanged()

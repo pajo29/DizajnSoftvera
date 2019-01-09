@@ -9,7 +9,6 @@ import tree.treeModel.Parametar;
 import main.MainFrame;
 import gui.MainSplitPane;
 
-import javax.swing.*;
 import javax.swing.tree.TreePath;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;

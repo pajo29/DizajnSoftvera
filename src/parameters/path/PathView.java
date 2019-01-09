@@ -3,6 +3,7 @@ package parameters.path;
 import main.MainFrame;
 import tree.treeModel.Node;
 import tree.treeModel.Parametar;
+import tree.treeModel.Product;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +25,7 @@ public class PathView extends JPanel implements Observer
     private Node node;
 
 
-    public PathView(String label, Node node)
+    public PathView(String label, Node node, boolean simulation, String lookAndFeel)
     {
         node.addObserver(this);
         name = new JLabel(node.getName());
@@ -35,7 +36,14 @@ public class PathView extends JPanel implements Observer
             @Override
             public void actionPerformed(ActionEvent actionEvent)
             {
-                MainFrame.getInstance().getActionManager().getBrowseAction().browseForPath();
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                int res = fileChooser.showOpenDialog(MainFrame.getInstance());
+
+                if(res == JFileChooser.APPROVE_OPTION)
+                {
+                    browsePath.setText(fileChooser.getSelectedFile().getAbsolutePath());
+                }
                 ((Parametar)node).getParametar().setContent(browsePath.getText());
             }
         });
@@ -44,26 +52,7 @@ public class PathView extends JPanel implements Observer
         browsePath.setPreferredSize(new Dimension(300, 30));
         browsePath.setMinimumSize(new Dimension(300, 30));
         browsePath.setMaximumSize(new Dimension(300, 30));
-        browsePath.addKeyListener(new KeyListener()
-        {
-            @Override
-            public void keyTyped(KeyEvent keyEvent)
-            {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent keyEvent)
-            {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent keyEvent)
-            {
-                ((Parametar)node).getParametar().setContent(browsePath.getText());
-            }
-        });
+        browsePath.setEditable(false);
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
@@ -72,7 +61,14 @@ public class PathView extends JPanel implements Observer
         panel.add(browsePath);
         panel.add(browseButton);
 
-        add(name);
+        if(lookAndFeel.equals("Dark"))
+        {
+            this.setBackground(Color.BLACK);
+            browseButton.setBackground(Color.YELLOW);
+        }
+
+        if(!simulation)
+            add(name);
         add(this.label);
         add(panel);
     }

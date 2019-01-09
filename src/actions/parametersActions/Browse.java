@@ -10,6 +10,7 @@ import main.MainFrame;
 import gui.MainSplitPane;
 import parameters.path.PathView;
 import tree.treeModel.Parametar;
+import tree.treeModel.Product;
 
 @SuppressWarnings("serial")
 public class Browse extends AbstractGEDAction{
@@ -49,6 +50,8 @@ public class Browse extends AbstractGEDAction{
 		if(res == JFileChooser.APPROVE_OPTION)
 		{
 			((Parametar)((LogoView)MainSplitPane.getInstance().getSplitPane().getPanel()).getNode()).getParametar().setContent(fileChooser.getSelectedFile().getAbsolutePath());
+			((Product)((LogoView)MainSplitPane.getInstance().getSplitPane().getPanel()).getNode().getParent()).setLogoURL(fileChooser.getSelectedFile().getAbsolutePath());
+			((Product)((LogoView)MainSplitPane.getInstance().getSplitPane().getPanel()).getNode().getParent()).setLogoName(fileChooser.getSelectedFile().getName());
 			((Parametar)((LogoView)MainSplitPane.getInstance().getSplitPane().getPanel()).getNode()).parametarChanged();
 			SwingUtilities.updateComponentTreeUI(MainSplitPane.getInstance().getSplitPane().getPanel());
 		}
