@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Main-class: net.jimmc.selfunzip.ZipSelfExtractor
+=======
+Main-class: net.jimmc.selfunzip.ZipSelfExtractor
+>>>>>>> 4ffd20ae8b5902ea28b0c604686b86a6f030c2fa
